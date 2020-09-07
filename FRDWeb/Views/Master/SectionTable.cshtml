@@ -1,0 +1,428 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+<script src="~/Content/js/jquery-1.10.2.js"></script>
+<script>        var jquery_1_10_2_min_p = jQuery.noConflict();</script>
+<script src="~/Content/js/jquery-ui.js"></script>
+@*<script src="~/Content/js/fieldChooser.min.js"></script>*@
+<script src="~/Content/js/fieldChooser.js"></script>
+<script src="~/JavaScript/SectionTable.js"></script>
+@*<script src="~/MinJavaScript/SectionTable_min.js"></script>*@
+<script>
+    jquery_1_10_2_min_p(document).ready(function () {
+
+
+        //jquery_min_p('.divsittingsection .sectionBox').click(function () {
+        //    jquery_min_p('.divsittingsection .sectionBox').removeClass('active');
+        //    jquery_min_p(this).addClass('active');
+        //});
+
+
+
+        //jquery_min_p('.sourceFields .sectionBox').click(function () {
+        //    jquery_min_p('.sourceFields .sectionBox').removeClass('active');
+        //    jquery_min_p(this).addClass('active');
+        //});
+
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+        jquery_min_p("#lblrestroid").text(id);
+
+
+        //var sourceFields = jquery_1_10_2_min_p("#sourceFields");
+        //var destinationFields = jquery_1_10_2_min_p("#destinationFields");
+        //var chooser = jquery_1_10_2_min_p("#fieldChooser").fieldChooser(sourceFields, destinationFields);
+
+        //var IDs = "";
+        //jquery_min_p('.active').each(function () {
+        //    IDs = IDs + "," + IDs;
+        //});
+
+        //console.log(IDs);
+    });
+</script>
+
+<style>
+
+    .headtblbox {
+        min-height: 75px !important;
+    max-height: 75px;
+    overflow: hidden;
+
+    }
+    .leftCon {
+    border: 1px solid #d2cbcb;
+    border-radius: 4px;
+    padding: 15px 10px;
+    width: 44%;
+    float: left;
+    min-height: 394px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background: #f1f5f5;
+    border-right: 0px;
+}
+
+    .rightCon {
+    width: 45%;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    padding: 15px 10px;
+    float: right;
+    min-height: 394px;
+    /* background: #dcdede; */
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    max-height: 396px;
+    overflow-y: scroll;
+}
+
+    .Midbtn {
+    width: 10%;
+   
+   
+}
+    .rightarrow {
+        position: absolute;
+    top: 94px;
+    font-size: 31px;
+    border: 1px solid #cdcdcd;
+    padding: 5px 5px 5px 5px;
+    left: 45px;
+    border-radius: 4px;
+    background: #577479;
+    color: #fff;
+    cursor:pointer;
+    }
+    .leftarrow {
+            position: absolute;
+    top: 257px;
+    font-size: 31px;
+    border: 1px solid #cdcdcd;
+    padding: 5px 5px 5px 5px;
+    left: 45px;
+    border-radius: 4px;
+    background: #577479;
+    color: #fff;
+    cursor:pointer;
+    }
+
+</style>
+<div class="row">
+    <div class="col-md-12 loader" id="preloader">
+        <span><img src="~/Content/images/loader(1).gif" style="width: 10%;" /></span>
+    </div>
+
+</div>
+
+<div class="container secTable">
+    <div class="pageHead">
+        <h4 class="pageTitle">Section Table</h4>
+        <div class="menuList">
+            <a href="#"><i class="fa fa-square mr-1" style="color: #f9dfdf !important;" aria-hidden="true"></i>Occupied</a>
+            <a href="#"><i class="fa fa-square mr-1" style="color: #cad0d0 !important;" aria-hidden="true"></i>Vacant</a>
+
+        </div>
+    </div>
+
+
+    <div class="selectTable" id="divsittingsection">
+        @*<div class="sectionBox active">
+
+                <img src="/Content/images/family-icon-sm.png">
+                <h6>Single</h6>
+            </div>
+            <div class="sectionBox">
+
+                <img src="/Content/images/family-icon-sm.png">
+                <h6>Family Up</h6>
+            </div>
+            <div class="sectionBox">
+
+                <img src="/Content/images/family-icon-sm.png">
+                <h6>Terrace</h6>    
+            </div>
+            <div class="sectionBox">
+                <img src="/Content/images/family-icon-sm.png">
+                <h6>VIP</h6>
+            </div>*@
+
+    </div>
+
+
+
+    <div class="card mt-4" id="sectionTable">
+        @*<div class="card-header card-header-rose card-header-icon">
+                <div class="card-text">
+                    <h4 class="card-title">Table Creation</h4>
+                </div>
+                <h4 class="card-title"></h4>
+            </div>*@
+        <div class="card-body mainCon" id="fieldChooser" tabindex="1">
+            <div class="row">
+                <div class="leftCon ml-1">
+                    <div class="selectBox">
+                        <h5>Tables</h5>
+                        <div class="selectAll"><input type="checkbox" id="chkall" /> Select All</div>
+                    </div>
+                    <div class="tableSection" id="sourceFields">
+                        @*<div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T1</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T2</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T3</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T4</h6>
+                    </div>
+
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T5</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T6</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T7</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T8</h6>
+                    </div>*@
+                    </div>
+                </div>
+
+                <div class="Midbtn">
+                    <div class="row">
+                        <span class="col-md-12" style="text-align: center;"><i class="fa fa-arrow-right rightarrow" aria-hidden="true" id="btnrightarrow"></i></span>
+                    </div>
+                    <div class="row">
+                        <span class="col-md-12" style="text-align: center;"><i class="fa fa-arrow-left leftarrow" aria-hidden="true" id="btnleftarrow"></i></span>
+                    </div>
+                    </div>
+
+                <div class="rightCon">
+                    <div class="selectBox" id="Sectionname">
+                        @*<h5>Single</h5>
+                    <div class="selectAll"><input type="checkbox" id="checkall" /> Select All</div>*@
+                    </div>
+                    <div class="tableSection" id="destinationFields">
+                        @*<div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T9</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T10</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T11</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T12</h6>
+                    </div>
+
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T13</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T14</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T15</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T16</h6>
+                    </div>
+
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T17</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T18</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T19</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T20</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T21</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T22</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T23</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T24</h6>
+                    </div>
+
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T25</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T26</h6>
+                    </div>
+
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T27</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T28</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T29</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T30</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T31</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T32</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T33</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T34</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T35</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T36</h6>
+                    </div>
+
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T37</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T38</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T39</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon-sm.png" />
+                        <h6>T40</h6>
+                    </div>*@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label id="lblsittingsectionid" style="display: none" />
+    </div>
+
+    <div class="clearfix"></div>
+
+    <label id="lblrestroid" style="display: none" />
+
+  
+
+</div>
+<div class="modal fade" id="warningpopup" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/png-warning-2.png">
+
+                </h4>
+
+
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12">
+                        <h6 id="lblwarning" style="text-align:center;"></h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="BtnOk" data-dismiss="modal">OK</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

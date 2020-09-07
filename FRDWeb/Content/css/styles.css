@@ -1,0 +1,1086 @@
+﻿.container {
+    max-width: 100%;
+}
+.sidebar .logo {
+  background: transparent !important; padding:5px 0 !important
+}
+.sidebar .logo img{ width: 32%;}
+.sidebar .sidebar-wrapper {
+  height: calc(120vh - 0px) !important;
+}
+.sidebar .sidebar-wrapper {
+  background: rgba(35, 34, 34, 0.7) !important;
+}
+  .navbar-form .input-group > .form-control {
+  width: auto !important;
+}
+.card-title {
+  font-size:.825rem;
+}
+
+.boxwidth {
+    display:inline-block;width: 32%;
+}
+
+.tblOccupied {
+
+  background-color: #f9dfdf !important;
+}
+
+.tblVacant {
+
+  background-color: #deefca !important;
+}
+
+.ui-autocomplete {
+        top: 198px !important;
+    left: 185px !important;
+}
+
+    .NoDataToDisplay{position: absolute;
+    top: 50%;
+    left: 67%;}
+    .cardavtleft{border: 1px solid #cdcdcd;
+    padding: 9px 0px 0px 0px;
+    width: 49%;
+    height: 448px;
+    border-radius: 5px;}
+.material-icons {
+  font-family: 'Material Icons' !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px !important;
+  line-height: 1 !important;
+  letter-spacing: normal !important;
+  text-transform: none;
+  display: inline-block !important;
+  white-space: nowrap !important;
+  word-wrap: normal;
+  direction: ltr !important;
+  -webkit-font-feature-settings: 'liga' !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+.ag-header-viewport, .ag-floating-top-viewport, .ag-body-viewport, .ag-pinned-left-cols-viewport, .ag-center-cols-viewport, .ag-pinned-right-cols-viewport, .ag-floating-bottom-viewport, .ag-body-horizontal-scroll-viewport, .ag-virtual-list-viewport {
+  background: #dfe6e6;
+}
+.ag-theme-balham .ag-row-odd {
+  background-color: #e9f3f2 !important;
+}
+.ag-theme-balham .ag-header {
+  color: #3e3e3e !important;
+  font-size: 11px !important;
+}
+.ag-theme-balham {
+  font-size: 11px !important;
+  border: 1px solid #bdc3c7;
+}
+  .ag-theme-balham .ag-ltr .ag-cell-focus {
+    border: 1px solid #57a9a1 !important;
+  }
+.modalHead {
+ text-align:left !important;
+ color:#fff
+}
+.cross {
+  color: #117168;
+  font-weight: bold;
+  position: absolute;
+  top: 2px;
+  right: 5px;
+}
+.radioStyle {
+  display:inline-block;
+}
+.colWidth14 {
+  width: 14%;
+}
+.radioCon{
+  padding: 12px 5px 0 0;
+}
+.locationCon {
+  padding:0.75rem 1.5rem 1.5rem;
+  background: #f7f5f5;
+  margin: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.locationHead {
+  color: #6d6b6b;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.selectBox .form-control {
+height:36px
+}
+
+.ag-theme-balham .ag-filter-select {
+  padding-left: 4px;
+}
+.ag-theme-balham .ag-row-selected {
+  background-color: #a0cec9 !important;
+  border-color: #e2dddd !important;
+}
+.roleIcon {
+  padding: 15px 8px;
+}
+
+.dropdown {
+z-index:9;
+}
+  .dropdown:after {
+    position: absolute;
+    content: '';
+    right: 9px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 8px solid #948c8c;
+    z-index:-1
+  }
+.mailBox {
+  border: 1px solid #2eab85;
+  background: #dff5ee;
+}
+.card .card-body .mailBox .form-group {
+  margin: 0px 0 0;
+  z-index: 10;
+}
+.mailBox .dropdown:after {
+  position: absolute;
+  content: '';
+  right: 9px;
+  top: 9px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 8px solid #0d9a6f;
+}
+select.selectpicker option:hover {
+  background: #09a777 !important;
+  color: #ffffff !important;
+}
+.form-checkbox {
+  margin-top: 12px;
+}
+.accessrights {
+  border: 1px solid #ddd9d9;
+  border-radius: 5px;
+}
+.rights {
+  line-height: 45px;
+  font-size: 12px;
+  color: #393939
+}
+.mrnHead {
+  font-size: 13px !important;
+  color: #3b4443;
+  font-weight: 600;
+}
+a.mrnHead {
+  font-size: 13px !important;
+  color: #3b4443;
+  font-weight: 600;
+  display:block
+}
+.formBox {
+  background: #e9f3f2;
+  border: 1px solid #d3d6d6;
+  padding: 5px !important;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.card-header .card-link::before {
+  font-family: 'FontAwesome';
+   content: '\f068';
+  float: left;
+  color: #3b4443;
+  padding-right: 6px;
+  font-weight: lighter;
+  transform: rotate(0deg);
+  transition: all 0.2s ease-in;
+}
+
+.card-header .card-link.collapsed::before {
+  font-family: 'FontAwesome';
+  color: #3b4443;
+  content: '\f067';
+  transition: all 0.8s ease-in;
+}
+#accordion .card .card-header {
+ background: #d4d2d2 !important;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #58807d !important;
+    padding: .5rem 0.5rem !important;
+}
+
+#accordion .card .card-body {
+  padding: 0 0 0.3rem !important;
+}
+
+.form-group {
+   margin-top: 0px !important
+}
+
+#rolesList ul.list-group {
+  display: inline-block !important;
+  width: 100%;
+  padding-top: 25px;
+}
+
+#rolesList ul li {
+  display: inline-block !important;
+}
+
+  #rolesList ul li.list-item {
+    color: #3e3e3e;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 6px 4px;
+    width: 32.3%;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    padding-bottom:0px
+  }
+
+    #rolesList ul li.list-item .rolesList {
+      border-bottom: 1px solid #AAC7D0;
+      padding-bottom: 8px;
+      padding-left: 8px;
+    }
+
+    #rolesList ul li.list-item i {
+      font-weight: bold;
+      padding-right: 6px;
+    }
+
+.rolesList i {
+  width: 11%
+}
+
+.rolesList label {
+  width: 85%;
+  vertical-align: middle;
+  margin-bottom: 0;
+}
+.ag-theme-balham .ag-header-cell-label .ag-header-cell-text {
+  font-weight: bold;
+}
+.selectedItem {
+      background: #9ba3a5 !important}
+
+.selectedLi {background: #5ca9a1 !important;}
+.partialBG{background: #f59a9a !important;}
+.generatedbg{background: #71cac1 !important; border-bottom:1px solid #000 !important}
+.selectedRole {
+    background-image: linear-gradient(to right, rgb(113, 156, 152), rgb(112, 171, 165));
+    padding-bottom: 0px !important;
+    color: #fff !important;
+
+}
+.selectedRole .rolesList{ border-bottom:0px !important}
+.selectedRole label{ color:#fff !important}
+#resetPass .modal-dialog .modal-body {
+  padding: 15px;
+}
+#userRole, #requisition, #MRN {
+  padding-left: 30px;
+}
+.sidebar .nav .caret {
+    margin-top: 0px !important;
+    position: absolute !important;
+    right: 12px !important;
+}
+.datepickStyle {
+  border: 0;
+  background: transparent;
+  padding-left: 5px;
+}
+.dateTimeIcon {
+  float: right;
+  padding-right: 10px;
+}
+.cdk-overlay-container {
+  z-index: 9999 !important
+}
+.owl-dt-calendar-control {
+  background: #72c5be !important;
+}
+.owl-dt-calendar-table .owl-dt-calendar-header {
+  color: rgba(0,0,0,.7) !important;
+}
+.owl-dt-calendar-table .owl-dt-calendar-cell-today:not(.owl-dt-calendar-cell-selected) {
+  background: #dee6e6;
+}
+.ng-dropdown .ng-dropdown__button {
+  border:0 !important;
+  background:transparent !important;
+}
+
+.form-control input {
+z-index:10 !important; padding-left:5px !important}
+.form-group input { padding-left:5px !important}
+.changePass{ display:none}
+#form1{margin:0 !important}
+.k-state-default{ border-right: 0px !important; border-top: 0px !important; border-left: 0px !important;
+    border-bottom: 1px solid #d4d4d4 !important; border-radius: 0px !important;}
+.k-dropdown, .k-header, .k-widget{ width:100% !important}
+.k-header, .k-grid-header, .k-toolbar, .k-dropdown-wrap, .k-picker-wrap, .k-numeric-wrap, .k-grouping-header, .k-pager-wrap, .k-textbox, .k-button, .k-progressbar, .k-draghandle, .k-autocomplete, .k-state-highlight, .k-tabstrip-items .k-item, .k-panelbar .k-tabstrip-items .k-item, .km-pane-wrapper>.km-pane>.km-view>.km-content {
+    background: #fff !important;
+    background-image: none !important;
+}
+.k-state-selected{ background: #88ada9 !important; border:none !important}
+.validate { border-bottom: 1px solid #ef5e5e!important; background: #f1e4e4;}
+.hide{ display:none}
+.show{ display:block}
+.k-grid-header th.k-header, .k-filter-row th, .k-grid-header {
+    background: #bed6d6 !important;
+}
+
+div.k-grid-header, div.k-grid-footer {  
+    border-top: 1px solid #c2c2c2;
+    border-right: 1px solid #c2c2c2;
+}
+
+.k-grid-header th:last-child{ border-right:0px !important}
+
+/*div.k-grid-header, div.k-grid-footer{ padding-right:2px !important}*/
+::-webkit-scrollbar {
+  width: 6px;
+  height:6px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #d4d6d6; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #656f71; 
+  border-radius:4px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5d848c; 
+}
+::-moz-scrollbar {
+  width: 6px;
+  height:6px !important;
+}
+
+::-moz-scrollbar-track {
+  background: #d4d6d6; 
+}
+ 
+::-moz-scrollbar-thumb {
+  background: #656f71; 
+  border-radius:4px !important;
+}
+
+::-moz-scrollbar-thumb:hover {
+  background: #5d848c; 
+}
+
+
+.error{color: red;
+    margin: 0 auto 2% 19%;
+    display: block;
+    font-weight: 500;
+    font-size: 11px;
+    text-align: left;
+    
+    width: 285px;
+    padding: 1px 10px;
+    border-radius: 2px;}
+
+.footerCon{display:block;text-align:center;margin: 0px 7px;padding-top: 16px;border-top: 1px solid #e0e4e4;}
+.centerBox{display:block; margin:0 auto; font-size: 15px; font-weight: bold;}
+img.centerBox{ width: 28%;}
+img.frdLogo{ width: 25%;
+    display: block;
+    margin: 13% auto;}
+.proceed-btn{ padding: 4px 15px !important;}
+.k-primary, .k-overflow-container .k-primary {
+    color: #000 !important;}
+.k-button:focus:active:not(.k-state-disabled):not([disabled]) {
+    box-shadow: inset 0 0 1px 0px #1f497d!important;
+    background: #4d9c95 !important;
+    color: #fff !important;
+}
+.k-grid-content{ max-height:372px}
+.k-animation-container, .k-widget, .k-widget *, .k-animation-container *, .k-widget *:before, .k-animation-container *:after, .k-block .k-header, .k-list-container {
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+}
+.roleBtn{ border: 1px solid #4c7774 !important;
+    background: transparent !important;
+    color: #1e4a47 !important;}
+.viewBtn{background: transparent !important;
+    border: 1px solid #5692d4 !important;
+    color: #000 !important;
+}
+.viewBtn:hover, .viewBtn.selected{ background: #5692d4 !important;
+    color: #fff !important;
+}
+.editBtn{ background: transparent !important;
+    border: 1px solid #008013 !important;
+    color: #000 !important;
+}
+.editBtn:hover, .editBtn.selected{background: #008013 !important;
+    color: #fff !important;
+}
+
+.selectRole{ font-size: 24px !important;
+    background: #fff !important;
+    color: #28847b !important;
+    padding: 6px !important;
+    border: 2px solid #28847b !important;}
+ .k-dropdown .k-input {
+    border-radius: 0px 0 0 0px!important;
+    width: 100% !important;
+}
+.k-dropdown .k-state-hover .k-input {
+    width: 100% !important;
+}
+.k-dropdown-wrap span.k-input{width:100% !important; height:18px !important; font-size:11px !important}
+
+.dp-skin .ui-datepicker {
+    padding: 0;
+    width: 15rem !important;}
+.dp-skin .ui-widget {
+    background: #58807d !important;}
+.dp-skin .ui-datepicker th {
+    padding: 8px 0 !important;
+    color: #fff !important;
+    font-size: 12px;
+    font-weight: normal;
+    text-shadow: 0 0 2px #f7f7f7;
+    text-transform: uppercase;
+    border: none;
+    border-top: 1px solid #ffffff !important;
+}
+.dp-skin td .ui-state-default {
+    padding: 5px 0 !important;}
+.dp-skin .ui-datepicker-header {
+    border-bottom: none !important;}
+.dp-skin td .ui-state-active, .dp-skin td .ui-state-hover {
+    background: #ffffff !important;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    color: #253a38 !important;
+}  
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+    width: 46% !important;
+    margin-right: 5px !important;
+    padding-left: 5px !important;
+    border: 1px solid #2f4846;
+}  
+#dvSource{ max-height:340px; overflow-y:scroll; width: 100%;}
+.txtColor{ color: #446b68}
+.selectUser{ position: absolute;
+    color: Red;
+    text-align: right;
+    right: 3%;
+    z-index: 100;
+    top: 1%;}
+ .row:before {
+    content: " ";
+    display: table;
+}
+.moduleView 
+{
+    display:block;
+    float: left;
+    height: 362px;
+    padding:5px;
+}
+    .dropDiv
+        {
+            height: 460px;
+            background: #e3e1e1;
+            display: -webkit-box;
+            margin-top: 2%;
+        }
+        #dvDest
+        {
+           height: 378px;
+           background: #e3e1e1;
+           display: block;
+           overflow: hidden;
+           /* overflow-y: scroll; */
+        }
+        #dvRoles{ padding-top: 15px;
+    height: auto;
+    display: block;
+    overflow: hidden}
+        .node
+        {
+            font-weight: bold;
+            color: #1f497d;
+            font-size: 14px;
+            text-decoration: underline;
+        }
+        .draggable
+        {
+            border: 1px solid #cdcdcd;
+        }
+        .k-state-selected, .k-button:active, .k-button.k-state-active, .k-draghandle.k-state-selected:hover
+        {
+            /*background:none!important;*/
+            color: #fff;
+        }
+        
+        #dvDest div.k-treeview
+        {
+            border-width: 0px;
+            background: 0;
+            float: left;
+            white-space: normal;
+            overflow: initial;
+            display: block;
+        }
+          #dvRoles div.k-treeview
+        {
+            border-width: 0px;
+            background: 0;
+            float: left;
+            white-space: normal;
+            overflow: initial;
+            display: block;
+        }
+        .sourceDv
+        {
+            padding: 0 3px 0 3px !important;
+        }
+        #dvDest .btnspan
+        {
+                clear: both;
+    overflow: hidden;
+    display: block;
+        }
+         #dvDest .btnspan .finishBtn
+         {
+                 bottom: 3%;
+    position: absolute;
+    right: 2%;
+         }
+         #dvDest .k-dropdown
+         {
+           border: 1px solid #26a69a;
+            border-radius: 4px;
+            padding: 1px;
+            height: 26px;
+            background: transparent !important;
+            right: 2%;
+            margin-top: 1%;
+         }
+         #dvDest span.k-dropdown-wrap.k-state-default{height:23px }
+           #dvRoles .btnspan
+        {
+                clear: both;
+    overflow: hidden;
+    display: block;
+        }
+         #dvRoles .btnspan .finishBtn
+         {
+                 bottom: 3%;
+    position: absolute;
+    right: 2%;
+         }
+         #dvRoles .k-dropdown
+         {
+            right: 2%;
+            margin-top: 1%;
+         }
+         #tblDest tr td div
+         {
+             width:184px !important;
+         }
+         div#TreeView {
+    clear: both;
+    min-height: 280px;
+    max-height: 280px;
+}
+.bgTransparent{ background:transparent !important}
+.mrn span.k-dropdown-wrap.k-state-default, .mrn .form-control:read-only{ background:transparent !important}
+#PurchaseOrderInfo .k-grid-content { max-height: 90px !important;}
+#PurchaseOrderLine .k-grid-content { max-height: 110px !important;}
+#batchDetail .k-grid-content { max-height: 150px !important;}
+.dp-skin .ui-datepicker{z-index:9999 !important}
+#createRole .modal-dialog .modal-header {
+    padding: 8px 20px 8px 10px !important;}    
+#createRole .modal-dialog .modal-body {
+    padding: 24px 15px 16px;
+}
+.k-grid-header th.k-header, .k-filter-row th {
+    padding: .2em .6em .2em .6em !important;}
+.k-grid td { padding: .4em .6em !important;
+    line-height: 1.4em !important; white-space: nowrap !important;}
+.k-link:hover{ overflow: visible !important; }
+#createMRN{ padding-bottom:10px !important}
+.qtyCross{position: absolute; right: 0; top: 14px; color: #d43939; font-size: 13px;}
+#menu-icons .btn.disabled, .btn:disabled {
+    opacity: 0.6;
+    box-shadow: none;
+}
+#PurchaseOrderLine input{
+    border: 1px solid #5ba9a1;
+    border-radius: 2px;
+    padding-left: 5px;
+    width: 100%;}
+.k-grid-content {
+    overflow-x: scroll !important;}
+#mrnList .k-grid-header, #mrnList .k-grid-content, #configDetailGrid .k-grid-content, #whCountingDetail .k-grid-header, #whCountingDetail .k-grid-content, #branchCountingDetail .k-grid-header, #branchCountingDetail .k-grid-content, #recallHistory .k-grid-header, #recallHistory .k-grid-content{ border-left: 1px solid #c5c5c5;}
+
+#transferOrderHeader .k-grid-content, #transferOrderLine .k-grid-content {
+    height: 200px !important;}
+  /* #PurchaseOrderLine table{ width:1200px}  */
+#itemDetails .k-grid-content {
+    height: 280px !important;}
+.msg{ color: #d81616;
+    font-weight: bold;
+    /* text-shadow: 1px 1px #ded4d4; */
+    position: absolute;
+    top: 4px;}
+.UnAssign{ margin-bottom:0px !important}
+.change::-webkit-input-placeholder, #batchNo::-webkit-input-placeholder, #txtQuantity::-webkit-input-placeholder, #txtQuantity1::-webkit-input-placeholder, #txtQuantity2::-webkit-input-placeholder, #txtMRNNo::-webkit-input-placeholder, #txtQuantity3::-webkit-input-placeholder,.kk input::-webkit-input-placeholder, #batchPopup input::-webkit-input-placeholder, #tblRequisitionDetail input::-webkit-input-placeholder, #tblReasonDetail input::-webkit-input-placeholder{
+    color: #d81616 !important; font-size:10px !important; font-weight:bold !important }
+#batchNo::-webkit-input-placeholder,#txtQuantity::-webkit-input-placeholder, #txtQuantity1::-webkit-input-placeholder, #txtQuantity2::-webkit-input-placeholder, #txtMRNNo::-webkit-input-placeholder, #txtQuantity3::-webkit-input-placeholder, .kk input::-webkit-input-placeholder, #batchPopup input::-webkit-input-placeholder, #tblRequisitionDetail input::-webkit-input-placeholder, #tblReasonDetail input::-webkit-input-placeholder { padding-left:5px}
+
+#requisitionTable table, #reasonTable table {
+    width: 100%;
+    margin: 0;
+    max-width: none;
+    border-collapse: separate;
+    border-spacing: 0;
+    empty-cells: show;
+    border-width: 0;
+    outline: 0;
+    color: #2e2e2e;
+    font-size:0.75rem;
+     border:1px solid #c5c5c5;
+}
+#requisitionTable table thead, #reasonTable table thead{ background:#bed6d6 !important; table-layout: fixed; border:1px solid #c5c5c5}
+#requisitionTable table thead tr th, #requisitionTable table tbody tr td, #reasonTable table thead tr th, #reasonTable table tbody tr td{display: inline-block;
+    overflow: hidden;
+    padding: 5px !important;
+    border-right: 1px solid #c5c5c5;
+    white-space: nowrap;
+    text-overflow: ellipsis;}
+#requisitionTable table thead tr th:first-child, #requisitionTable table tbody tr td:first-child{ width:3% !important}
+/*#requisitionTable table thead tr th:nth-child(2), #requisitionTable table tbody tr td:nth-child(2), #requisitionTable table thead tr th:nth-child(3), #requisitionTable table tbody tr td:nth-child(3){ width:10% !important}*/
+#requisitionTable table tbody tr td:nth-child(2){ padding-top:0px !important}
+#requisitionTable table thead tr th:nth-child(12), #requisitionTable table tbody tr td:nth-child(12){ border-right:0px !important}
+#requisitionTable table tbody tr td{ border-top:0 !important; height: 27px !important;}   
+#requisitionTable table thead tr th:hover, #requisitionTable table tbody tr td:hover, #reasonTable table thead tr th:hover, #reasonTable table tbody tr td:hover{ overflow: visible !important; }
+#requisitionTable .k-dropdown-wrap span.k-input, #reasonTable .k-dropdown-wrap span.k-input {
+    width: 100% !important;
+    height: 24px !important;
+}  
+#tblRequisitionDetail span.k-dropdown-wrap.k-state-hover, #tblReasonDetail span.k-dropdown-wrap.k-state-hover {
+    height: 25px !important;
+}
+#requisitionTable table thead tr th:last-child, #requisitionTable table tbody tr td:last-child{ border-right:0px !important; width:1% !important}
+#requisitionTable table tbody tr:nth-child(even){ background-color: #dfeceb;}
+#requisitionTable table tbody tr td input[type="button"]{ padding:5px !important}
+#requisitionTable table tbody tr td input{ padding:0px !important; height:18px !important}}
+#requisitionTable table tbody{ table-layout: fixed; border:1px solid #c5c5c5}
+
+#reasonTable table thead tr th:last-child, #reasonTable table tbody tr td:last-child{ border-right:0px !important; width:1% !important}
+#reasonTable table tbody tr:nth-child(even){ background-color: #dfeceb;}
+#reasonTable table tbody tr td input[type="button"]{ padding:5px !important}
+#reasonTable table tbody tr td input{ padding:0px !important; height:18px !important}}
+#reasonTable table tbody{ table-layout: fixed; border:1px solid #c5c5c5}
+
+table input::placeholder{ font-size:12px !important}
+/*#batchPopup h4{ border-bottom: 1px solid #198278;}*/
+#batchPopup h4.modalHead{ border-bottom: 0;}
+input.validate[readonly]{ background: #f1e4e4 !important;}
+#lblbatchoddval{position: absolute; color: #d91616; font-weight: bold; left: 0;}
+.k-state-selected input{color:#fff !important}
+#tblRequisitionDetail span.k-dropdown-wrap.k-state-default, #tblReasonDetail span.k-dropdown-wrap.k-state-default {
+    background: transparent !important; height: 25px !important;
+}
+#tblRequisitionDetail .form-control.k-widget, #tblReasonDetail .form-control.k-widget {
+    background: transparent !important;
+}
+#tblRequisitionDetail .selectedLi label, #tblRequisitionDetail .selectedLi input, #requisitionTable .selectedLi .k-dropdown-wrap span.k-input, #tblReasonDetail .selectedLi label, #tblReasonDetail .selectedLi input, #tblReasonDetail .selectedLi .k-dropdown-wrap span.k-input{color:#fff !important}
+.search-container {
+  float: right;
+  width:30%
+}
+.search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+.table-responsive{ position:relative !important}
+.topnav .search-container button:hover { background: #ccc;}
+
+.searchBox i{ color: #aaa !important; display: inline-block; position: absolute; right: 8px; top: 5px; }
+.searchBox{position: absolute !important;
+    left: 6px;
+    z-index: 999;
+    top: -25px;}
+.load{color: #999;
+    font-size: 11px;
+    margin: 0 auto;
+    display: block;
+    padding: 2px 5px;
+    width: 30%;
+    text-align: center;
+    margin-top: 10px;
+    border: 1px solid #efebeb; cursor:pointer}
+.searchBox input{border: 1px solid #bcc2c3;
+    padding: 2px 5px 1px;
+    border-radius: 2px; color: #385a61; background:#fbfbfb}
+.searchBox input::placeholder{font-size:11.5px !important; color:#b4b3b3}
+
+
+#PurchaseOrderLine tr.k-state-selected input{ background:transparent !important; border: 1px solid #ecebeb;}
+#PurchaseOrderLine tr.k-state-selected label.UnAssign{ color:#fff !important}
+.k-grid .k-button{ color: #fff; background-color: #58807d !important;}
+a.k-button:hover { color: #fff !important;}
+.k-i-excel:hover, .k-grid-excel .k-i-excel:focus {
+    background-position: -63px -96px !important;
+}
+#sequenceBox{ border: 1px solid #d3d6d6;
+    padding: 5px;
+    border-radius: 4px !important;
+    margin-top: 18px !important;
+        min-height: 25px;
+}
+#sequenceForm .formBox{ width:100% !important; padding:10px !important}
+.k-state-selected label{color:#fff !important}
+
+.k-widget.k-tooltip{text-align: left !important; width: auto !important; border-color: #c2c2c2 !important; background-color: #bed6d6 !important; left:0}
+/*.k-callout-e { display: none !important;}*/
+#requisitionForm span.k-dropdown-wrap.k-state-default, #createUser span.k-dropdown-wrap.k-state-default{ height:26px}
+.batchBox{border: 1px solid #9abfbf; margin-top: 10px;}
+.batchBox h4{ border-bottom: 1px solid #198278; background: #bed6d6;
+    padding: 3px 10px 2px;
+    font-size: 13px !important;
+    font-weight: bold;}
+    
+.formBox span.k-dropdown-wrap.k-state-default {
+    height: 26px;
+}
+.openbtn, .closebtn {
+  font-size: 20px;
+    cursor: pointer;
+    /* background-color: #111; */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    position: absolute;
+    right: 0;
+    z-index: 999;
+}
+.closebtn:hover, .closebtn:focus{ color:#fff !important}
+#itemRequestList, #requestControlGrid{ border:0}
+ #tblRequisitionDetail tbody, #tblReasonDetail tbody {
+    overflow-y: scroll;
+    display: block;
+    max-height: 48vh;
+}
+
+#tblRequisitionDetail tbody tr, #tblReasonDetail tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+#tblReasonDetail tbody tr td{ min-height:28px}
+#lblrandomqty{ position: absolute;
+    color: #d81616 !important;
+    left: 20px;
+    top: 8px;
+    font-weight: bold;}
+    
+#generatePopup .modal-dialog .modal-body {
+    padding: 35px 18px 16px !important;
+}
+#generatePopup .modal-sm{ max-width:28% !important}
+#sidemenu{ transition: all .15s ease 0s;}
+#sidenav{position: absolute;
+    cursor: pointer;
+    top: -4px;
+    z-index: 1090;
+    left: 0;
+    font-size: 19px;
+    /* background: #1f3739; */
+    padding: 15px 10px;
+    color: #fff;}
+#menu{ display:none; }
+#menuClose{margin-left: -3px;}
+.main-container .content{margin-top:10px}
+.k-grid-header th.k-with-icon .k-link, .k-grid td {
+    font-size: 11px !important;
+}
+#requestControlDetail .k-link {
+    font-size: 10.5px !important;
+}
+.gridTooltip {
+  position: relative;
+  display: inline-block;
+ }
+
+.gridTooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #b2cdcd;
+  color: #2e2e2e;
+  text-align: center;
+  border-radius: 6px;
+  padding: 3px 0;
+  position: absolute;
+  z-index: 2;
+  bottom: 0%;
+  left: 110%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+}
+
+.gridTooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 16%;
+  left: 0%;
+  margin-left: -15px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #c5c5c5 transparent transparent transparent;
+  transform: rotate(-270deg);
+  z-index:1;
+}
+
+.gridTooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+#requestControlDetail table tbody tr td input{ padding: 0 !important; height: 16px !important;}
+i.faIcon{font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: bottom;}
+#noDataPopup .modal-dialog .modal-header, #Divconfig .modal-dialog .modal-header {
+    padding: 15px 24px 8px 24px;}
+#multipleWarehouse{ margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 4px;
+    border: 1px solid #d4d4d4;
+    min-height: 30px;
+    max-height: 54px;
+    overflow-y: scroll;
+}
+
+.flexiblewidth {
+    /* display: initial; */
+    background: linear-gradient(#87bdb7 ,#afe2dd);
+    /* background: linear-gradient(#eff2f3 ,#dbdddf);*/
+    margin:2px 6px 1px 0;
+    border-radius: 6px;
+    padding: 3px;
+    /* line-height: 2; */
+    float: left;
+}
+.crossimgDiv {
+    width: 14px;
+    /* height: 5px; */
+    float: right;
+    margin-top: 3px;
+}
+.crosswidth {
+    width: 82%;
+}
+#TableFileSequence{ margin-bottom:0px !important}
+.dropdown-submenu .dropdown-menu.show, .dropdown-submenu .open>.dropdown-menu{ margin-left:20px !important; margin-right: 15px;}
+.navbar-nav .dropdown-menu .dropdown-item:focus, .navbar-nav .dropdown-menu .dropdown-item:hover, .navbar-nav .dropdown-menu a:active, .navbar-nav .dropdown-menu a:focus, .navbar-nav .dropdown-menu a:hover {
+    box-shadow: none !important;}
+.CCtexTextareaHighlight{ padding: 0px 6px !important;}
+.flexiblewidth .control-label{margin-bottom: .1rem !important;}
+.k-grid-header th.k-header>.k-link {
+    font-size: 11px !important;}
+.navbar-toggler { padding: .35rem .2rem !important;}
+#dashboard .card-chart{margin-top:7%}
+.stats i{ margin-top: 5px;
+    margin-right: 4px;}
+#createBatch .modal-dialog .modal-header{ padding: 8px 24px 8px 13px;}
+#createBatch .modal-dialog .modal-body { padding: 24px 13px 16px;}
+#createBatch .modal-dialog .modal-footer { padding: 0 15px 15px 0;}
+#DivbatchNo, #Divddlbatchlist{ width:100%}
+#Divddlbatchlist .k-dropdown-wrap span.k-input{ height:30px !important; padding:10px 0 0px}
+#Divddlbatchlist .k-state-default>.k-select{ padding-top:8px !important}
+#tblReasonDetail input[readonly] { background: transparent !important;}
+#configPopup .modal-body{ min-height:300px}
+.chkGroup label{padding: 0px 3px; margin-bottom: 5px; vertical-align: middle;}
+.chkGroup .form-group{ display:inline-block; margin-right: 10px;}
+#dvRoles{ overflow-y: scroll; max-height: 160px;}
+#reportDetail{ border:0 !important}
+#reportDetail .k-grid-header, #reportDetail .k-grid-content{ border-left: 1px solid #c2c2c2;}
+#whCountingDetail input{ padding: 0; margin: 0; height: 18px;}
+#reportDetail .k-grid td { padding: .1em .6em !important;}
+.loadCon{ position:relative}
+.showMsg{ position: absolute; right: 0; bottom: 0; color: #345856; font-weight: bold;}
+#whCountingDetail .k-grid-content, #branchCountingDetail .k-grid-content{ max-height: 316px;}
+th .k-state-border-down{ background: #ebebeb;}
+
+.setupName .k-dropdown-wrap span.k-input {
+    height: 25px !important;}
+.setupName .form-control.k-widget {
+    background: transparent !important;
+}
+.setupName span.k-dropdown-wrap.k-state-default {
+    background: transparent !important;}
+.CCtexTextareaHighlight{ background: #e9f3f2 !important;}
+
+
+/*#tooltipText span:hover {
+     content: attr(title);
+     padding: 2px 6px;
+     position: absolute;
+     left: 2%;
+     top: 100%;
+     white-space: nowrap;
+     z-index: 20;
+     color:#fff;
+     background: #26a69a;
+     border-radius:4px;
+}*/
+
+#myFile, #ContentPlaceHolder1_Upload{z-index: 9999;
+    opacity: 1;}
+#sampleTemplate{color:#18736b; text-decoration:underline}
+#importPopup .modal-dialog .modal-header { padding: 8px 24px 8px 13px !important;}
+#importPopup .modal-dialog .modal-body {
+    padding: 20px 13px 16px;
+}
+#hdnpintext, #hdnhidetext{ display:none}
+
+
+                    /*--------------------------Media Query-------------------------------*/
+
+@media (min-width: 1100px) {
+.k-grid-content{ max-height:345px}
+}    
+
+
+@media (max-width: 991px) {
+.nav-open .navbar .navbar-collapse.collapse, .navbar .navbar-collapse.collapse.in, .navbar .navbar-collapse.collapsing {
+    display: block!important;
+    position: fixed;
+    right: -38px;
+    top: -9px;}
+#navbarDropdownProfile{opacity:1}
+.toggled .icon-bar{z-index:9999}
+}
+@media (max-width: 991px) {
+#sidenav{ display:none}
+#createMRN .formBox .col-md-12, #POLdetails .formBox .col-md-12{ padding:0}
+#requisitionForm{ padding:0}
+#tblRequisitionDetail, #tblReasonDetail{ overflow: scroll !important; width: 1100px !important;}
+#requisitionTable, #reasonTable{ overflow:hidden}
+#requisitionTable .formBody, #reasonTable .formBody{overflow-x:scroll; border-right: 1px solid #d2d2d2;}
+
+.toggled .icon-bar{left:760px;}
+}
+@media (max-width: 940px) {
+.navbar-collapse {
+    
+    width: 54%;}
+}
+
+@media (max-width: 823px) {
+.navbar-collapse {
+    
+    width: 63%;}
+}
+@media (max-width: 768px) 
+{
+    .toggled .icon-bar{left:710px;}
+}
+@media (max-width: 736px) 
+{
+    .toggled .icon-bar{left:680px;}
+    .navbar-collapse {
+    width: 68%;
+}
+}
+@media (max-width: 668px) {
+.navbar-collapse {
+    width: 77%;
+}
+}
+@media (max-width: 568px) {
+#createNewItem .card{ margin-top:15px }
+#PurchaseOrderInfo table colgroup col, #PurchaseOrderLine table colgroup col, #mrnList table colgroup col{ width:130px !important}
+#requestDetail{ margin-top:20px}
+.load{ width:100%}
+.logo a img{ width:30%}
+.dropdown-menu .dropdown-item, .dropdown-menu li>a{ padding: .425rem 1.25rem }
+.dropdown-menu-right a{ padding-left: 8px !important;}
+.k-grid-header th.k-with-icon .k-link{ margin-right:0 !important}
+.toggled .icon-bar{left: 500px;}
+.navbar-collapse {
+    width: 87%;
+}
+
+}
+@media (max-width: 480px) 
+{
+    .navbar .container-fluid {
+    padding-left:5px !important}
+  .toggled .icon-bar{left: 360px;}
+  .navbar-collapse {
+    width: 91%;
+}  
+.navbar .collapse .navbar-nav .nav-item .nav-link {
+	font-size: 11px;
+    line-height: 13px;
+}
+.navCon li:nth-child(2) {
+    width:160px}
+.navbar .navbar-collapse.collapse, .navbar .navbar-collapse.collapse.in, .navbar .navbar-collapse.collapsing {
+        right: 103px;
+    }
+}
+@media (max-width: 376px) 
+{
+   
+ .toggled .icon-bar{left: 320px;}  
+ .navbar-collapse {
+    width: 100%;
+}  
+ .navbar .navbar-collapse.collapse, .navbar .navbar-collapse.collapse.in, .navbar .navbar-collapse.collapsing {
+    right: 120px;
+    top: -4px;
+}
+ .logo img { width:65%}
+ .navbar .collapse .navbar-nav .nav-item .nav-link {
+    font-size: 10px;
+    line-height: 13px;
+}
+}
+
+@media (max-width: 320px) 
+{
+  .toggled .icon-bar{left: 280px;} 
+  .navbar .navbar-collapse.collapse, .navbar .navbar-collapse.collapse.in, .navbar .navbar-collapse.collapsing {
+    right: 138px !important;} 
+  
+  .navCon li:nth-child(2) {
+    width: 146px;
+}
+ 
+}

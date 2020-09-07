@@ -1,0 +1,1292 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script> 
+
+
+<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.common.min.css">
+<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.rtl.min.css">
+<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.default.min.css">
+<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.mobile.all.min.css">
+
+<script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="http://kendo.cdn.telerik.com/2017.1.118/js/angular.min.js"></script>
+<script src="http://kendo.cdn.telerik.com/2017.1.118/js/jszip.min.js"></script>
+<script src="http://kendo.cdn.telerik.com/2017.1.118/js/kendo.all.min.js"></script>
+@*</head>*@
+
+
+
+
+        
+
+
+<script>
+    // Import DejaVu Sans font for embedding
+
+    // NOTE: Only required if the Kendo UI stylesheets are loaded
+    // from a different origin, e.g. cdn.kendostatic.com
+    kendo.pdf.defineFont({
+        "DejaVu Sans": "https://kendo.cdn.telerik.com/2016.2.607/styles/fonts/DejaVu/DejaVuSans.ttf",
+        "DejaVu Sans|Bold": "https://kendo.cdn.telerik.com/2016.2.607/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
+        "DejaVu Sans|Bold|Italic": "https://kendo.cdn.telerik.com/2016.2.607/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+        "DejaVu Sans|Italic": "https://kendo.cdn.telerik.com/2016.2.607/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+        "WebComponentsIcons": "https://kendo.cdn.telerik.com/2017.1.223/styles/fonts/glyphs/WebComponentsIcons.ttf"
+    });
+</script>
+
+
+
+
+
+
+
+<script>
+    jquery_min_p(document).ready(function () {
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+        jquery_min_p("#lblrestroid").text(id);
+        
+        jquery_min_p(".divtoggle").click(function () {
+            jquery_min_p(".toggle").toggle();
+        });
+    })
+
+
+</script>
+@*JS*@
+
+<style>
+    .mainCon {
+    max-height: 481px;
+    overflow-y: scroll;
+    padding-top: 8px !important;
+    padding-bottom: 20px !important;
+}
+    .dropdown:after {
+        top: 8px;
+    }
+
+     .subhead {
+    color: #183d44;
+    font-weight: bold;
+    padding-bottom: 0px;
+    }
+    #mainContent {
+        max-width: 100%;
+        flex: 100%;
+    }
+
+    #navContent {
+        display: none;
+    }
+    .headcolor {
+        background-color: #607377;
+    padding: 3px 0px 0px 5px;
+    position: relative;
+    }
+    .labelmrg {
+        margin-bottom: 1px !important;
+    vertical-align: text-bottom !important;
+
+    }
+
+
+
+    .menulbl {
+         color: #ffffff;
+    padding: 1px 5px 0px;
+    border-radius: 2px;
+    text-decoration: underline;
+    font-size: 11px !important;
+
+    }
+    .acolor {
+        color:#fff !important;
+    }
+    .h4mrgbtm {
+        margin-bottom: 0px !important;
+    }
+    .menuList1 {
+    font-size: 19px;
+    position: absolute;
+    right: 5px;
+    top: 0px !important;
+    cursor: pointer;
+}
+    .buttonCon1 {
+        
+    padding: 15px 0px;
+    float: right;
+    position: absolute;
+    right: 5%;
+    bottom: 1%;
+}
+    select {
+    font-size: 14px !important;
+    height: 23px;
+    width: 109px;
+    padding: 0px 0px 0px 5px;
+}
+    .menuListcreation {
+    font-size: 19px;
+    position: absolute;
+    right: 34px;
+    top: -1px;
+    cursor: pointer;
+}
+    .menuListcreation a {
+    font-size: 13px;
+    font-weight: bold;
+    color: #193338;
+    margin-left: 5px;
+}
+   #divitemtbl tbody {
+    overflow: auto;
+    display: block;
+    max-height: 55vh;
+}
+
+#divitemtbl tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+        
+        
+   #divitemtbl thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}    
+ 
+
+
+   .tblscroll tbody {
+    overflow: auto;
+    display: block;
+    max-height: 18vh;
+}
+
+.tblscroll tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+.tblscroll tbody tr td .fa-pencil-square-o, .tblscroll tbody tr td .fa-trash {
+    font-size: 14px;
+    padding-left: 6px;}
+.tblscroll tbody tr td .fa-pencil-square-o {   
+    color: #22a222 !important;
+}
+   .tblscroll thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+    .noDataMsg {
+    color: #183d44;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-top: 30%;
+    }
+
+    #dvmainprnt{
+        width:100%;
+         margin:0px !important;
+    padding:0px !important;
+    }
+
+    #divprntmenucreation {
+    margin:0px !important;
+    padding:0px !important;
+    width:100%;
+    }
+
+    .pdf-page {
+        /*font-family: "DejaVu Sans", "Arial", sans-serif;
+        font-family: "Verdana", "sans-serif";
+        margin: 0px !important;
+        padding: 0px !important;
+        width: 200% !important;
+        vertical-align: top;
+        height:auto*/
+
+
+            padding: 0px;
+        margin: 0;height: 100%;width:800px ;font-family: 'Segoe UI', Arial;
+
+    }
+
+    
+    /* Kendo UI styles */
+/*.content_block .k-grid td { vertical-align: top;}
+.widget .k-treemap,.widget .k-chart,.widget .k-stockchart{height:auto}*/
+
+     .size-a4 { 
+        width: 8.3in;
+        height: 11.7in;
+    }
+
+    .k-pdf-export {
+        font-size: 50%;
+    }
+
+</style>
+
+<div class="row">
+    <div class="col-md-12 loader" id="preloader">
+        <span><img src="~/Content/images/loader(1).gif" style="width: 10%;" /></span>
+    </div>
+
+</div>
+
+<div class="container pr-0">
+    
+
+    <div class="pageHead">
+        <h4 class="pageTitle">Menu Creation</h4>
+
+        <div class="col-md-3 p-0 clearfix">
+            <label class="col-md-4 p-0 pull-left">Select Menu:</label>
+            <div class="col-md-8 pull-left dropdown p-0">
+                <select class="form-control" style="height: 24px; display:inline-block;" id="ddlselectmenu" onchange="BindLevel();">
+                    @*<option value="0" selected="selected">Select</option>*@
+                </select>
+            </div>
+        </div>
+        <div class="menuList p-0">
+
+
+            <a href="#" data-toggle="modal" data-target="#addRestroPopup"><img src="/Content/images/restaurant-icon.png">Add Menu</a>
+                <a href="#" data-toggle="modal" data-target="" id="aedit"><img src="/Content/images/sequence-icon.png">Update Menu</a>
+
+
+
+
+
+
+
+
+</div>
+    </div>
+
+
+
+
+
+
+</div>
+
+    @*<div class="pageHead">
+        <h4 class="pageTitle">Menu Creation</h4>
+        <div class="menuListcreation">
+            <a href="#" data-toggle="modal" data-target="#addRestroPopup"><img src="/Content/images/restaurant-icon.png">Add Menu</a>
+            <a href="#" data-toggle="modal" data-target="" id="aedit"><img src="/Content/images/sequence-icon.png">Update Menu</a>
+            <div class="lkhkjh" style="display:inline-block;">
+                <label class="col-form-label" style="font-size: 13px!important;
+    font-weight: bold;">Select Menu:</label>
+                <select class="form-control" style="height: 31px; display:inline-block;" id="ddlselectmenu">
+                    <option value="0" selected="selected">Select</option>
+                  <option value="ColdDrink">Cold Drink</option>
+                    <option value="MeatMansaf">Meat Mansaf</option>
+                    <option value="fiat">Shish taouk</option>
+                    <option value="audi">Fish Tagine</option>
+                </select>
+
+
+            </div>
+
+        </div>
+    </div>*@
+    
+
+        <div class="row">
+            <div class="col-md-6" id="divmenugrid" style="display:none">
+
+
+                <div class="card mt-0">
+
+                    <div class="card-body mainCon">
+                        <div class="col-md-12 p-0 ">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-12 pull-left p-0">
+                                        <h4 class="subhead" id="hmenu">Menu Name</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-md-12 p-0">
+                                        <span class="pullright">
+                                            <button class="btn btn-success btn-sm pull-right" id="btnaddlevel"><i class="fa fa-plus" aria-hidden="true"></i>Add Level</button>
+                                        </span>
+                                        <span class="pullright">
+                                            <button class="btn btn-success btn-sm pull-right" id="btnprintmenu"><i class="fa fa-print" aria-hidden="true"></i>Print</button>
+                                            <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+                                        </span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12">
+                            <div class="panel-group" id="divmenucreation">
+                                @*<div class="panel panel-default">
+                                                            <a data-toggle="collapse" href="#Bevrages" class="acolor">
+                                                                <div class="panel-heading" id="divlevel1">
+                                                                    @*<div class="row headcolor">
+                                                                        <div class="">
+                                                                            <h4 class="h4mrgbtm">
+                                                                                <i class="fa fa-cutlery" aria-hidden="true"></i> Bevrages
+                                                                            </h4>
+                                                                            <div class="menuList1">
+
+                                                                                <label class="menulbl mr-1" data-toggle="modal" data-target="#sublevel">Sublevel</label>
+                                                                                <label class="menulbl mr-1">Add Item</label>
+                                                                                <label class=""><img src="~/Content/images/edit2020.png" style="width: 80%;" /></label>
+                                                                                <label class=""><img src="~/Content/images/delete-icon.png" /></label>
+
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                                                        </div>
+                                                            </a>
+
+                                                            <div id="Bevrages" class="panel-collapse collapse show">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <table id="itemlevel1table">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>Item Name</th>
+                                                                                    <th>Item Price</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                                        <tr>
+                                <td>Emp-1550</td>
+                                <td>6514</td>
+
+                            </tr>
+                            <tr>
+                                <td>Emp-0250</td>
+                                <td>2156</td>
+
+                            </tr>
+                            <tr>
+                                <td>Emp-2635</td>
+                                <td>2155</td>
+
+                                                    </tr>
+
+                                                                            </tbody>
+                                                                        </table>
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="panel-group p-2">
+                                                            <div class="panel panel-default">
+                                                                <a data-toggle="collapse" href="#HotAppetize1" class="acolor">
+                                                                    <div class="panel-heading" id="divlevel2">
+                                                                                                <div class="row headcolor">
+                                                                            <div class="">
+                                                                                <h4 class="h4mrgbtm">
+                                                                                    <i class="fa fa-cutlery mr-1" aria-hidden="true"></i>Hot Appetize
+                                                                                </h4>
+                                                                                <div class="menuList1">
+
+                                                                                    <label class="menulbl mr-1" data-toggle="modal" data-target="#sublevel">Sublevel</label>
+                                                                                    <label class="menulbl mr-1">Add Item</label>
+                                                                                    <label class=""><img src="~/Content/images/edit2020.png" style="width: 80%;" /></label>
+                                                                                    <label class=""><img src="~/Content/images/delete-icon.png" /></label>
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                                            </div>
+                                                                </a>
+                                                               <div id="HotAppetize1" class="panel-collapse collapse show">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <table id="itemlevel2table">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Item Name</th>
+                                                                                        <th>Item Price</th>
+
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                                            <tr>
+                                <td>Emp-1550</td>
+                                <td>6514</td>
+
+                            </tr>
+                            <tr>
+                                <td>Emp-0250</td>
+                                <td>2156</td>
+
+                            </tr>
+                            <tr>
+                                <td>Emp-2635</td>
+                                <td>2155</td>
+
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                                                        </div>
+
+                                                        <div class="panel-group pt-0 pl-4 pr-4">
+                                                            <div class="panel panel-default">   
+                                                                <a data-toggle="collapse" href="#HotAppetize2" class="acolor">
+                                                                    <div class="panel-heading" id="divlevel3">
+                                                                                                <div class="row headcolor">
+                                                                            <div class="">
+                                                                                <h4 class="h4mrgbtm">
+                                                                                    <i class="fa fa-cutlery mr-1" aria-hidden="true"></i>Hot Appetize
+                                                                                </h4>
+                                                                                <div class="menuList1">
+
+                                                                                    <label class="menulbl mr-1" data-toggle="modal" data-target="#sublevel">Sublevel</label>
+                                                                                    <label class="menulbl mr-1">Add Item</label>
+                                                                                    <label class=""><img src="~/Content/images/edit2020.png" style="width: 80%;" /></label>
+                                                                                    <label class=""><img src="~/Content/images/delete-icon.png" /></label>
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                                                </div>
+                                                                    </div>
+                                                                </a>
+                                                                <div id="HotAppetize2" class="panel-collapse collapse show">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <table id="itemlevel3table">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Item Name</th>
+                                                                                        <th>Item Price</th>
+
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                                            <tr>
+                                <td>Emp-1550</td>
+                                <td>6514</td>
+
+                            </tr>
+                            <tr>
+                                <td>Emp-0250</td>
+                                <td>2156</td>
+
+                            </tr>
+                            <tr>
+                                <td>Emp-2635</td>
+                                <td>2155</td>
+
+                                                    </tr>
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                                                        </div>
+
+                                                                    </div>*@
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="col-12 col-md-12"  id="dvmainprnt"style="float: left; display:none">
+                            <div class="panel-group pdf-page"  id="divprntmenucreation" style="float: left; display:none">
+
+                        
+                                @*<div class="panel panel-default">
+                                                <a data-toggle="collapse" href="#Bevrages" class="acolor">
+                                                    <div class="panel-heading" id="divlevel1">
+                                                        @*<div class="row headcolor">
+                                                            <div class="">
+                                                                <h4 class="h4mrgbtm">
+                                                                    <i class="fa fa-cutlery" aria-hidden="true"></i> Bevrages
+                                                                </h4>
+                                                                <div class="menuList1">
+
+                                                                    <label class="menulbl mr-1" data-toggle="modal" data-target="#sublevel">Sublevel</label>
+                                                                    <label class="menulbl mr-1">Add Item</label>
+                                                                    <label class=""><img src="~/Content/images/edit2020.png" style="width: 80%;" /></label>
+                                                                    <label class=""><img src="~/Content/images/delete-icon.png" /></label>
+
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                                            </div>
+                                                </a>
+
+                                                <div id="Bevrages" class="panel-collapse collapse show">
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <table id="itemlevel1table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Item Name</th>
+                                                                        <th>Item Price</th>
+
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                                            <tr>
+                    <td>Emp-1550</td>
+                    <td>6514</td>
+
+                </tr>
+                <tr>
+                    <td>Emp-0250</td>
+                    <td>2156</td>
+
+                </tr>
+                <tr>
+                    <td>Emp-2635</td>
+                    <td>2155</td>
+
+                                        </tr>
+
+                                                                </tbody>
+                                                            </table>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="panel-group p-2">
+                                                <div class="panel panel-default">
+                                                    <a data-toggle="collapse" href="#HotAppetize1" class="acolor">
+                                                        <div class="panel-heading" id="divlevel2">
+                                                                                    <div class="row headcolor">
+                                                                <div class="">
+                                                                    <h4 class="h4mrgbtm">
+                                                                        <i class="fa fa-cutlery mr-1" aria-hidden="true"></i>Hot Appetize
+                                                                    </h4>
+                                                                    <div class="menuList1">
+
+                                                                        <label class="menulbl mr-1" data-toggle="modal" data-target="#sublevel">Sublevel</label>
+                                                                        <label class="menulbl mr-1">Add Item</label>
+                                                                        <label class=""><img src="~/Content/images/edit2020.png" style="width: 80%;" /></label>
+                                                                        <label class=""><img src="~/Content/images/delete-icon.png" /></label>
+
+
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                                                </div>
+                                                    </a>
+                                                   <div id="HotAppetize1" class="panel-collapse collapse show">
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <table id="itemlevel2table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Item Name</th>
+                                                                            <th>Item Price</th>
+
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                                                <tr>
+                    <td>Emp-1550</td>
+                    <td>6514</td>
+
+                </tr>
+                <tr>
+                    <td>Emp-0250</td>
+                    <td>2156</td>
+
+                </tr>
+                <tr>
+                    <td>Emp-2635</td>
+                    <td>2155</td>
+
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                                            </div>
+
+                                            <div class="panel-group pt-0 pl-4 pr-4">
+                                                <div class="panel panel-default">
+                                                    <a data-toggle="collapse" href="#HotAppetize2" class="acolor">
+                                                        <div class="panel-heading" id="divlevel3">
+                                                                                    <div class="row headcolor">
+                                                                <div class="">
+                                                                    <h4 class="h4mrgbtm">
+                                                                        <i class="fa fa-cutlery mr-1" aria-hidden="true"></i>Hot Appetize
+                                                                    </h4>
+                                                                    <div class="menuList1">
+
+                                                                        <label class="menulbl mr-1" data-toggle="modal" data-target="#sublevel">Sublevel</label>
+                                                                        <label class="menulbl mr-1">Add Item</label>
+                                                                        <label class=""><img src="~/Content/images/edit2020.png" style="width: 80%;" /></label>
+                                                                        <label class=""><img src="~/Content/images/delete-icon.png" /></label>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                                    </div>
+                                                        </div>
+                                                    </a>
+                                                    <div id="HotAppetize2" class="panel-collapse collapse show">
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <table id="itemlevel3table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Item Name</th>
+                                                                            <th>Item Price</th>
+
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                                                <tr>
+                    <td>Emp-1550</td>
+                    <td>6514</td>
+
+                </tr>
+                <tr>
+                    <td>Emp-0250</td>
+                    <td>2156</td>
+
+                </tr>
+                <tr>
+                    <td>Emp-2635</td>
+                    <td>2155</td>
+
+                                        </tr>
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                                            </div>
+
+                                                        </div>*@
+                            </div>
+                        </div>
+
+                        <div id="prnteditor" style="display:none"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6" id="divitemgrid" style="display:none">
+
+                <div class="empCardCon">
+                    <div class="card mt-0">
+                        <div class="card-body mainCon">
+                            
+                                <span class="noDataMsg">No Data To Display</span>
+                           
+                            <div class="col-md-12 pull-left p-0" id="divhlevel" style="display:none;">
+                                <h4 class="subhead" id="hlevel"></h4>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-12" id="divitemtbl" style="display:none">
+                                    <table id="itemTable">
+                                        <thead>
+                                            <tr>
+                                                <th><input type="checkbox" id="chkall"/> Select All</th>
+                                                <th>Item Name</th>
+                                                <th>Item Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @*<tr>
+                                <td>Shish Taouk</td>
+                                <td>514</td>
+
+                            </tr>
+                            <tr>
+                                <td>Meat Mansaf</td>
+                                <td>2156</td>
+
+                            </tr>
+                            <tr>
+                                <td>Shish Taouk</td>
+                                <td>2155</td>
+
+                            </tr>
+                            <tr>
+                                <td>Meat Mansaf</td>
+                                <td>156</td>
+
+
+                            </tr>
+                            <tr>
+                                <td>Shish Taouk</td>
+                                <td>514</td>
+
+                            </tr>
+                            <tr>
+                                <td>Meat Mansaf</td>
+                                <td>2156</td>
+
+                            </tr>
+                            <tr>
+                                <td>Shish Taouk</td>
+                                <td>2155</td>
+
+                            </tr>
+                            <tr>
+                                <td>Meat Mansaf</td>
+                                <td>156</td>
+
+
+                            </tr>
+                            <tr>
+                                <td>Shish Taouk</td>
+                                <td>514</td>
+
+                            </tr>
+                            <tr>
+                                <td>Meat Mansaf</td>
+                                <td>2156</td>
+
+                            </tr>
+                            <tr>
+                                <td>Shish Taouk</td>
+                                <td>2155</td>
+
+                            </tr>
+
+                            <tr>
+                                <td>Meat Mansaf</td>
+                                <td>156</td>
+
+
+                            </tr>
+                            <tr>
+                                <td>Shish Taouk</td>
+                                <td>514</td>
+
+                            </tr>
+                            <tr>
+                                <td>Meat Mansaf</td>
+                                <td>2156</td>
+
+                            </tr>
+                            <tr>
+                                <td>Shish Taouk</td>
+                                <td>2155</td>
+
+                            </tr>*@
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+    <div class="buttonCon">
+        <button class="btn btn-success btn-sm" id="btnsaveitem"><i class="fa fa-note" aria-hidden="true" style="display:none"></i>Save</button>
+
+                        <button class="btn btn-success btn-sm" id="seqExit"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button>
+
+                    </div>
+        
+    <div class="clearfix"></div>
+</div>
+        
+
+<script>
+    jquery_min_p(document).ready(function () {
+
+        jquery_min_p('#seqExit').click(function () {
+            window.location = "/Home/Index";
+
+
+        });
+    })
+
+</script>
+<div class="modal fade" id="addRestroPopup">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">Add Menu</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 p-0">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+
+                                <div id="employee12" class="panel-collapse collapse show">
+                                    <div class="panel-body">
+
+
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4">Menu Name:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" placeholder="Menu Name" id="txtmenuname" onkeyup="RemoveClass();" />
+                                            </div>
+                                        </div>
+
+                                        @*<div class="row">
+                                                <label class="col-sm-4 col-md-4 col-4 col-form-label">Browse Image:</label>
+                                                <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                    <input type="file" id="files" name="pic" accept="image/*">
+                                                </div>
+                                            </div>*@
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pr-2">
+                <button type="button" class="btn btn-success mr-1" id="btnaddmenu">Add</button>
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@*<label id="lbleditlevelid" style="display: none" />
+<label id="lbleditlevel1id" style="display: none" />
+<label id="lbleditlevel2id" style="display: none" />*@
+<input type="hidden" id="lbleditlevelid">
+<input type="hidden" id="lbleditlevel1id">
+<input type="hidden" id="lbleditlevel2id">
+<input type="hidden" id="lbllevel">
+
+<div class="modal fade" id="Updatemenu">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">Update Menu</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 p-0">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+
+                                <div id="employee12" class="panel-collapse collapse show">
+                                    <div class="panel-body ml-3">
+
+
+                                        <div class="row" id="diveditmenu">
+                                            @*<span class="col-sm-4 col-md-10 col-4 col-form-label"><input type="text" class="form-control" placeholder="MAL-Menu" id="" /></span>
+                                            <div class="col-sm-8 col-md-2 col-8">
+                                                <i class="fa fa-pencil-square-o pt-2 fa-2x" style="color:#2dc740" aria-hidden="true"></i>
+                                                <i class="fa fa-trash pt-2 fa-2x" style="color:#ef5656 !important" aria-hidden="true"></i>
+                                            </div>*@
+                                        </div>
+                                        @*<div class="row">
+                                            <span class="col-sm-4 col-md-10 col-4 col-form-label"><input type="text" class="form-control" placeholder="BF-Menu" id="" /></span>
+                                            <div class="col-sm-8 col-md-2 col-8">
+                                                <i class="fa fa-pencil-square-o pt-2 fa-2x" style="color:#2dc740" aria-hidden="true"></i>
+                                                <i class="fa fa-trash pt-2 fa-2x" style="color:#ef5656 !important" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <sapn class="col-sm-4 col-md-10 col-4 col-form-label"><input type="text" class="form-control" placeholder="Test" id="" /></sapn>
+                                            <div class="col-sm-8 col-md-2 col-8">
+                                                <i class="fa fa-pencil-square-o pt-2 fa-2x" style="color:#2dc740" aria-hidden="true"></i>
+                                                <i class="fa fa-trash pt-2 fa-2x" style="color:#ef5656 !important" aria-hidden="true"></i>
+                                            </div>
+                                        </div>*@
+
+                                        @*<div class="row">
+                <label class="col-sm-4 col-md-4 col-4 col-form-label">Browse Image:</label>
+                <div class="col-sm-8 col-md-8 col-8 pl-0">
+                    <input type="file" id="files" name="pic" accept="image/*">
+                </div>
+            </div>*@
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pr-2">
+                <button type="button" class="btn btn-success mr-1" id="btndone">Done</button>
+
+
+
+            </div>
+        </div>
+        <label id="lblrestroid" style="display: none" />
+       
+    </div>
+    <label id="lblrestromenuid" style="display: none" />
+    <label id="lblmenulevel1id" style="display: none" />
+    <label id="lblmenulevel2id" style="display: none" />
+    <label id="lblmenulevel3id" style="display: none" />
+    <label id="lbllevelid" style="display: none" />
+    <label id="lbledititemid" style="display: none" />
+    @*<label id="lbleditlevelid" style="display: none" />
+    <label id="lbleditlevel1id" style="display: none" />
+    <label id="lbleditlevel2id" style="display: none" />*@
+    <label id="lbldellevelid" style="display: none" />
+    <label id="lbldellevel1id" style="display: none" />
+    <label id="lbldellevel2id" style="display: none" />
+
+</div>
+
+<div class="modal fade" id="addlevel">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title" id="haddlevel"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 p-0">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+
+                                <div id="employee12" class="panel-collapse collapse show">
+                                    <div class="panel-body">
+
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4">Level Name:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" placeholder="Level Name" id="txtlevel" onkeyup="RemoveClass();" />
+                                            </div>
+                                        </div>
+
+                                        @*<div class="row">
+                                                <label class="col-sm-4 col-md-4 col-4 col-form-label">Browse Image:</label>
+                                                <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                    <input type="file" id="files" name="pic" accept="image/*">
+                                                </div>
+                                            </div>*@
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pr-2">
+                <button type="button" class="btn btn-success mr-1" id="btnsavelevel"></button>
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="updatelevel">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">Update Level</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 p-0">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+
+                                <div id="employee12" class="panel-collapse collapse show">
+                                    <div class="panel-body">
+
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Level Name:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" placeholder="Level Name" id="txtupdatelevel"/>
+                                            </div>
+                                        </div>
+
+                                        @*<div class="row">
+                                                <label class="col-sm-4 col-md-4 col-4 col-form-label">Browse Image:</label>
+                                                <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                    <input type="file" id="files" name="pic" accept="image/*">
+                                                </div>
+                                            </div>*@
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pr-2">
+                <button type="button" class="btn btn-success mr-1" id="btnupdatelevel">Update</button>
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="sublevel">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">Sub Level</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 p-0">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+
+                                <div id="employee12" class="panel-collapse collapse show">
+                                    <div class="panel-body">
+
+
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4">Level Name:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" placeholder="Level Name" id="txtsublevel" onkeyup="RemoveClass();" />
+                                            </div>
+                                        </div>
+
+                                        @*<div class="row">
+                                                <label class="col-sm-4 col-md-4 col-4 col-form-label">Browse Image:</label>
+                                                <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                    <input type="file" id="files" name="pic" accept="image/*">
+                                                </div>
+                                            </div>*@
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pr-2">
+                <button type="button" class="btn btn-success mr-1" id="btnsublevel"></button>
+
+
+
+            </div>
+        </div>
+
+    </div>
+                        </div>
+
+
+<div class="modal fade" id="editItem">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">Edit Item</h4>
+                    </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 p-0">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+
+                                <div id="employee12" class="panel-collapse collapse show">
+                                    <div class="panel-body">
+
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Item Name:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                @*<input type="text" class="form-control" placeholder="Item Item" id="txtlevel" />*@
+                                                <label id="lbledititemname"></label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Item Price:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" placeholder="Item Price" id="txtedititemprice" onkeyup="RemoveClass();" />
+                </div>
+            </div>
+                                    
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pr-2">
+                <button type="button" class="btn btn-success mr-1" id="btnedititem">Update</button>
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@*<div class="modal fade" id="deletePopupconfirm">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/delete-icon.png" />
+
+                </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox" id="hconfirmdelete"></h5>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button class="btn btn-success btn-sm" id="btndelconfirm">Delete</button>
+
+                <button class="btn btn-success btn-sm mr-2" id="btncancelconfirm">Cancel</button>
+
+            </div>
+        </div>
+
+        <label id="lblUserId" style="display: none" />
+        <label id="lblrestroid" style="display: none" />
+        <input type="hidden" id="hdnconfirm" />
+
+
+
+    </div>
+</div>*@
+
+
+<div class="modal fade" id="confirmationPopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/png-warning-2.png">
+                </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox" id="hconfirm"></h5>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button class="btn btn-success btn-sm" id="yesBtn">Yes</button>
+                <button class="btn btn-success btn-sm mr-2" id="noBtn">No</button>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<script src="~/JavaScript/MenuCreation.js"></script>
+
+@*<script src="~/MinJavaScript/MenuCreation_min.js"></script>*@

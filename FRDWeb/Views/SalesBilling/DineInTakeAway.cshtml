@@ -1,0 +1,1263 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<style>
+    .h6heading {
+        text-align: center;
+        padding: 7px 0px 0px 0px;
+        border-top: 1px solid #cdcdcd;
+    }
+
+    .membercount {
+        position: absolute;
+        z-index: 999;
+        right: 30%;
+        top: 0;
+    }
+
+
+
+    .MultiCarousel {
+        float: left;
+        overflow: hidden;
+        padding: 0px;
+        width: 100%;
+        position: relative;
+    }
+
+        .MultiCarousel .MultiCarousel-inner {
+            transition: 1s ease all;
+            float: left;
+            margin-left: 30px;
+        }
+
+            .MultiCarousel .MultiCarousel-inner .item {
+                float: left;
+            }
+
+                .MultiCarousel .MultiCarousel-inner .item > div {
+                    text-align: center;
+                    padding: 5px;
+                    margin: 10px;
+                    background: #b3babb;
+                    color: #666;
+                }
+
+        .MultiCarousel .leftLst, .MultiCarousel .rightLst {
+            position: absolute;
+            /* border-radius: 50%; */
+            top: 0;
+            height: 75px;
+            width: 40px;
+            color: #38575f !important;
+            font-size: 32px;
+        }
+
+        .MultiCarousel .leftLst {
+            left: 0;
+        }
+
+        .MultiCarousel .rightLst {
+            right: 0;
+        }
+
+            .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over {
+                pointer-events: none;
+                background: #ccc;
+            }
+
+    .addonscroll {
+        overflow-y: scroll;
+        height: 288px;
+    }
+
+
+    .menuexitlist {
+        font-size: 19px;
+        cursor: pointer;
+    }
+
+    .roundbtn {
+        background-color: #fff !important;
+        border: 2px solid #fff !important;
+    }
+
+    .form-control {
+        height: 26px !important;
+        padding: 0px 4px !important;
+    }
+
+    .allbtn {
+        padding: 4px 15px 4px 15px !important;
+        font-size: 11px !important;
+        border-radius: 5px !important;
+        background-color: #385960 !important;
+        border: 1px solid #cdcdcd !important;
+    }
+
+    .item {
+        width: 130px !important;
+    }
+
+    .MenuBoxtopdiv {
+        width: 96% !important;
+        padding: 10px 2px 1px;
+        color: #27444a;
+        border-radius: 2px;
+        text-align: center;
+        height: 50px;
+        background: #cad0d0;
+        float: left;
+        border: 1px solid #a6b6b9;
+        margin: 4px;
+    }
+
+        .MenuBoxtopdiv h6 {
+            color: #193338;
+            padding-top: 2px;
+            margin-bottom: 4px;
+            font-weight: bold;
+            font-size: 11.5px;
+        }
+
+    #mainContent {
+        max-width: 100%;
+        flex: 100%;
+        padding: 0;
+    }
+
+    #navContent {
+        display: none;
+    }
+
+    #menoInfo .rightCon {
+        width: 55%;
+        overflow: hidden;
+        max-height: 518px;
+        min-height: 518px;
+        padding: 0px;
+    }
+
+    .subhead {
+        color: #183d44;
+        font-weight: bold;
+        padding-bottom: 0px;
+    }
+
+    .pullright {
+        float: right;
+    }
+
+    .MenuBox {
+        padding: 10px 2px 1px;
+        color: #27444a;
+        border-radius: 2px;
+        text-align: center;
+        width: 111px;
+        height: 50px;
+        background: #dfe6e6;
+        float: left;
+        border: 1px solid #a6b6b9;
+        margin: 4px;
+    }
+
+        .MenuBox h6 {
+            color: #193338;
+            padding-top: 6px;
+            margin-bottom: 4px;
+            font-weight: bold;
+            font-size: 11.5px;
+        }
+
+
+    .topMenuBox {
+        padding: 10px 2px 1px;
+        color: #27444a;
+        border-radius: 2px;
+        text-align: center;
+        width: 10%;
+        height: 63px;
+        background: #cad0d0;
+        float: left;
+        border: 1px solid #a6b6b9;
+        margin: 4px;
+    }
+
+        .topMenuBox h6 {
+            color: #193338;
+            padding-top: 6px;
+            margin-bottom: 4px;
+            font-weight: bold;
+            font-size: 11.5px;
+        }
+    /*.rightdiv {
+        overflow-y: scroll;
+    min-height: 360px;
+    max-height: 360px;
+    margin-left: 25px;
+    }*/
+
+    .menuListcreation {
+        font-size: 19px;
+        position: absolute;
+        right: 34px;
+        top: -1px;
+        cursor: pointer;
+    }
+
+        .menuListcreation a {
+            font-size: 13px;
+            font-weight: bold;
+            color: #193338;
+            margin-left: 5px;
+        }
+
+    .selectdrop {
+        font-size: 12px !important;
+        padding: 3px 25px 3px 3px !important;
+        border-radius: 2px !important;
+        background: rgba(255,255,255,0.1);
+    }
+
+    #selectMenu .dropdown:after {
+        top: 10px;
+        right: 5px;
+    }
+
+    #sourceTable {
+        min-height: 434px;
+        max-height: 434px;
+    }
+
+        #sourceTable tbody {
+            overflow: auto;
+            display: block;
+            max-height: 41vh;
+        }
+
+            #sourceTable tbody tr {
+                width: 100%;
+                display: table;
+                table-layout: fixed;
+            }
+
+
+        #sourceTable thead tr {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+        }
+
+    .leveltwobox {
+        padding: 10px 2px 1px;
+        color: #27444a !important;
+        border-radius: 2px;
+        text-align: center;
+        width: 92%;
+        height: 50px;
+        background: #decfcf !important;
+        float: left;
+        border: 1px solid #a6b6b9;
+        margin: 4px;
+    }
+
+    .levelthreebox {
+        padding: 10px 2px 1px;
+        color: #27444a !important;
+        border-radius: 2px;
+        text-align: center;
+        width: 92%;
+        height: 50px;
+        background: #97c8d2 !important;
+        float: left;
+        border: 1px solid #a6b6b9;
+        margin: 4px;
+    }
+
+    .exit {
+        height: 50px !important;
+        background-color: #3d6169 !important;
+        width: 85px;
+    }
+
+    .hold {
+        height: 50px !important;
+        background-color: #5e8f9a !important;
+        width: 85px;
+    }
+
+
+    .clearorder {
+        height: 50px !important;
+        background-color: #b35347 !important;
+        width: 85px;
+    }
+
+    .addonList {
+        display: block;
+        color: #ef4c31;
+        font-weight: normal !important;
+    }
+
+    .menuItemBox {
+        width: 219px;
+        border: 1px solid #cdcdcd;
+        margin: 10px;
+    }
+
+        .menuItemBox h6 {
+            text-align: center;
+            padding-top: 3px;
+        }
+
+    .imgheight {
+        height: 110px;
+    }
+
+        .imgheight img {
+            width: 100%;
+        }
+
+    #secondmenu {
+        overflow-y: scroll;
+        max-height: 66px;
+    }
+
+    #thirdmenu {
+        overflow-y: scroll;
+        max-height: 66px;
+    }
+
+    #fourthmenu {
+        overflow-y: scroll;
+        max-height: 233px;
+    }
+
+    .secondlevel {
+        background-color: #e2b688 !important;
+    }
+
+    .thirdlevel {
+        background-color: #e0a79f !important;
+    }
+
+    .fourthlevel {
+        background-color: #cdcdcd !important;
+    }
+
+    #btnconfirm {
+        height: 50px !important;
+        background-color: #2aa78a !important;
+        width: 85px;
+    }
+
+    #btnback {
+        height: 50px !important;
+        background-color: #88558c !important;
+        width: 85px;
+    }
+
+    .active {
+        background-color: #268fa2 !important;
+        color: #ffffff !important;
+    }
+
+    .noData {
+        margin-top: 20%;
+        display: block;
+        text-align: center;
+    }
+
+    .active h6 {
+        color: #ffffff !important;
+    }
+
+    .searchBox input {
+        border-bottom: 1px solid #2f6471;
+        padding: 2px 5px 1px;
+        border-radius: 0;
+        color: #385a61;
+        border-right: 0;
+        border-left: 0;
+        border-top: 0;
+        background-color: #eeeeee;
+        font-size: 16px !important;
+    }
+
+    .searchBox {
+        position: absolute !important;
+        left: -217px !important;
+        z-index: 999 !important;
+        top: 4px !important;
+    }
+
+        .searchBox i {
+            color: #aaa !important;
+            display: inline-block;
+            position: absolute;
+            right: 8px;
+            top: 5px;
+            font-size: 13px;
+        }
+
+    #mainmenu {
+        overflow-y: scroll;
+        max-height: 514px;
+    }
+
+    #btnsaveorder {
+        height: 50px;
+        background-color: #559b52;
+    }
+
+    .plusqty {
+        border: 1px solid #cdcdcd;
+        height: 26px;
+        width: 8%;
+        display: inline-block;
+    }
+
+    .minusqty {
+        border: 1px solid #cdcdcd;
+        height: 26px;
+        width: 8%;
+        display: inline-block;
+    }
+
+    .minusicon {
+        margin: 2px 7px 0px 7px;
+        font-size: 21px;
+        cursor: pointer;
+    }
+
+    .plusicon {
+        margin: 2px 7px 0px 7px;
+        font-size: 21px;
+        cursor: pointer;
+    }
+
+    #menoInfo .card-body {
+        min-height: 518px;
+        max-height: 518px;
+    }
+</style>
+<input type="hidden" id="lblrownumber" style="display:none" />
+
+<div class="row">
+    <div class="col-md-12 loader" id="preloader">
+        <span><img src="~/Content/images/loader(1).gif" style="width: 10%;" /></span>
+    </div>
+
+</div>
+
+<div class="fluid-container" style="display:block;">
+
+
+    <div class="pageHead">
+        <h4 class="pageTitle">Order Selection</h4>
+        <div class="menuListcreation">
+            @*<div class="lkhkjh mr-3" style="display:inline-block;">
+                            <label class="col-form-label" style="font-size: 13px!important;
+                font-weight: bold;">Table:</label>
+                            <label id="lbltableid"></label>
+
+
+                        </div>*@
+            <div class="searchBox" id="divsearch">
+                <div class="search">
+                    <i class="fa fa-search" aria-hidden="true"></i><input type="text" placeholder="Menu Search" id="txtinputitem">
+                </div>
+            </div>
+
+           <div class="lkhkjh mr-3" style="display:inline-block;">
+                <label class="col-form-label" style="font-size: 13px!important;
+    font-weight: bold;">Table:</label>
+                <label id="lbltableid"></label>
+
+
+            </div>
+
+            <div class="lkhkjh mr-3" style="display:inline-block;">
+                <label class="col-form-label" style="font-size: 13px!important;
+    font-weight: bold;">Order Number:</label>
+                <label id="lblorderno"></label>
+
+
+            </div>
+            <div class="lkhkjh" style="display:inline-block;" id="selectMenu">
+                <label class="col-form-label" style="font-size: 13px!important;
+    font-weight: bold;">Menu:</label>
+                <span class="dropdown">
+                    <select name="cars" class="selectdrop" id="ddlselectmenu" onchange="BindLevel();"></select>
+                </span>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="clearfix"></div>
+
+
+        <div class="card mt-0" id="">
+            <div class="card-body">
+                <div class="row">
+
+
+                    <div class="container">
+
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="card" id="menoInfo" style="height: 519px;">
+            <div class="card-body">
+                <div class="row mb-2">
+
+                    <div class="leftCon pl-0">
+                        <div class="col-md-12" id="sourceTable">
+                            <table id="tblItemlist">
+                                <thead>
+                                    <tr>
+
+                                        <th width="25%">Item Name</th>
+                                        <th>Price</th>
+                                        <th>Qty</th>
+                                        <th>Kot No.</th>
+                                        <th>Add</th>
+                                        <th>Sub</th>
+                                        <th>Delete</th>
+                                        @*<th>Addons</th>*@
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                        <div class="col-md-12 mt-2">
+                            <div class="row pull-right mr-1">
+                                <div class="buttonCon1 mt-2">
+
+                                    <button class="btn btn-success btn-sm allbtn" id="btnsaveorder">Send To Kitchen</button>
+                                    <button class="btn btn-success btn-sm allbtn clearorder" id="btnclrorder">Clear Order</button>
+                                    <button class="btn btn-success btn-sm allbtn hold" id="btnhold">Hold</button>
+                                    <button class="btn btn-success btn-sm allbtn exit" id="seqExit"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button>
+                                    <button class="btn btn-success btn-sm allbtn exit" id="btnexitrunning" style="display:none"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rightCon pl-0">
+                        <div class="col-md-12 p-0" id="mainmenu">
+                            <div class="row m-1" id="divlevel12">
+
+                                @*<div class="menuItemBox ">
+                                        <div class="imgheight">
+                                            <img src="~/Content/images/chinese.png" />
+                                        </div>
+                                        <h6 class="h6heading">chinese</h6>
+
+                                    </div>
+                                    <div class="menuItemBox ">
+                                        <div class="imgheight">
+                                            <img src="~/Content/images/dessert.png" />
+                                        </div>
+                                        <h6 class="h6heading">Dessert</h6>
+                                    </div>
+                                    <div class="menuItemBox ">
+                                        <div class="imgheight">
+                                            <img src="~/Content/images/drink.png" />
+                                        </div>
+                                        <h6 class="h6heading">Drink</h6>
+                                    </div>
+                                    <div class="menuItemBox ">
+                                        <div class="imgheight">
+                                            <img src="~/Content/images/main-course.png" />
+
+                                        </div>
+                                        <h6 class="h6heading">Main-Course</h6>
+                                    </div>
+                                    <div class="menuItemBox ">
+                                        <div class="imgheight">
+                                            <img src="~/Content/images/non-veg.png" />
+                                        </div>
+                                        <h6 class="h6heading">Non-Veg</h6>
+                                    </div>
+                                    <div class="menuItemBox ">
+                                        <div class="imgheight">
+                                            <img src="~/Content/images/snacks.png" />
+                                        </div>
+                                        <h6 class="h6heading">Snacks</h6>
+                                    </div>
+                                    <div class="menuItemBox ">
+                                        <div class="imgheight">
+                                            <img src="~/Content/images/southIndian.png" />
+                                        </div>
+                                        <h6 class="h6heading">south Indian</h6>
+                                    </div>
+                                    <div class="menuItemBox ">
+                                        <div class="imgheight">
+                                            <img src="~/Content/images/veg-platter.png" />
+                                        </div>
+                                        <h6 class="h6heading">Veg-Platter</h6>
+                                    </div>*@
+                            </div>
+
+
+
+
+
+                        </div>
+
+                        <div class="col-md-12 p-0" id="seconddiv" style="display:none;">
+                            <div class="col-md-12 p-0">
+                                <div class="pageHead" style="width: 97%; margin-left: 1%;margin-bottom: 0px !important; display:none; " id="secondleveldiv">
+                                    <h4 class="pageTitle" style="margin-bottom: 0px;">Second Level</h4>
+                                </div>
+                                <div class="col-md-12 p-0" id="secondmenu">
+                                    <div class="row m-1" id="divlevel2">
+
+
+                                    </div>
+                                </div>
+                                <div class="pageHead" style="width: 97%; margin-left: 1%;margin-bottom: 0px !important; display:none;" id="thirdleveldiv">
+                                    <h4 class="pageTitle" style="margin-bottom:0px">Third Level</h4>
+                                </div>
+                                <div class="col-md-12 p-0" id="thirdmenu">
+                                    <div class="row m-1" id="divlevel3">
+
+
+                                    </div>
+                                </div>
+                                <div class="pageHead" style="width: 97%; margin-left: 1%;margin-bottom: 0px !important; display:none" id="divitems">
+                                    <h4 class="pageTitle" style="margin-bottom:0px">Items</h4>
+                                </div>
+                                <div class="col-md-12 p-0" id="fourthmenu">
+                                    <div class="row m-1" id="divitemlist">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="noData" id="divnodata" style="display:none">
+                                <h5>No Data To Display</h5>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-7 p-0" style="position:absolute;bottom:0px;" id="divbackbtn">
+                            <div class=" ml-1">
+                                <div class="row">
+                                    <div class="col-md-7 pl-0" style="margin-top: 16px;">
+                                        <div id="divpageHead">
+                                            <div class="col-md-3 pr-0" style="display:inline-block">
+                                                <span style="font-size: 14px;font-weight: bold;">Quantity</span>
+
+                                            </div>
+                                            <div class="pr-0 minusqty">
+
+
+
+                                                <span><i class="fa fa-minus-circle minusicon" aria-hidden="true" onclick="DecQty();"></i></span>
+                                            </div>
+                                            <div class="col-md-2" style="display:inline-block;">
+                                                <label class="ml-3 mt-2" id="txtQty">1</label>
+
+                                            </div>
+                                            <div class="plusqty">
+                                                <span><i class="fa fa-plus-circle plusicon" aria-hidden="true" style="" onclick="IncQty();"></i></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-4 pr-0">
+                                        <div class="menuexitlist">
+                                            <div class="buttonCon1 pull-right mt-1">
+                                                <button class="btn btn-success btn-sm allbtn" id="btnconfirm" style="display:none;"><i class="" aria-hidden="true"></i>Confirm</button>
+                                                <button class="btn btn-success btn-sm allbtn" id="btnback"><i class="" aria-hidden="true"></i>Back</button>
+                                                @*<button class="btn btn-success btn-sm allbtn" id="seqExit"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button>
+                                                    <button class="btn btn-success btn-sm allbtn" id="btnexitrunning" style="display:none"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button>*@
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="display:none">
+        <div id="carouselExample" class="carouselPrograms carousel slide" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                <div class="carousel-item col-md-4  active">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                            <a href="#" title="image 1" class="thumb">
+                                <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=1" alt="slide 1">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item col-md-4 ">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                            <a href="#" title="image 3" class="thumb">
+                                <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=2" alt="slide 2">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item col-md-4 ">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                            <a href="#" title="image 4" class="thumb">
+                                <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=3" alt="slide 3">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item col-md-4 ">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                            <a href="#" title="image 5" class="thumb">
+                                <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=4" alt="slide 4">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item col-md-4 ">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                            <a href="#" title="image 6" class="thumb">
+                                <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=5" alt="slide 5">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item col-md-4 ">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                            <a href="#" title="image 7" class="thumb">
+                                <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=6" alt="slide 6">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item col-md-4 ">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                            <a href="#" title="image 8" class="thumb">
+                                <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=7" alt="slide 7">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item col-md-4  ">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                            <a href="#" title="image 2" class="thumb">
+                                <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=8" alt="slide 8">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="Addons">
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Add-on
+
+                </h4>
+            </div>
+
+
+            <div class="modal-body">
+
+
+                <div class="addonscroll" id="destinationFields">
+                    @*<div class="MenuBox">
+
+
+                             <h6>Mixed Appetizers</h6>
+                         </div>
+
+                        <div class="MenuBox">
+
+
+                             <h6>Mixed Appetizers</h6>
+                         </div>
+                         <div class="MenuBox">
+
+                             <h6>Tabbouleh</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Fattoush</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Helba</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Hummus</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Vine Leaves</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Mutabal</h6>
+                         </div>
+                         <div class="MenuBox">
+
+
+                             <h6>Mixed Appetizers</h6>
+                         </div>
+                         <div class="MenuBox">
+
+                             <h6>Tabbouleh</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Fattoush</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Helba</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Hummus</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Vine Leaves</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Mutabal</h6>
+                         </div>
+                         <div class="MenuBox">
+
+
+                             <h6>Mixed Appetizers</h6>
+                         </div>
+                         <div class="MenuBox">
+
+                             <h6>Tabbouleh</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Fattoush</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Helba</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Hummus</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Vine Leaves</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Mutabal</h6>
+                         </div>
+                         <div class="MenuBox">
+
+
+                             <h6>Mixed Appetizers</h6>
+                         </div>
+                         <div class="MenuBox">
+
+                             <h6>Tabbouleh</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Helba</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Hummus</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Vine Leaves</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Mutabal</h6>
+                         </div>
+                         <div class="MenuBox">
+
+
+                             <h6>Mixed Appetizers</h6>
+                         </div>
+                         <div class="MenuBox">
+
+                             <h6>Tabbouleh</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Fattoush</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Helba</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Hummus</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Vine Leaves</h6>
+                         </div>
+                         <div class="MenuBox">
+                             <h6>Mutabal</h6>
+                         </div>
+                         <div class="MenuBox">
+
+
+                             <h6>Mixed Appetizers</h6>
+                         </div>
+                         <div class="MenuBox">
+
+                             <h6>Tabbouleh</h6>
+                         </div>*@
+
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-sm" id="btnaddonok" data-dismiss="modal">OK</button>
+            </div>
+            <label id="lblitemid" style="display: none" />
+        </div>
+
+        <label id="lblrestromenuitemid" style="display: none" />
+        <label id="lblorderid" style="display: none" />
+        <label id="lblorderidaftersave" style="display: none" />
+
+        @*<label id="lblrestroid" style="display: none" />*@
+
+    </div>
+    <label id="lblrestroid" style="display: none" />
+
+
+</div>
+<div class="modal" id="savesuccessPopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" id="btncrosscloase">
+                        <span class="cross">&times;</span>
+                    </button>*@
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/success-icon.png" />
+
+                </h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h6 class="centerBox" id="popupsuccess1" style="font-size: 11px;font-weight: bold;"></h6>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnsaveok">OK</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="confirmPopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/png-warning-2.png">
+                </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox" id="popconfirm"></h5>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button class="btn btn-success btn-sm" id="btnconfyes">Yes</button>
+                <button class="btn btn-success btn-sm mr-2" id="btnconfno">No</button>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<script>
+    jquery_min_p(document).ready(function () {
+
+        jquery_min_p('#seqExit').click(function () {
+
+            jquery_min_p("#hconfirm").text('Are You Sure Want To Exit?')
+            bootstrap_min_p("#confirmationPopup").modal('show');
+            jquery_min_p("#yesBtn").click(function () {
+
+                window.location = "/SalesBilling/NewOrder";
+                reset();
+                //jquery_min_p("#btnsaveorder").css("display", "none");
+            });
+
+
+        });
+    })
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        var itemsMainDiv = ('.MultiCarousel');
+        var itemsDiv = ('.MultiCarousel-inner');
+        var itemWidth = "";
+
+        $('.leftLst, .rightLst').click(function () {
+            var condition = $(this).hasClass("leftLst");
+            if (condition)
+                click(0, this);
+            else
+                click(1, this)
+        });
+
+        ResCarouselSize();
+
+
+
+
+        $(window).resize(function () {
+            ResCarouselSize();
+        });
+
+        //this function define the size of the items
+        function ResCarouselSize() {
+            var incno = 0;
+            var dataItems = ("data-items");
+            var itemClass = ('.item');
+            var id = 0;
+            var btnParentSb = '';
+            var itemsSplit = '';
+            var sampwidth = $(itemsMainDiv).width();
+            var bodyWidth = $('body').width();
+            $(itemsDiv).each(function () {
+                id = id + 1;
+                var itemNumbers = $(this).find(itemClass).length;
+                btnParentSb = $(this).parent().attr(dataItems);
+                itemsSplit = btnParentSb.split(',');
+                $(this).parent().attr("id", "MultiCarousel" + id);
+                $(this).parent().attr("id", "MultiCarousel1" + id);
+                $(this).parent().attr("id", "MultiCarousel2" + id);
+                if (bodyWidth >= 1200) {
+                    incno = itemsSplit[2];
+                    itemWidth = sampwidth / incno;
+                }
+                else if (bodyWidth >= 992) {
+                    incno = itemsSplit[2];
+                    itemWidth = sampwidth / incno;
+                }
+                else if (bodyWidth >= 768) {
+                    incno = itemsSplit[1];
+                    itemWidth = sampwidth / incno;
+                }
+                else {
+                    incno = itemsSplit[0];
+                    itemWidth = sampwidth / incno;
+                }
+                $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
+                $(this).find(itemClass).each(function () {
+                    $(this).outerWidth(itemWidth);
+                });
+
+                $(".leftLst").addClass("over");
+                $(".rightLst").removeClass("over");
+
+            });
+        }
+
+
+        //this function used to move the items
+        function ResCarousel(e, el, s) {
+            var leftBtn = ('.leftLst');
+            var rightBtn = ('.rightLst');
+            var translateXval = '';
+            var divStyle = $(el + ' ' + itemsDiv).css('transform');
+            var values = divStyle.match(/-?[\d\.]+/g);
+            var xds = Math.abs(values[4]);
+            if (e == 0) {
+                translateXval = parseInt(xds) - parseInt(itemWidth * s);
+                $(el + ' ' + rightBtn).removeClass("over");
+
+                if (translateXval <= itemWidth / 2) {
+                    translateXval = 0;
+                    $(el + ' ' + leftBtn).addClass("over");
+                }
+            }
+            else if (e == 1) {
+                var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
+                translateXval = parseInt(xds) + parseInt(itemWidth * s);
+                $(el + ' ' + leftBtn).removeClass("over");
+
+                if (translateXval >= itemsCondition - itemWidth / 2) {
+                    translateXval = itemsCondition;
+                    $(el + ' ' + rightBtn).addClass("over");
+                }
+            }
+            $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
+        }
+
+        //It is used to get some elements from btn
+        function click(ell, ee) {
+            var Parent = "#" + $(ee).parent().attr("id");
+            var slide = $(Parent).attr("data-slide");
+            ResCarousel(ell, Parent, slide);
+        }
+
+    });
+</script>
+<script>
+    function GetUnique(e) {
+        var l = [],
+            s = temp_c = [],
+            t = ["col-md-1", "col-md-2", "col-md-3", "col-md-4", "col-md-6", "col-md-12", "col-sm-1", "col-sm-2", "col-sm-3", "col-sm-4", "col-sm-6", "col-sm-12", "col-lg-1", "col-lg-2", "col-lg-3", "col-lg-4", "col-lg-6", "col-lg-12", "col-xs-1", "col-xs-2", "col-xs-3", "col-xs-4", "col-xs-6", "col-xs-12", "col-xl-1", "col-xl-2", "col-xl-3", "col-xl-4", "col-xl-6", "col-xl-12"];
+        $(e).each(function () {
+            for (var l = $(e + " > div").attr("class").split(/\s+/), t = 0; t < l.length; t++) s.push(l[t])
+        });
+        for (var c = 0; c < s.length; c++) temp_c = s[c].split("-"), 2 == temp_c.length && (temp_c.push(""), temp_c[2] = temp_c[1], temp_c[1] = "xs", s[c] = temp_c.join("-")), -1 == $.inArray(s[c], l) && $.inArray(s[c], t) && l.push(s[c]);
+        return l
+    }
+
+    function setcss(e, l, s) {
+        for (var t = ["", "", "", "", "", ""], c = d = f = g = 0, r = [1200, 992, 768, 567, 0], o = [], a = 0; a < e.length; a++) {
+            var i = e[a].split("-");
+            if (3 == i.length) {
+                switch (i[1]) {
+                    case "xl":
+                        d = 0;
+                        break;
+                    case "lg":
+                        d = 1;
+                        break;
+                    case "md":
+                        d = 2;
+                        break;
+                    case "sm":
+                        d = 3;
+                        break;
+                    case "xs":
+                        d = 4
+                }
+                t[d] = i[2]
+            }
+        }
+        for (var n = 0; n < t.length; n++)
+            if ("" !== t[n]) {
+                if (0 === c && (c = 12 / t[n]), f = 12 / t[n], g = 100 / f, a = s + " > .carousel-item.active.carousel-item-right," + s + " > .carousel-item.carousel-item-next {-webkit-transform: translate3d(" + g + "%, 0, 0);transform: translate3d(" + g + ", 0, 0);left: 0;}" + s + " > .carousel-item.active.carousel-item-left," + s + " > .carousel-item.carousel-item-prev {-webkit-transform: translate3d(-" + g + "%, 0, 0);transform: translate3d(-" + g + "%, 0, 0);left: 0;}" + s + " > .carousel-item.carousel-item-left, " + s + " > .carousel-item.carousel-item-prev.carousel-item-right, " + s + " > .carousel-item.active {-webkit-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);left: 0;}", f > 1) {
+                    for (k = 0; k < f - 1; k++) o.push(l + " .cloneditem-" + k);
+                    o.length && (a = a + o.join(",") + "{display: block;}"), o = []
+                }
+                @*0 !== r[n] && (a = "@media all and (min-width: " + r[n] + "px) {" + a + "}"), $("#slider-css").prepend(a)*@
+            } $(l).each(function () {
+                for (var e = $(this), l = 0; l < c - 1; l++) (e = e.next()).length || (e = $(this).siblings(":first")), e.children(":first-child").clone().addClass("cloneditem-" + l).appendTo($(this))
+            })
+    }
+
+    //Use Different Slider IDs for multiple slider
+    jquery_min_p(document).ready(function () {
+        jquery_min_p('#mainmenu .menuItemBox').click(function () {
+            jquery_min_p('#mainmenu').css('display', 'none');
+            jquery_min_p('#seconddiv').css('display', 'contents');
+        })
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+        jquery_min_p("#lblrestroid").text(id);
+
+        var name = GetParameterValues('OrderId');
+        var neworderid = GetParameterValues('OrderIdnew');
+
+        function GetParameterValues(param) {
+            var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < url.length; i++) {
+                var urlparam = url[i].split('=');
+                if (urlparam[0] == param) {
+                    return urlparam[1];
+                }
+            }
+        }
+        jquery_min_p("#lblorderid").text(name);
+        //var id = 324559;
+        //jquery_min_p("#lblorderidaftersave").text(id);
+
+        var item = '#slider-1 .carousel-item';
+        var item_inner = "#slider-1 .carousel-inner";
+        classes = GetUnique(item);
+        setcss(classes, item, item_inner);
+
+
+        var item_1 = '#slider-2 .carousel-item';
+        var item_inner_1 = "#slider-2 .carousel-inner";
+        classes = GetUnique(item_1);
+        setcss(classes, item_1, item_inner_1);
+    });
+
+
+
+</script>
+<script src="~/JavaScript/DineInTakeAway.js"></script>
+
+@*<script src="~/MinJavaScript/TakeAway_min.js"></script>*@

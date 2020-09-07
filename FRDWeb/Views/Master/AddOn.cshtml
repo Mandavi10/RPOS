@@ -1,0 +1,649 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+<script src="~/Content/js/jquery.filtertable.min.js"></script>
+
+<script type="text/javascript">
+    jquery_min_p(document).ready(function () {
+
+        jquery_min_p('#Itemtable').filterTable({ ignoreClass: 'no-filter' });
+
+    });
+</script>
+
+
+
+
+
+
+<script>
+    jquery_min_p(document).ready(function () {
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+        jquery_min_p("#lblrestroid").text(id);
+        //alert(id);
+    })
+
+</script>
+<script src="~/JavaScript/AddOn.js"></script>
+@*<script src="~/MinJavaScript/AddOn_min.js"></script>*@
+<style>
+       .searchBox2 {
+    position: absolute !important;
+    right: 17px !important;
+    z-index: 999;
+    top: 0px !important;
+}
+
+      .searchBox2 i {
+    color: #aaa !important;
+    display: inline-block;
+    position: absolute;
+    right: 8px;
+    top: 5px;
+}
+
+      .searchBox2 input {
+    border: 1px solid #bcc2c3;
+    padding: 2px 5px 1px;
+    border-radius: 2px;
+    color: #385a61;
+    background: #fbfbfb;
+}
+
+
+      .searchBox1 {
+    position: absolute !important;
+    right: 1px !important;
+    z-index: 999;
+    top: 6px !important;
+}
+
+      .searchBox1 i {
+    color: #aaa !important;
+    display: inline-block;
+    position: absolute;
+    right: 8px;
+    top: 5px;
+}
+
+      .searchBox1 input {
+    border: 1px solid #bcc2c3;
+    padding: 2px 5px 1px;
+    border-radius: 2px;
+    color: #385a61;
+    background: #fbfbfb;
+}
+
+    .cardheight {
+        min-height: 486px;
+    }
+
+    .backcolor {
+        background: #f1f5f5;
+    padding: 5px;
+    border-radius:5px;
+    }
+    .pagebtn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1rem;
+    
+}
+    .scrolladdon {
+        max-height: 396px;
+    overflow-y: scroll;
+    }
+       #addongrd tbody {
+    overflow: auto;
+    display: block;
+    max-height: 59vh;
+}
+
+#addongrd tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+        
+        
+   #addongrd thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}  
+
+</style>
+<div class="row" style="display:none;">
+    <div class="col-md-12 loader" id="preloader">
+        <span><img src="~/Content/images/loader(1).gif" style="width: 10%;"/></span>
+    </div>
+    
+</div>
+<div class="container">
+    <div class="pageHead">
+        <h4 class="pageTitle">Add-On</h4>
+        
+    </div>
+    <div class="clearfix"></div>
+    <div class="card" id="empDetails" style="display:none">
+       
+
+        
+
+        <div class="card-body mt-2 cardheight">
+                <div class="row">
+
+                    <div class="col-md-6 mt-2" id="itemnameinput">
+                        <div class="searchBox2">
+                            <div class="search">
+                                <i class="fa fa-search" aria-hidden="true"></i><input type="text" placeholder="Search" id="txtinputitem" maxlength="50"/>
+                            </div>
+                        </div>
+                        @*<div class="col-md-12 p-0">
+                <div class="col-md-2 pull-left p-0">
+                    <span class="">
+                        <input type="checkbox" name="" value="other" /><label class="ml-1">Menu</label>
+                    </span>
+                </div>
+                <div class="col-md-2 pull-left p-0">
+                    <span class="">
+                        <input type="checkbox" name="" value="other" /><label class="ml-1">Item</label>
+                    </span>
+                </div>
+            </div>*@
+                        <div id="addongrd" class="mt-4">
+                            <div id="dvTable">
+                            <table id="Itemtable">
+                                <thead>
+                                    <tr>
+                                        <th>Select</th>
+                                        <th>Item Name</th>
+                                        <th>Add-ons Qty</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody id="tblitemlist">
+                                    @*<tr>
+                                        <td>
+                                            <span class="">
+                                                <input type="checkbox" name="" value="other" />
+                                            </span>
+                                        </td>
+                                        <td>Contains</td>
+                                        <td>Equals</td>
+
+
+                                    </tr>*@
+                                    @* <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Orange juice</td>
+                            <td>2</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="">
+                                    <input type="checkbox" name="" value="other" />
+                                </span>
+                            </td>
+                            <td>Sprite 250ml</td>
+                            <td>4</td>
+
+
+                        </tr>*@
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+                        <div class="pagebtn pr-0">
+                            <button type="button" class="btn btn-success btn-sm mr-1" data-dismiss="modal" id="btnproceed">Proceed<i class="fa fa-forward pl-1"></i></button>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-6" >
+                        <div class="col-md-12 p-0">
+                            <h4 class="pageTitle">
+                                <span class="">
+                                    Add On List
+                                </span>
+
+                            </h4>
+                            <div class="searchBox1">
+                                <div class="search">
+                                    <i class="fa fa-search" aria-hidden="true"></i><input type="text" placeholder="Search" id="txtinputaddon" maxlength="50" />
+                                </div>
+                            </div>
+                        </div>
+                            
+                            <div class="col-md-12 scrolladdon p-0" id="divaddons">
+                                @*<table id="divaddonlist">
+                <tbody>*@
+                                @*<tr>
+
+                    <td><input type="checkbox" name="" value="other" /><label class="ml-2 mb-0"></label></td>
+                    <td><input type="checkbox" name="" value="other" /><label class="ml-2 mb-0"></label></td>
+
+                </tr>*@
+                                @*<tr>
+
+                                <td><input type="checkbox" name="" value="other" /><label class="ml-2 mb-0">Orange juice</label></td>
+                                <td><input type="checkbox" name="" value="other" /><label class="ml-2 mb-0">Orange juice</label></td>
+
+                            </tr>
+                            <tr>
+
+                                <td><input type="checkbox" name="" value="other" /><label class="ml-2 mb-0">Orange juice</label></td>
+                                <td><input type="checkbox" name="" value="other" /><label class="ml-2 mb-0">Orange juice</label></td>
+
+                            </tr>
+                            <tr>
+
+                                <td><input type="checkbox" name="" value="other" /><label class="ml-2 mb-0">Orange juice</label></td>
+                                <td><input type="checkbox" name="" value="other" /><label class="ml-2 mb-0">Orange juice</label></td>
+
+                </tr>*@
+                                @*</tbody>
+                </table>*@
+                            </div>
+                        
+
+                        <div class="pagebtn pr-0">
+                            <button type="button" id="btnopenaddonpopup" class="btn btn-success btn-sm mr-1" data-toggle="modal" data-target="#Addons"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+                            <button type="button" id="btndeladdon" class="btn btn-success btn-sm mr-2"><i class="fa fa-trash" aria-hidden="true" style="color:#fff;"></i>Delete</button>
+                            <button class="btn btn-success btn-sm pull-right"><a href="/Home/Index"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</a></button>
+                           </div>
+
+                    </div>
+
+
+            </div>
+        </div>
+        </div>  
+
+    
+
+
+
+</div>
+
+
+<div class="modal fade" id="DeleteAddonepopup" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/delete-icon.png" />
+
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 text-center">
+                        <h6>Are you sure you want to delete?</h6>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-sm mr-4" id="BtnDelete">Yes</button>
+                <button type="button" class="btn btn-success btn-sm mr-5" id="BtnNo">No</button>
+                        </div>
+
+                    </div>
+        <label id="lblrestroid" style="display: none" />
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="warningpopup" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/png-warning-2.png">
+
+                </h4>
+
+                
+                    
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12">
+                        <h6 id="lblwarning" style="text-align:center;"></h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="BtnOk" data-dismiss="modal">OK</button>
+                </div>
+        
+            </div>
+        </div>  
+</div>
+
+
+<div class="modal fade" id="Addonspopup" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">Add Ons</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 p-0">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row pt-1">
+                                    <label class="col-md-4 fontBold">Code:</label>
+
+                                    <input type="text" class="form-control col-md-7" maxlength="4" placeholder="Code" id="txtaddoncode" onkeyup="RemoveClass();" />
+                                </div>
+                                <div class="row pt-1">
+                                    <label class="col-md-4 fontBold">Name:</label>
+
+                                    <input type="text" class="form-control col-md-7" maxlength="50" placeholder="Name" id="txtaddonname" onkeyup="RemoveClass();" />
+                                </div>
+                               
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pr-0">
+                <button type="button" class="btn btn-success btn-sm mr-4"  id="btnAdd">Add</button>
+               
+            </div>
+            @*<div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnaddonsave">Submit</button>
+            </div>*@
+        </div>
+        <label id="lblrestroid" style="display: none" />
+    </div>
+</div>
+

@@ -1,0 +1,479 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+<script src="~/Content/js/jquery.filtertable.min.js"></script>
+<script src="~/JavaScript/NewItem.js"></script>
+@*<script src="~/MinJavaScript/NewItem_min.js"></script>*@
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    jquery_min_p(document).ready(function () {
+
+        jquery_min_p('#newItemGrid').filterTable();
+
+          });
+</script>
+<style>
+
+     .active {
+        background: #94c8d2 !important;
+    }
+  .searchBox {
+    position: absolute !important;
+    left: 15px;
+    z-index: 999;
+    top: 7%;
+}
+
+
+    #mainContent {
+        max-width: 100%;
+        flex: 100%;
+    }
+
+    #navContent {
+        display: none;
+    }
+    .mainCon {
+    min-height: 480px;
+    overflow: hidden;
+    padding-top: 1px !important;
+    padding-bottom: 20px !important;
+}
+</style>
+
+<div class="container" id="newItem">
+
+
+    <div class="pageHead" >
+        <h4 class="pageTitle" id="txtItemName"></h4>
+        <div class="menuList pull-right">
+            <button type="button" class="btn btn-success btn-sm mt-1" id="createItemGroupBtn" data-toggle="modal" style="display:none;"><i class="fa fa-plus" aria-hidden="true"></i>Add New Item Group</button>
+            <button type="button" class="btn btn-success btn-sm mt-1" id="createItemBtn" data-toggle="modal" style="display:none;"><i class="fa fa-plus" aria-hidden="true"></i>Add New Item</button>
+        </div>
+    </div>
+
+    <div class="searchBox">
+        <div class="search" style="display:none" id="dvsearch">
+            <i class="fa fa-search" aria-hidden="true"></i><input type="text" placeholder="Search" autocomplete="off" id="txtsearch" maxlength="50" />
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="card mt-4">
+
+        <div class="card-body mainCon" id="dvnewitemcard">
+            <div class="createBox" id="createNewItem">
+                <div class="row">
+                    <div class="col-md-5 box-sm" id="divcreateItemGroupBtn">
+                        <img src="~/Content/images/item_group.png" />
+                        <span class="defineHead">Item Group</span>
+                    </div>
+                    <div class="col-md-5 box-sm" id="divcreateItemBtn">
+                        <img src="~/Content/images/item.png" />
+                        <span class="defineHead">Item</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2" id="divitemgroup" style="display:none;">
+                <div class="col-md-12" style="display:none;">
+                    <div class="pageHead">
+                        <h4 class="pageTitle"></h4>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <div id="itemGroup" class="panel-collapse collapse show">
+                        <div class="col-12 col-md-12 p-0">
+                            <table id="itemGroupGrid">
+                                <thead>
+                                    <tr>
+                                        <th>Item Group Code</th>
+                                        <th>Item Group Name</th>
+                                        <th>Description</th>
+                                        <th>Main Account</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @*<tr>
+                                        <td>2050</td>
+                                        <td>Item Group 1</td>
+                                        <td>Item Group</td>
+                                        <td>111</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2050</td>
+                                        <td>Item Group 1</td>
+                                        <td>Item Group</td>
+                                        <td>111</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2050</td>
+                                        <td>Item Group 1</td>
+                                        <td>Item Group</td>
+                                        <td>111</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2050</td>
+                                        <td>Item Group 1</td>
+                                        <td>Item Group</td>
+                                        <td>111</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2050</td>
+                                        <td>Item Group 1</td>
+                                        <td>Item Group</td>
+                                        <td>111</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2050</td>
+                                        <td>Item Group 1</td>
+                                        <td>Item Group</td>
+                                        <td>111</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2050</td>
+                                        <td>Item Group 1</td>
+                                        <td>Item Group</td>
+                                        <td>111</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2050</td>
+                                        <td>Item Group 1</td>
+                                        <td>Item Group</td>
+                                        <td>111</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2050</td>
+                                        <td>Item Group 1</td>
+                                        <td>Item Group</td>
+                                        <td>111</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2050</td>
+                                        <td>Item Group 1</td>
+                                        <td>Item Group</td>
+                                        <td>111</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2050</td>
+                                        <td>Item Group 1</td>
+                                        <td>Item Group</td>
+                                        <td>111</td>
+
+                                    </tr>*@
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2" id="divitem" style="display:none;">
+                <div class="col-md-12" style="display:none;">
+                    <div class="pageHead">
+                        <h4 class="pageTitle"></h4>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <div id="newItem" class="panel-collapse collapse show">
+                        <div class="col-12 col-md-12 p-0">
+
+                            <div id="dvTable">
+                                <table id="newItemGrid">
+                                    @*<thead>
+                                        <tr>
+                                            <th>Item No.</th>
+                                            <th>Item Name</th>
+                                            <th>Item Group</th>
+                                            <th>Unit Of Measure</th>
+                                        </tr>
+                                    </thead>*@
+                                    @*<tbody>
+                                        <tr>
+                                            <td>1050</td>
+                                            <td>Item Name 1</td>
+                                            <td>Item Group 1</td>
+                                            <td>Kg</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>1050</td>
+                                            <td>Item Name 1</td>
+                                            <td>Item Group 1</td>
+                                            <td>Kg</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>1050</td>
+                                            <td>Item Name 1</td>
+                                            <td>Item Group 1</td>
+                                            <td>Kg</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>1050</td>
+                                            <td>Item Name 1</td>
+                                            <td>Item Group 1</td>
+                                            <td>Kg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1050</td>
+                                            <td>Item Name 1</td>
+                                            <td>Item Group 1</td>
+                                            <td>Kg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1050</td>
+                                            <td>Item Name 1</td>
+                                            <td>Item Group 1</td>
+                                            <td>Kg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1050</td>
+                                            <td>Item Name 1</td>
+                                            <td>Item Group 1</td>
+                                            <td>Kg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1050</td>
+                                            <td>Item Name 1</td>
+                                            <td>Item Group 1</td>
+                                            <td>Kg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1050</td>
+                                            <td>Item Name 1</td>
+                                            <td>Item Group 1</td>
+                                            <td>Kg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1050</td>
+                                            <td>Item Name 1</td>
+                                            <td>Item Group 1</td>
+                                            <td>Kg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1050</td>
+                                            <td>Item Name 1</td>
+                                            <td>Item Group 1</td>
+                                            <td>Kg</td>
+                                        </tr>
+                                    </tbody>*@
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttonCon">
+            <button class="btn btn-success btn-sm" id="btnback" style="display:none"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</button>
+            <button class="btn btn-success btn-sm" id="itemExit" ><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button>
+
+            
+        </div>
+    </div>
+
+
+</div>
+<div class="modal" id="newItemGroupPopup" role="dialog">
+    <div class="modal-dialog modal-md">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" id="btncloseitemgroup">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title" id="lblitemgroup">Create New Item Group</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row pt-1">
+                            <label class="col-md-4 fontBold p-0">Item Group Code:</label>
+
+                            <input type="text" id="txtgrpcode" maxlength="10" class="form-control col-md-8" placeholder="Item Group Code" onkeyup="GroupRemoveClass();" onblur="CheckGroupcode();" />
+
+                        </div>
+
+                        <div class="row pt-1">
+                            <label class="col-md-4 fontBold p-0">Item Group Name:</label>
+
+                            <input type="text" id="txtgrpname" maxlength="15" class="form-control col-md-8" placeholder="Item Group Name" onkeyup="GroupRemoveClass();" />
+
+                        </div>
+                        <div class="row pt-1">
+                            <label class="col-md-4 fontBold p-0">Description:</label>
+                            <input type="text" id="txtdescription" maxlength="35" class="form-control col-md-8" placeholder="Description" onkeyup="GroupRemoveClass();" />
+
+
+                        </div>
+                        <div class="row pt-1">
+                            <label class="col-md-4 fontBold p-0">Main Account:</label>
+                            <input type="text" id="txtmainaccount" maxlength="10" class="form-control col-md-8" placeholder="Main Account" onkeyup="GroupRemoveClass();" />
+
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer pr-0">
+                <button type="button" id="btnitemgroupsave" class="btn btn-success btn-sm mr-2" data-dismiss="modal" style="display:none">Save</button>
+                <button type="button" id="btnitemgroupupdate" class="btn btn-success btn-sm mr-2" data-dismiss="modal" style="display:none">Update</button>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+<div class="modal" id="newItemPopup" role="dialog">
+    <div class="modal-dialog modal-md">
+
+        <!-- Modal content-->
+        <div class="modal-content" id="divnewitem">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncloseitem">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title" id="lblitem">Create New Item</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row pt-1">
+                            <label class="col-md-4 fontBold p-0">Item No.:</label>
+
+                            <input type="text" id="txtitemcode" class="form-control col-md-8" placeholder="Item No." disabled />
+
+                        </div>
+
+                        <div class="row pt-1">
+                            <label class="col-md-4 fontBold p-0">Item Name:</label>
+
+                            <input type="text" id="txtname" maxlength="50" class="form-control col-md-8" placeholder="Item Name" onkeyup="ItemRemoveClass();" />
+
+                        </div>
+                        <div class="row pt-1">
+                            <label class="col-md-4 fontBold p-0">Item Group:</label>
+                            <div class="col-md-8 dropdown p-0">
+                                <select class="form-control" id="ddlitemgroup" onchange="ItemRemoveClass();" style="height: 27px; display: block;">
+                                    <option value="0" selected="selected">Select</option>
+
+
+                                    @*<option>Item Group 1</option>
+            <option>Item Group 2</option>
+            <option>Item Group 3</option>
+            <option>Item Group 4</option>
+            <option>Item Group 5</option>*@
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row pt-1">
+                            <label class="col-md-4 fontBold p-0">Unit Of Measure:</label>
+                            <div class="col-md-8 dropdown p-0">
+                                <select class="form-control" id="ddlUOM" onchange="ItemRemoveClass();" style="height: 27px; display: block;">
+                                    <option value="0" selected="selected">Select</option>
+
+                               
+
+                                    @*<option>Pack</option>
+            <option>Order</option>
+            <option>Pieces</option>
+            <option>Litres</option>**@
+
+                                </select>
+</div>
+                        </div>
+
+
+                        <div class="row pt-1">
+                            <label class="col-md-4 fontBold p-0">Item Price:</label>
+
+                            <input type="text" id="txtitemprice" maxlength="7"  class="form-control col-md-8" placeholder="Item Price" onkeyup="ItemRemoveClass();" />
+
+                        </div>
+
+
+                    </div>
+                    <label id="lblitemid" style="display:none"></label>
+                    <label id="lblgroupitemid" style="display:none"></label>
+
+                </div>
+
+            </div>
+            <div class="modal-footer pr-0">
+                <button type="button" class="btn btn-success btn-sm mr-2" id="btnnewitemsave" style="display:none">Save</button>
+                <button type="button" class="btn btn-success btn-sm mr-2" id="btnnewitemupdate" style="display:none">Update</button>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+
+@*<script>
+        jquery_min_p(document).ready(function () {
+
+            //jquery_min_p('#itemExit').click(function () {
+            //    window.location = "/Master/Home";
+            //    reset();
+
+
+            //});
+            //jquery_min_p('#createItemBtn').click(function() {
+
+            //    bootstrap_min_p('#newItemPopup').modal('show');
+            //})
+
+            //jquery_min_p('#createItemGroupBtn').click(function () {
+
+            //    bootstrap_min_p('#newItemGroupPopup').modal('show');
+            //})
+        })
+
+    </script>*@
+
+
+

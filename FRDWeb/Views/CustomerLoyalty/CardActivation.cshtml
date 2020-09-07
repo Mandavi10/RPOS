@@ -1,0 +1,164 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+<script src="~/Content/js/jquery-1.10.2.js"></script>
+<script>        var jquery_1_10_2_min_p = jQuery.noConflict();</script>
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+
+<script src="~/Content/js/jquery-ui.js"></script>
+
+
+
+
+<script>
+    jquery_1_10_2_min_p(document).ready(function () {
+
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+
+
+        jquery_min_p("#lblrestroid").text(id);
+
+        // alert(jquery_min_p("#lblrestroid").text());
+
+    });
+</script>
+<script src="~/JavaScript/CardActivation.js"></script>
+@*<script src="~/MinJavaScript/CardActivation_min.js"></script>*@
+<style>
+    .fafadelete {
+        font-size: 15px;
+    }
+</style>
+
+@*<script src="~/JavaScript/CustomerLoyality.js"></script>*@
+
+
+
+
+<div class="container RestaurantInfra">
+    <div class="pageHead">
+        <h4 class="pageTitle">Card Activation</h4>
+
+    </div>
+    <div class="card mt-2" id="">
+        <div class="card-body mainCon">
+            <div class="row">
+                <div class="col-md-6 pl-0">
+                    <div class="col-md-12 pl-0">
+                        <label class="col-md-4 fontBold">Card Number:</label>
+                        <input type="text" id="txtcacardno" class="form-control col-md-8 pull-right" placeholder="Card Number" maxlength="30" />
+
+                    </div>
+                    <div class="col-md-12 pl-0 mt-2" id="divttlissued">
+                        <label class="col-md-4 fontBold">Total Issued:</label>
+                        <label class="col-md-8 pull-right pl-0" id="lbltotalcount"></label>
+
+                    </div>
+                    <div class="col-md-12 pl-0">
+                        <label class="col-md-4 fontBold">Card Count:</label>
+                        <label class="col-md-8 pull-right pl-0" id="lblcardcount"></label>
+
+                    </div>
+                    <div class="col-md-12 pt-1">
+                        <button type="button" id="btncardactivate" class="btn btn-success btn-sm pull-right"><i class="" aria-hidden="true"></i>Activate</button>
+                        <button class="btn btn-success btn-sm pull-right"><a href="/Home/Index"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</a></button>
+                    </div>
+                </div>
+                <div class="cardavtleft" id="divcardnodisplay">
+                    <div class="row" id="divtest">
+                        @*<div class="col-md-12">
+                                <label class="col-md-12 fontBold " id="lblcacardno"><i class="fa fa-arrow-right pr-2" aria-hidden="true"></i>himanshu ki lelo</label>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="col-md-12 fontBold " id="lblcacardno"><i class="fa fa-arrow-right pr-2" aria-hidden="true"></i>himanshu ki lelo</label>
+                            </div>*@
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <label id="lblrestroid" style="display: none" />
+</div>
+
+
+
+
+
+<div class="modal" id="savePopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" id="btncrosscloase">
+                        <span class="cross">&times;</span>
+                    </button>*@
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/success-icon.png" />
+
+                </h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h6 class="centerBox" id="popupsuccess" style="font-size: 11px;font-weight: bold;"></h6>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnsaveclose" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal" id="cardsavePopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" id="btncrosscloase">
+                        <span class="cross">&times;</span>
+                    </button>*@
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/success-icon.png" />
+
+                </h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h6 class="centerBox" id="cardpopupsuccess" style="font-size: 11px;font-weight: bold;"></h6>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btncardsaveclose" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+
+    </div>
+</div>

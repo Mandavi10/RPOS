@@ -1,0 +1,574 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+<script>
+    jquery_min_p(document).ready(function () {
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+        jquery_min_p("#lblrestroid").text(id);
+
+        jquery_min_p('#defineRestro').css('display', 'block');
+       // alert('id:' + id);
+
+    })
+
+
+</script>
+
+
+<script src="~/JavaScript/DefineResturant.js"></script>
+
+@*<script src="~/MinJavaScript/DefineResturant_min.js"></script>*@
+
+
+<style>
+    .deleteIcon{display:none}
+    .rightCon {
+    min-height: 400px !important;
+}
+
+    .leftCon {
+    min-height: 400px;
+}
+    #Divtable .sectionBox, #DivKitchenSection .sectionBox {
+    position:relative}
+#divsittingsection .sectionBox, #DivKitchenSection .sectionBox{
+    padding: 0px 2px 1px;
+    color: #27444a;
+    border-radius: 2px;
+    text-align: center;
+    width: 18%;
+    background: #cad0d0;
+    float: left;
+    border: 1px solid #a6b6b9;
+    margin: 4px;
+    min-height: 80px;
+    max-height: 80px;
+    overflow: hidden;
+    position:relative;
+    display:block;
+
+}
+
+
+</style>
+<div class="row">
+    <div class="col-md-12 loader" id="preloader" style="display:none;">
+        <span><img src="~/Content/images/loader(1).gif" style="width: 10%;" /></span>
+    </div>
+
+</div>
+<div class="container RestaurantInfra" id="restaurantInfra">
+
+    <div class="pageHead">
+        <h4 class="pageTitle" data-toggle="modal" data-target="#dngwarn">Define Restaurant Infrastructure</h4>
+    </div>
+    <div class="card mt-4" id="defineRestro" style="display:none">
+        <div class="card-header card-header-rose card-header-icon">
+            <div class="card-text">
+                <h4 class="card-title">Define Structure Of Restaurant</h4>
+            </div>
+            <h4 class="card-title"></h4>
+        </div>
+        <div class="card-body mainCon">
+            <div class="createBox">
+                <div class="row">
+                    <div class="structureBox box-sm" id="btnCreate">
+                        <img src="~/Content/images/create-icon.png" />
+                        <span class="defineHead">Create</span>
+                    </div>
+                    <div class="structureBox box-sm" id="btnUpdate">
+                        <img src="~/Content/images/update-icon.png" />
+                        <span class="defineHead">Update</span>
+                    </div>
+                    <div class="structureBox box-sm" id="btnUpdateRestaurant" data-target="#addRestroPopup">
+                        <img src="~/Content/images/updateRestaurant-icon.png" />
+                        <span class="defineHead">Update Restaurant Details</span>
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="buttonCon">
+
+                    <button class="btn btn-success btn-sm" id="btnBack"><i class="fa fa-angle-left" aria-hidden="true"></i>Back</button>
+                    <button type="button" class="btn btn-success btn-sm" id="btnNext">Next<i class="fa fa-angle-right pl-1 pr-0" aria-hidden="true"></i></button>
+                    <button class="btn btn-success btn-sm" type="button" id="btnCancel"><i class="fa fa-times" aria-hidden="true"></i>Cancel</button>
+
+
+                </div>*@
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="card mt-4" id="sittingSection" style="display:none">
+        <div class="card-header card-header-rose card-header-icon">
+            <div class="card-text">
+                <h4 class="card-title">Sitting Section</h4>
+            </div>
+
+        </div>
+        <div class="card-body mainCon">
+
+            <div class="leftCon">
+                <div class="row pl-3 mb-2">
+                    <label class="col-md-3 col-form-label">Code:</label>
+                    <div class="col-md-9">
+                        <input type="text" maxlength="15" class="form-control" placeholder="Code" id="txtcodesitting" onkeyup="Removeclass();"  />
+                    </div>
+                </div>
+                <div class="row pl-3">
+                    <label class="col-md-3 col-form-label">Name:</label>
+                    <div class="col-md-9">
+                        <input type="text" maxlength="50" class="form-control" placeholder="Name" id="txtnamesitting" onkeyup="Removeclass();"  />
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-success btn-sm pull-right mt-3" id="btnAdd_sittingsection"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+
+
+
+            </div>
+            <div class="rightCon" id="divsittingsection">
+                @*<div class="sectionBox">
+
+                        <img src="~/Content/images/family-icon.png" />
+                        <h6>Single</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/family-icon.png" />
+                        <h6>Family Up</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/family-icon.png" />
+                        <h6>Terrace</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/family-icon.png" />
+                     <h6>VIP</h6>
+                    </div>*@
+
+
+            </div>
+
+
+            <div class="buttonCon">
+
+                <button class="btn btn-success btn-sm" id="btnBack1"><i class="fa fa-angle-left" aria-hidden="true"></i>Back</button>
+                <button type="button" class="btn btn-success btn-sm" id="btnNext1">Next<i class="fa fa-angle-right pl-1 pr-0" aria-hidden="true"></i></button>
+                <button class="btn btn-success btn-sm" type="button" id="btnCancel1"><i class="fa fa-times" aria-hidden="true"></i>Cancel</button>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="card mt-4" id="createTable" style="display:none">
+        <div class="card-header card-header-rose card-header-icon">
+            <div class="card-text">
+                <h4 class="card-title">Table Creation</h4>
+            </div>
+            <h4 class="card-title"></h4>
+        </div>
+        <div class="card-body mainCon">
+
+            <div class="leftCon">
+                <div class="row pl-3 mb-2">
+                    <label class="col-md-3 col-form-label">No. of Tables:</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" maxlength="4" placeholder="No. of Tables" id="txtnooftable" onkeyup="Removeclass();" onkeypress='return isNumberKey(event);' />
+                    </div>
+                </div>
+
+
+                <button type="button" id="btnAdd_Table" class="btn btn-success btn-sm pull-right mt-3"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+
+
+
+            </div>
+            <div class="rightCon" id="Divtable">
+                @*<div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T1</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T2</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T3</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T4</h6>
+                    </div>
+
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T5</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T6</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T7</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T8</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T9</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T10</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T11</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T12</h6>
+                    </div>
+
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T13</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T14</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T15</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T16</h6>
+                    </div>
+
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T17</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T18</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T19</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T20</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T21</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T22</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T23</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T24</h6>
+                    </div>
+
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T25</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T26</h6>
+                    </div>
+
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T27</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T28</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T29</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T30</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T31</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T32</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T33</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T34</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T35</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T36</h6>
+                    </div>
+
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T37</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T38</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T39</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T40</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T41</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T42</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T43</h6>
+                    </div>
+                    <div class="sectionBox">
+                        <img src="~/Content/images/table-icon.png" />
+                        <h6>T44</h6>
+                    </div>*@
+            </div>
+
+
+            <div class="buttonCon">
+
+                <button class="btn btn-success btn-sm" id="btnBack2"><i class="fa fa-angle-left" aria-hidden="true"></i>Back</button>
+                <button type="button" class="btn btn-success btn-sm" id="btnNext2">Next<i class="fa fa-angle-right pl-1 pr-0" aria-hidden="true"></i></button>
+                <button class="btn btn-success btn-sm" type="button" id="btnCancel2"><i class="fa fa-times" aria-hidden="true"></i>Cancel</button>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="card mt-4" id="kitchenSection" style="display:none">
+        <div class="card-header card-header-rose card-header-icon">
+            <div class="card-text">
+                <h4 class="card-title">Kitchen Section</h4>
+            </div>
+            <h4 class="card-title"></h4>
+        </div>
+        <div class="card-body mainCon">
+
+            <div class="leftCon">
+                <div class="row pl-3 mb-2">
+                    <label class="col-md-3 col-form-label">Code:</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" placeholder="Code" id="txtkitchencode" maxlength="10" onkeyup="Removeclass();" onchange="Removeclass();" />
+                    </div>
+                </div>
+
+                <div class="row pl-3 mb-2">
+                    <label class="col-md-3 col-form-label">Name:</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" placeholder="Name" id="txtkitchenname" maxlength="50" onkeyup="Removeclass();" onchange="Removeclass();" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="lblDispMessage"
+                           cssclass="err" style="display:none"></label>
+                </div>
+                <button type="button" class="btn btn-success btn-sm pull-right mt-3" id="btnAdd_KitchenSection"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+
+
+
+            </div>
+            <div class="rightCon" id="DivKitchenSection">
+                @*<div class="sectionBox">
+
+                        <img src="~/Content/images/hot-icon.png" />
+                        <h6>Hot Section</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/hot-icon.png" />
+                        <h6>Cold Section</h6>
+                    </div>
+                    <div class="sectionBox">
+
+                        <img src="~/Content/images/hot-icon.png" />
+                        <h6>Tandoori Section</h6>
+                    </div>*@
+
+
+            </div>
+
+
+            <div class="buttonCon">
+
+                <button class="btn btn-success btn-sm" id="btnBack3"><i class="fa fa-angle-left" aria-hidden="true"></i>Back</button>
+                <button type="button" class="btn btn-success btn-sm" id="btnFinish"><i class="fa fa-hourglass-end" aria-hidden="true"></i>Finish</button>
+                <button class="btn btn-success btn-sm" type="button" id="btnCancel3"><i class="fa fa-times" aria-hidden="true"></i>Cancel</button>
+
+
+            </div>
+        </div>
+        <label id="lblrestroid" style="display: none" />
+        <label id="lblsittingsectionid" style="display: none" />
+
+
+    </div>
+    <label id="lblsitiingId" style="display:none" />
+    <label id="kitchensectionId" style="display:none" />
+</div>   
+
+<div class="modal fade" id="addRestroPopup">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" id="btnrestroupdateclose">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">Update Restaurant Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 p-0">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+
+                                <div id="employee12" class="panel-collapse collapse show">
+                                    <div class="panel-body">
+
+
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Restaurant Code:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" placeholder="Restaurant Code" id="textcode" onkeypress="Removeclass();"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Restaurant Name:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" maxlength="50" placeholder="Restaurant Name" id="textresturantname" onkeypress="Removeclass();" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Location:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control"  maxlength="50" placeholder="Location" id="textlocation" onkeypress="Removeclass();" />
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Address:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <textarea type="text" class="form-control" placeholder="Address" id="textaddress" onkeyup="Removeclass();"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Arabic Name:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" placeholder="Arabic Name" id="textarabicname" onkeypress="Removeclass();" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">VAT No.:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" placeholder="VAT No" id="textvatno" onkeypress="Removeclass();" maxlength="16" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Browse Image:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="file" id="files" name="pic" accept="image/*">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pr-2">
+                @*<button type="button" class="btn btn-success mr-1" id="btnDelete">Delete</button>
+                    <button type="button" class="btn btn-success mr-1" id="btnUpdate">Update</button>*@
+                <button type="button" class="btn btn-success " id="btnRestroupdate">Update</button>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

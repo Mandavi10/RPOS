@@ -1,0 +1,987 @@
+﻿
+   .loader{
+       position: absolute;
+       text-align: center;
+    top: 200px;
+    z-index:999;
+   }
+   .fa-2x {
+    font-size: 20px !important;
+    padding-right: 6px !important;
+}
+.largefont {
+    font-size: 13px !important;
+    font-weight: bold !important;
+}
+
+td i.fa-plus-circle, td .fa-minus-circle {font-size: 16px;
+    color: #50929e; padding-left:3px
+}
+td .fa-trash-o {font-size: 16px;
+    color: #b10b0b; padding-left:3px
+}
+.form-group {
+    margin-bottom: 0.5rem !important;
+}
+.grdactive {
+    background-color:#FEA706 !important;
+}
+
+.downiconposi {
+        position: absolute;
+    left: 6px;
+
+}
+.hold {
+    background-color: #debc89 !important;
+    border: 1px solid #debc89;
+    
+    }
+
+.dinein {
+    background: #d2c0c0 !important;
+    border: 1px solid #d2c0c0 !important;
+ 
+}
+.kitchenordercard {
+    background-color: #b5d096 !important;
+    border: 1px solid #b5d096 !important;
+  
+}
+
+.ui-autocomplete {
+    top: 34% !important;
+}
+
+.imgcard {
+    display: inline-block !important;
+    margin: 0 auto 0px !important;
+
+}
+.imgcard1 {
+    display: inline-block !important;
+    margin: 0 auto 0px !important;
+    width: 22% !important;
+}
+
+
+
+.masterTabs1 a {
+    color: #fff !important;
+    padding: 10px 5px;
+    display: block;
+    height: 59px !important;
+}
+.masterTabs1 span {
+    font-size: 13px !important;
+    text-align: center;
+    line-height: 1.2;
+    padding-top: 5px;
+    margin-bottom: 0px;
+    padding-left: 5px !important;
+}
+
+
+
+th, td {
+border:0 !important}
+.heading{font-size: 16px;
+    font-weight: 600;
+    color: #324e4c;
+    text-decoration: underline;}
+.user-icon{ border: 1px solid #fff;
+    border-radius: 100% !important;
+    width: 30px;
+    height: 30px;}
+    .navCon{color: #fff;}
+
+    select option:hover {
+    background-color:#cdcdcd !important;
+}
+
+.logoutTxt{color: #fff;
+    font-size: 13px;}
+.logoutTxt:hover{ color:#fff}
+.mainLogo img{ width: 40%;
+    margin: 15% auto 0;
+    display: block;}
+.masterTabs{ background: #3d6169;
+   color: #fff;
+    border-radius: 2px;
+    margin-bottom: 8px !important;
+    text-align:center; margin-right: 5px;
+    margin-left: 5px;}
+.masterTabs a.active{box-shadow: 1px 1px 3px 2px #2a5b65; background:#268fa2 !important;}
+ 
+.masterTabs img{ display: block; margin:0 auto 7px;}
+.masterTabs a{ color:#fff !important; padding: 10px 5px; display:block; height: 95px;}
+.masterTabs span{font-size: 14px;
+    text-align: center;
+    line-height: 1.2;
+    padding-top: 5px; margin-bottom: 0px;}
+
+    
+.poweredLogo{position: absolute;
+    right: 10px;
+    bottom: 2px;}
+.pageHead{ overflow: hidden;
+    margin-bottom: 10px !important;}
+.poweredLogo img{width: 78%;}
+h4.pageTitle{ color: #183d44; font-weight: bold; border-bottom: 1px solid #9eb1b5; padding-bottom: 5px; padding-top: 5px;}
+
+.createBox{    width: 540px;
+    /* display: block; */
+    margin: 14% 28%;
+    position: absolute;
+    text-align: center;}
+#restaurantInfra .createBox {
+    width: 658px;
+    /* display: block; */
+    margin: 14% 14%;
+}
+.box-sm:first-child {
+ margin-left:0px}
+
+.structureBox {
+ flex:0 0 31.5% !important; width:31.5% !important}
+.box-sm{ border: 1px solid #69868c;
+    border-radius: 4px;
+    min-height: 140px;
+    margin-left: 15px; background: #dcdede; cursor:pointer
+}
+.box-sm img, .box-sm span{ display:block; margin: 7% auto;}
+.box-sm span.defineHead{font-size: 14px; line-height: 20px;
+    font-weight: 600;
+    text-transform: uppercase;}
+.buttonCon{ padding: 15px 0px;
+    float: right;
+    position: absolute;
+    right: 2%;
+    bottom: 1%;}
+button .fa {
+   margin: -3px 0px 0px 0px !important;
+   padding:0 5px 0 0;
+}
+.mainCon {
+   min-height: 480px;
+    overflow: hidden;
+    padding-top: 30px !important;
+    padding-bottom: 20px !important;
+}
+#defineRestro{ display:block}
+.leftCon {
+   border: 1px solid #d2cbcb;
+    border-radius: 4px;
+    padding: 15px 10px;
+    width: 50%;
+    float: left;
+    min-height: 200px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background: #f1f5f5;
+    border-right: 0px;
+}
+
+.rightCon { width: 50%;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    padding: 10px 10px;
+    float: right;
+    min-height: 200px;
+    /*background: #dcdede;*/
+     border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    max-height: 396px;
+    overflow-y: scroll;
+}
+.sectionBox {    padding: 0px 2px 1px;
+    color: #27444a;
+    border-radius: 2px;
+    text-align: center;
+    width: 64px;
+    background: #cad0d0;
+    float: left;
+    border: 1px solid #a6b6b9;
+    margin: 4px;
+    min-height: 80px;
+}
+    .sectionBox h6 {color: #193338;
+    padding-top: 0px;
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 11px;
+    line-height:14px;
+    }
+    /*.sectionBox:nth-child(6n) {
+        margin-right:0px;
+    }*/
+/*#sectionTable .sectionBox:nth-child(6n) {
+margin-right:10px !important}
+#sectionTable .sectionBox:nth-child(7n) {
+        margin-right:0px;
+    }*/
+
+.secTable .mainCon{
+    min-height: 425px;}
+.secTable .pageHead {
+margin-bottom:0px !important}
+.sectionBox.active, .sectionBox.fc-selected, .sectionBox:hover {background: #90b2b9 !important;
+}
+.sectionBox.active h6{color:#183d44 !important}
+.selectBox h5 {
+        display: inline-block;
+    margin-bottom: 3px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+}
+.selectAll {
+    display: inline-block;
+    float: right;
+    padding: 5px 5px 0 0;
+}
+.selectAll input[type="checkbox"]{
+    vertical-align: text-bottom;
+}
+.selectBox {
+        border-bottom: 1px solid #ccc;
+}
+#sectionTable .rightCon {
+      overflow:hidden;
+     padding:0;
+}
+#sectionTable .leftCon {
+    padding:0;
+}
+#sectionTable .selectBox { padding: 4px;
+    background: #577479;
+    color: #fff;}
+#sectionTable .sectionBox{margin: 4px 5px 4px 6px; padding: 5px 10px; min-height: 60px;}
+#sectionTable .mainCon {
+    padding-top: 20px !important;
+    padding-bottom: 10px !important;
+}
+.tableSection {
+    overflow-y: scroll;
+    max-height: 348px;
+    padding-top: 4px;
+}
+#empDetails h4.panel-title, #createNewItem h4.panel-title {  font-size: 14px;
+    margin-bottom: 0;
+}
+
+#empDetails .panel-heading, #createNewItem .panel-heading{
+    background: #577479;
+    color: #fff;
+    padding: 5px;
+}
+#empDetails h4.panel-title a, #createNewItem h4.panel-title a{color: #fff;}
+#empDetails .panel-body {
+    background: #d4dada;
+    padding: 5px;
+}
+ #createNewItem .panel-body {
+    background: #fff;
+    padding: 5px;
+}
+#empDetails .panel-group, #createNewItem .panel-group  {
+margin-bottom:10px}
+#empDetails .mainCon, #createNewItem .mainCon {
+    padding-top: 20px !important;
+    max-height: 495px;
+    min-height: 495px;
+    overflow-y: scroll;
+}
+.fontBold {font-weight:bold
+}
+.empProfile {
+background: #28484e;
+    border-radius: 4px;
+    /* padding: 4px 4px 0px 4px; */
+    text-align: center;
+    height: 88px;
+    width: 88px;
+    float: right;
+    overflow: hidden;
+
+}
+    .empProfile img {
+    width:100%}
+#home .sectionBox {    background: #466167;
+    width: 19.2%;
+    text-align: center;
+    margin: 5px;
+    padding: 0;
+    color: #fff;}
+#home .sectionBox a {
+    display: block;
+    color: #fff;
+}
+#home .sectionBox .restoLogo, #home .sectionBox h6 {
+    display:block}
+/*#home .sectionBox .restoLogo { font-size: 20px;
+    line-height: 28px;
+    color: #ffffff;
+    font-family: serif;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: capitalize;
+    padding-top: 22px;
+    background: #466166;
+    height: 96px;}*/
+#home .sectionBox .restoLogo {
+   background: #b4c7c7; height: 100px;}
+#home .sectionBox .restoLogo img { padding-top: 8px !important;}
+#home .sectionBox h6 {    font-size: 14px;
+    /* width: 200px; */
+    vertical-align: middle;
+    padding-left: 6px;
+    color: #fff;
+    padding: 10px 0px 5px;}
+.menuList {
+        font-size: 19px;
+    position: absolute;
+    right: 34px;
+    top: 4px;
+    cursor: pointer;
+    }
+.menuList a {
+    font-size: 13px;
+    font-weight: bold;
+    color: #193338;
+    margin-left: 5px;
+}
+#SequenceSetup .mainCon {
+    padding-top: 10px !important;
+}
+#SequenceSetup .sectionBox, #issueCard .sectionBox{width: 192px; padding: 10px 2px 10px; background: #466167; cursor:pointer }
+#SequenceSetup .sectionBox h6, #issueCard .sectionBox h6 {color:#fff}
+#issueCard .sectionBox{width: 173px; }
+.restaurantList, .formCon {
+margin-bottom:10px; overflow:hidden}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #a1bfc5;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left !important;
+  padding: 4px 8px 4px 8px !important;
+}
+table thead {
+    background: #90aaad !important;}
+tr:nth-child(even) {
+    background-color: #d7dfe0;
+}
+
+/*tbody tr:first-child {
+  background-color: #607377 !important;
+  color:#fff !important;
+}*/
+    .modal-title {
+
+        color: #fff !important;
+    }
+  .close {
+        position: absolute !important;
+        right: -9px !important;
+        top: -10px !important;
+        border-radius: 50% !important;
+        border: none !important;
+        background: #fff !important;
+        height: 25px !important;
+        width: 25px !important;
+        font-size: 24px !important;
+        padding: 0px !important;
+    }
+    
+    .modal-header .close {
+    
+     margin:0px !important;
+}
+#addRestroPopup label{ font-weight:bold
+}
+.fa-trash {
+    color: #dc0b0b;
+    font-size: 14px;
+}
+.nav-tabs {
+ 
+    padding: 0 15px;
+    width: 100%;
+}
+.nav-tabs .nav-item {
+     margin-bottom: -1px; 
+    display: inline-block;
+    background: #3d6169;
+    width: 33%;
+    text-align: center;
+    border-right: 1px solid #a6b6b9;
+}
+    .nav-tabs .nav-item .nav-link {
+        padding: 4px 15px;
+    }
+#loyaltyCon .mainCon {
+padding:0px !important}
+#loyaltyCon .tab-content {
+display:inline-block; width: 100%;
+    padding: 10px 25px !important;}
+#loyaltyCon .mainCon {
+    min-height: 510px;
+}
+#defineRules h4.pageTitle, #generateCard h4.pageTitle, #issueCard h4.pageTitle {
+    border-bottom:0px; text-decoration:underline; font-size:15px
+
+}
+#loyaltyCon .leftCon {width:30%; min-height: 415px;}
+#loyaltyCon .rightCon {width:70%; padding:0px; padding-top:5px; overflow:hidden; min-height: 415px;}
+
+
+ #rulesTable thead th, #cardDetailsTable thead th {
+     background-color: #607377 !important; 
+    color: #fff !important;
+
+}
+#rulesTable tbody tr:first-child, #rulesTable tbody tr:nth-child(odd), #cardDetailsTable tbody tr:first-child, #cardDetailsTable tbody tr:nth-child(odd) {
+    background-color:transparent; color:#333 !important
+}   
+#rulesTable tbody tr:nth-child(even), #cardDetailsTable tbody tr:nth-child(even) {
+    background-color: #d5ddde;
+} 
+#rulesTable tbody {
+    overflow: auto;
+    display: block;
+    max-height: 338px;
+}
+#cardDetailsTable tbody {
+    overflow: auto;
+    display: block;
+    max-height: 253px;
+    min-height: 253px;
+}
+
+#rulesTable tbody tr, #cardDetailsTable tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+   
+#rulesTable thead tr, #cardDetailsTable thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+.cardDetail {
+    border: 1px solid #a1bfc5;
+    overflow: hidden;
+    width: 101%;
+}
+.cardDetail #displayMsg { text-align: center;
+     margin: 21% auto;
+    color: #203b40;
+    font-weight: bold;}
+#cardDetailsTable {
+display:none; border:0px}
+.loyaltyCard {
+    height: 174px;
+    display: inline-block;
+    width: 282px;
+    border: 1px solid #b0b9bb;
+    margin: 4px 6px;  
+  
+}
+.loyaltycardDetail {
+    background-image: url(../images/card-bg.png);
+    background-size: cover;
+    width: 100%;
+    height: 145px;
+    position:relative
+}
+.loyaltyCard h4 {
+    text-align: center;
+    background: #4a7f88;
+    color: #fff;
+    padding: 4px;
+    font-size: 14px;
+    margin: 0;
+}
+.loyaltycardDetail .logoImg {
+    position: absolute;
+    top: 30%;
+    right: 1%;
+}
+#changePassword .error {
+    width: 100%;
+    margin-top: -10px;
+    margin-left: 6px;
+    background: transparent;
+}
+.cardNoCon {
+        color: #fff;
+    position: absolute;
+    top: 55px;
+    /* left: 13px; */
+    width: 140px;
+    text-align: center;
+}
+ .cardNoCon span {
+    display:block}
+    .cardNoCon .cardNo {
+        font-weight: bold;
+        font-size: 14px;
+    }
+.cardContainer {
+max-height:370px; overflow-y:scroll}
+.menuList {
+        font-size: 19px;
+    position: absolute;
+    right: 34px;
+    top: 4px;
+    cursor: pointer;
+    }
+    .empfullcard
+     {
+    position: absolute;
+    right:-5px;
+    }
+    .empProfile1 {
+       height: 68px;
+    width: 68px;
+    background: #28484e;
+    border-radius: 4px;
+    /* padding: 7px 4px 0px 4px; */
+    text-align: center;
+    float: right;
+    overflow: hidden;
+
+    }
+        .empProfile1 img {
+        width:100%}
+    .billingmrg {
+            margin-left: 29px;
+    }
+
+    .busboymrg {
+        margin-left: 10px;
+    }
+.loyaltyFooter {
+
+    color: #fff;
+    position: absolute;
+    bottom: 0px;
+    font-size: 10px;
+    display: block;
+    background:rgba(0,0,0,0.4);
+    padding: 1px 5px;
+    width: 100%;
+    text-align: center;
+    
+}
+.menuListing, .menuHeading, #setupMenu, #salesBillingMenu{
+    display: contents;
+}
+.menuHeading {
+    width: 100%;
+    height: auto;
+    background: #a8b3a9;
+    display: inline-block;
+    overflow: hidden;
+    padding: 7px 3px;
+    margin-top: 22%;
+}
+.menuHeading .masterTabs{background: #607a80;}
+.menuHeading a.active {
+        background: #07272d !important;
+        box-shadow: 1px 1px 2px 1px #3c6168;
+    }
+.item .active, .mainmenu .active, #Addons .active {
+     background: #90b2b9 !important;
+
+    }
+.item .active h6, .mainmenu .active h6, #Addons .active h6 {
+    color:#fff !important}
+.roleDropdown {border: 1px solid #ccc;
+    height: 23px;
+}
+.roleDropdown select { border: 0;
+    padding: 2px 0px 0px 5px;
+    color: #274348;
+    width: 100%;
+    display: block;
+    }
+    .roleDropdown .dropdown:after {
+        top: 8px !important;
+    }
+
+#createNewItem .mainCon, #createNewItem .mainCon {
+    padding-top: 10px !important;
+    overflow: hidden;
+}
+
+ #itemGroupGrid tbody, #newItemGrid tbody {
+    overflow: auto;
+    display: block;
+    max-height: 408px;
+}
+
+#itemGroupGrid tbody tr, #newItemGrid tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+        
+        
+#itemGroupGrid thead tr, #newItemGrid thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+  #createNewItem .buttonCon {
+    bottom: -2%;
+}
+ #createNewItem .mainCon{
+    max-height: 514px !important;
+    min-height: 514px;
+}
+h4.panel-title a {
+display:block}
+
+#newItemPopup .dropdown select{
+    width: 100%;
+    height: 26px;
+}
+#newItem .dropdown select{
+    width: 100%;
+    height: 24px;
+}
+#newItem .dropdown:after {
+    top: 8px;
+}
+::placeholder{ font-size:12px !important; color:#ccc; font-weight:400}
+
+.filter-table input{ border: 1px solid #a1bfc5;
+    border-radius: 2px;
+    padding-left: 5px;}
+p.filter-table {color: #284348; font-weight: bold; margin-bottom: 5px; float: right;}
+.divlevel3 .headcolor{ background: #8fa0a2 !important;}
+.divlevel2 .headcolor{ background: #71a4a4  !important}
+.itemlevel2table td, .itemlevel3table td{color:#5f5c5c !important}
+
+#Divtable .sectionBox { min-height: 56px;
+}
+select option:hover,
+    select option:focus,
+    select option:active {
+        background: linear-gradient(#385960, #000000);
+        background-color: #385960 !important; /* for IE */
+        color: #fff !important;
+    }
+select option:checked {
+        background: linear-gradient(#385960, #d6d6d6);
+        background-color: #385960 !important; /* for IE */
+        color: #fff !important;
+    }
+select:focus{
+    border-color: gray;
+    outline:none;
+}
+.fa-cutlery {padding-right: 8px;
+}
+.menuList1 {
+    top: 2px !important;
+}
+#sourceFields .sectionBox, #destinationFields .sectionBox {
+    width: 14%;
+}
+#dvTable p.filter-table{
+    position: absolute;
+    right: 0;
+    top: -30px;
+    color: #fff;
+}
+
+#restaurantList .sectionBox {
+    min-height: 42px;
+}
+#newItem .mainCon {
+    min-height: 498px;
+}
+#dineInCon .leftCon {
+    width: 34%;
+}
+#dineInCon .rightCon {
+    width: 66%;
+}
+.employeelbl {
+cursor:pointer}
+.bootstrap-select button {
+    border: 0px;
+    background: transparent !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    height: 22px;
+}
+.form-control .dropdown:after {
+    top: 10px !important;
+}
+#empDetails .scrollable {
+    overflow-y: scroll;
+    max-height: 434px;
+}
+
+#dvexit {
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+}
+#menoInfo .card-body {
+        min-height: 420px;
+        max-height: 420px;
+}
+#menoInfo .leftCon {
+        width: 45%;
+}
+#menoInfo .rightCon {
+        width: 55%;
+        overflow:hidden;
+        max-height: 420px;
+        padding:0px;
+}
+#menoInfo .rightdiv {
+   
+    margin-left: 25px;
+}
+.newordertbl {
+   min-height: 347px;
+    max-height: 300px;
+    overflow-y: scroll;
+    margin-left: 12px;
+    overflow-x: hidden;
+    padding-right: 8px;
+    padding-left: 10px;
+}
+
+#divlevel1, #divlevel2, #divlevel3 {
+    max-height:70px
+}
+#divrunningorder .active {
+       background: #90b2b9 !important
+}
+
+#Tableshift #sourceFields .sectionBox {
+    width: 9%;
+    min-height: 60px;
+    max-height: 60px;
+    padding-top: 6px;
+}
+#Tableshift #btnUpdate {
+float:right}
+
+#divmenucreation h4 {
+    font-size: 13px;
+    font-weight: bold;
+}
+.form-control[disabled] {
+    background: #d8ddde;
+    border: 1px solid #ccc;}
+.deleteIcon {
+        position: absolute;
+    color: #ea0303;
+    right: 2px;
+    top: 1px;
+    font-size: 14px;
+}
+
+
+
+@media screen and (max-width: 1150px) {
+
+     #navContent {
+            overflow-y: scroll;
+    max-height: 547px;
+    }
+    .createBox {
+        width: 65%;
+        margin: 14% 19%;
+    }
+    #restaurantInfra .createBox {
+    width: 80%;
+    /* display: block; */
+    margin: 14% 8%;
+}
+}
+
+
+
+
+
+@media screen and (max-width: 950px) {
+ #home .sectionBox {
+    background: #466167;
+    width: 31.2%;
+    text-align: center;
+    margin: 5px;
+    padding: 0;
+    color: #fff;
+}
+ #restaurantInfra .createBox {
+    width: 93%;
+    margin: 14% 2%;
+}
+ .structureBox {
+    flex: 0 0 30.5% !important;
+    width: 30.5% !important;
+}
+ #masterhome .mainCon {
+    min-height: 400px;
+    overflow: hidden;
+    padding-top: 30px !important;
+    padding-bottom: 20px !important;
+}
+   
+
+    .imgcard {
+    display:block !important}
+    .masterTabs1 a {
+        padding: 2px 2px 0px !important;
+        line-height: 12px;
+    }
+    .masterTabs span {
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.2;
+    padding-top: 5px;
+    margin-bottom: 0px;
+}
+    .masterTabs1 span {
+     padding-left: 0px !important;
+}
+
+    .imgcard1 {
+    display: inline-block !important;
+    margin: 0 auto 0px !important;
+    width: 36% !important;
+}
+
+    .masterTabs1 span {
+    font-size: 11px !important;
+    text-align: center;
+    line-height: 1.2;
+    padding-top: 5px;
+    margin-bottom: 0px;
+    display: contents;
+}
+
+}
+
+ .restname { color: #fff !important; font-weight: bold !important; margin: 0px 0px 0px 37% !important; font-size: 18px !important;
+    position:absolute; }
+.navbar-toggler {
+display:none}
+#navContent {
+display:block}
+
+@media screen and (max-width: 768px) {
+#restaurantInfra .createBox {
+    width: 94%;
+    margin: 14% 2%;
+}
+.structureBox {
+    flex: 0 0 30% !important;
+    width: 30% !important;
+}
+.restname { margin: 0px 0px 0px 33% !important; }
+ #home .sectionBox {
+    background: #466167;
+    width: 47.2%;
+    text-align: center;
+    margin: 5px;
+    padding: 0;
+    color: #fff;
+}
+
+ #masterhome .mainCon {
+    min-height: 400px;
+    overflow: hidden;
+    padding-top: 30px !important;
+    padding-bottom: 20px !important;
+}
+   
+
+    #navContent {
+            overflow-y: scroll;
+    max-height: 515px;
+    }
+  .navbar .navbar-collapse.collapse, .navbar .navbar-collapse.collapse.in, .navbar .navbar-collapse.collapsing {
+       right: 100px;}
+}
+
+@media screen and (max-width: 767px) {
+    #navContent {display:none;
+    width: 280px;
+    position: absolute;
+    right: 0;
+    top: 41px;
+    }
+    .navbar-toggler { display:block}
+    .menuHeading { margin-top: 4%;}
+    
+}
+@media screen and (max-width: 450px) {
+
+    .empProfile {
+    background: #28484e;
+    border-radius: 4px;
+    padding: 4px 4px 0px 4px;
+    text-align: center;
+    height: 55px;
+    width: 55px;
+    float: right;
+}
+
+ #home .sectionBox {
+    background: #466167;
+    width: 96.2%;
+    text-align: center;
+    margin: 5px;
+    padding: 0;
+    color: #fff;
+}
+
+ #masterhome .mainCon {
+    min-height: 400px;
+    overflow: hidden;
+    padding-top: 30px !important;
+    padding-bottom: 20px !important;
+}
+   
+    #navContent {
+            overflow-y: scroll;
+    max-height: 499px;
+ z-index:999;
+       }
+
+    #divsittingsection .sectionBox {
+    padding: 0px 2px 1px;
+    color: #27444a;
+    border-radius: 2px;
+    text-align: center;
+    width: 73px;
+    background: #cad0d0;
+    float: left;
+    border: 1px solid #a6b6b9;
+    margin: 4px;
+    min-height: 80px;
+}
+   
+ .restname {
+     margin: 0px!important;
+    right: 5px;
+    top: 100%;
+    color: #183d43 !important;
+    font-size:11px !important;
+}
+}

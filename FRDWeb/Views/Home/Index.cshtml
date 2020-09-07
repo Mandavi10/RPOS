@@ -1,0 +1,91 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/css/jqueryui.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script>        var jquery_min_p = jQuery.noConflict();</script>
+
+
+    <script>
+        jquery_min_p(document).ready(function () {
+            var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+            //alert(value);
+            //var id = jquery_min_p("#lblrestroid").text();
+            ////var url = window.location.pathname;
+            ////var id = url.substring(url.lastIndexOf('/') + 1);
+            ////// alert(id);
+
+
+
+
+            jquery_min_p.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "/Home/BindResturantDetail",
+                data: "{'id':'" + id + "'}",
+                dataType: "json",
+                async: false,        
+                success: function (result) {
+                    var i = 0;
+                    var jsonData = eval(result);
+                   // console.log(result);
+                    // $('#imgPreview').attr("src", +jsonData[0].Base64Image);
+                   
+                    // jquery_min_p('#imgPreview').attr("src", jsonData[0].Base64Image);
+                    var path = "/RestroImage/" + id+".jpg";
+                    
+                    
+                    jquery_min_p('#imgPreview').attr("src", path);
+                   // jquery_min_p('#Resturantname').text(jsonData[0].name);
+
+                    jquery_min_p("#preloader").css('display', 'none');
+                    jquery_min_p("#Overlay_Load").css('visibility', 'hidden');
+
+                },
+                beforesend: function () {
+                    jquery_min_p("#preloader").css('display', 'block');
+                    jquery_min_p("#Overlay_Load").css('visibility', 'visible');
+
+                },
+        
+                error: function () {
+
+                }
+            });
+        
+
+
+        });
+
+
+
+
+        </script>
+
+   
+<div class="content">
+    <div class="row">
+        <div class="col-md-12 loader" id="preloader">
+            <span><img src="~/Content/images/loader(1).gif" style="width: 10%;" /></span>
+        </div>
+
+    </div>
+    <div class="container-fluid">
+        <div class="pageHead">
+            <h4 class="pageTitle" id="Resturantname"></h4>
+        </div>
+        <div class="mainLogo" >
+            <img id="imgPreview" />
+            @*<img src="~/Content/images/logo-watermark.png" />*@
+            @*<img src="~/Content/images/Malabar-watermark.png" />*@
+            @*<img src="~/Content/images/Shayzar-watermark.png" />*@
+        </div>
+
+
+    </div>
+</div>

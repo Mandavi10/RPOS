@@ -1,0 +1,930 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+
+<script>
+    jquery_min_p(document).ready(function () {
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+        jquery_min_p("#lblrestroid").text(id);
+        //alert(id);
+    })
+
+</script>
+
+
+
+<style>
+    .active {
+    background: #94c8d2 !important;}
+    .height37 {
+        height: 56px;
+    }
+
+        #salesOverlay {
+           width: 100%;
+    display: block;
+    height: 100%;
+    opacity: 0.4;
+    pointer-events: none;
+    position: absolute;
+    background: #000;
+    z-index: 9;
+    }
+
+        .disable {
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+
+   .kitchenordercard {
+   background: #b0d1d4;
+    border: 1px solid #cdcdcd;
+    padding: 10px 0px 0px 10px;
+    }
+
+    .orderbrd {
+            border: 1px solid #cdcdcd;
+            height: 90px;
+    }
+
+   
+
+    .orderheadling {
+        background-color: #3d6169;
+    padding: 7px 0px 0px 0px;
+    }
+
+     #mainContent {
+        max-width: 100%;
+        flex: 100%;
+    }
+
+    #navContent {
+        display: none;
+    }
+
+    .width30 {
+            width: 30%;
+            border-radius: 5px;
+
+    }
+
+    #kitchenscreen .mainCon {
+    padding-top: 0px !important;
+     padding-bottom: 10px !important;
+    max-height: 490px;
+    overflow-y: scroll;
+}
+
+    #sourceFields .sectionBox {
+    width: 11%;
+}
+
+    .tableSection {
+        width: 100%;
+    }
+
+    .backpack {
+    background-color: #e4dfdf;
+    padding: 0px 0px 0px 0px;
+    border: 1px solid #b1bdbf;
+    border-radius: 5px;
+    width: 102%;
+    margin-left: -2%;
+        margin-top: 5px;
+    }
+
+    h6.pageTitle {
+    color: #183d44;
+    font-weight: bold;
+    }
+    
+    .toporder {
+            font-size: 19px;
+    position: absolute;
+    right: 34px;
+    top: 0px;
+    cursor: pointer;
+    }
+
+    .pageHead1 {
+        overflow: hidden;
+    margin-bottom: 1px !important;
+    }
+
+    .grdmrg {
+            width: 102%;
+    margin-left: -2%;
+    }
+
+      #tblrunningord tbody {
+    overflow: auto;
+    display: block;
+    max-height: 41vh;
+}
+
+#tblrunningord tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+        
+        
+   #tblrunningord thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+    .dinein {
+      background: #efc2c2;
+    border: 1px solid #efc2c2;
+    padding: 10px 0px 0px 10px;
+    }
+
+    .orderback {
+        background-color: #3d6169;
+    padding: 4px 0px 0px 0px;
+    }
+        .orderback label {
+         color:#fff; font-weight:bold}
+    .status {
+        font-size: 19px;
+    position: absolute;
+    right: 34px;
+    top: 35px;
+    cursor: pointer;
+    }
+
+    .status a {
+    font-size: 13px;
+    font-weight: bold;
+    color: #193338;
+    margin-left: 5px;
+}
+    #empDetails {
+        display: block;
+        overflow: hidden;
+        min-height: 481px;
+    }
+    #divrunningorder {
+     width: 104%;
+        overflow-y: scroll;
+        max-height: 489px;
+            min-height: 489px;
+    }
+
+    .temporarybill {
+        height: 50px !important;
+    background-color: #655d96 !important;
+   
+    }
+    .settle {
+            height: 50px !important;
+    background-color: #c55656 !important;
+    padding: 0px 27px 0px 27px !important;
+    }
+    .additem {
+        height: 50px !important;
+    background-color: #539a87 !important;
+    padding: 0px 21px 0px 21px !important;
+    }
+    .exit {
+            height: 50px !important;
+    background-color: #3d6169 !important;
+    }
+    .btnposition {
+        bottom: 0px;
+    position: absolute;
+    right: 0px;
+    }
+
+    .lblposition {
+        bottom: 0px;
+    position: absolute;
+    left: 0px;
+    }
+
+    .fontsize14 {
+        font-size: 14px !important;
+    }
+    .btnDeliver {
+        position: absolute;
+        background: #e3ebec !important;
+        color: #253e44 !important;
+        right: 20px;
+        top: 8px;
+        font-weight: bold !important;
+    }
+        .btnDeliver:hover {
+        background:#fff !important}
+    .rightdivbox {
+
+border: 1px solid #cdcdcd;
+    height: 284px;
+    width: 348px;
+    margin-top: 8px;    }
+    .tblsalesreturn {
+
+    }
+    .pricepart {
+            position: absolute;
+    bottom: 0px;
+    }
+    .pricepart2 {
+            position: absolute;
+    bottom: 0px;
+    left:48%;
+    }
+
+      #tblsalesreturn tbody {
+    overflow: auto;
+    display: block;
+    max-height: 37vh;
+}
+
+#tblsalesreturn tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+        
+        
+   #tblsalesreturn thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+    #salesreturn .modal-lg {
+    max-width: 90%;
+    
+    }
+  
+
+
+</style>
+<input type="hidden" id="lblorderid" style="display:none" />
+<input type="hidden" id="lblid" style="display:none" />
+<input type="hidden" id="lblordernumber" style="display:none" />
+<input type="hidden" id="lblordertypeid" style="display:none" />
+<div class="row">
+    <div class="col-md-12 loader" id="preloader">
+        <span><img src="~/Content/images/loader(1).gif" style="width: 10%;" /></span>
+    </div>
+
+</div>
+<div class="container">
+
+
+    <div class="pageHead">
+        <h4 class="pageTitle">Running Order</h4>
+        <div class="menuList ">
+            <a href="#" id="btnBillHistory"><i class="fa fa-id-card-o mr-1" aria-hidden="true"></i>Bill History</a>
+            <a href="#" id="btntableshift" style="display:none;"><i class="fa fa-exchange mr-1" aria-hidden="true"></i>Table Shifting</a>
+
+
+        </div>
+    </div>
+    <div class="">
+        <div class="status">
+            <a href="#"><i class="fa fa-square mr-1" style="color: #debc89 !important;" aria-hidden="true"></i>Hold</a>
+            <a href="#"><i class="fa fa-square mr-1" style="color: #b5d096 !important" aria-hidden="true"></i>Take Away</a>
+            <a href="#"><i class="fa fa-square mr-1" style="color: #d2c0c0 !important" aria-hidden="true"></i>Dine-In</a>
+
+
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+
+    
+    <div class="card mt-3" id="empDetails">
+        <div class="card-body mt-2">
+ 
+                <h3 style="position: absolute;left: 44%;top: 204px;display:none" id="lblnorecordfound" >No Order Found</h3>
+            <a href="/Home/Index"><button class="btn btn-success btn-sm exit" id="exitrunningorder" style="display:none"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button></a>
+           
+            <div class="row" id="nodatafoundndiv" style="display:none">
+               
+                <div class="col-md-6 mb-2">
+                
+                    <div class="row p-0" id="divrunningorder">
+                        @*<div class="width30 orderbrd ml-3 mt-1">
+                            <div class="col-md-12 dinein">
+                                <div class="row">
+                                    <label class="col-md-12 fontBold pl-0" style="text-align: center;">T1</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row orderheadling">
+                                    <label class="col-md-6 fontBold" style="color:#fff">Order No.:</label>
+                                    <label class="col-md-6 p-0" style="color:#fff">MLON-000852</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="width30 orderbrd ml-3 mt-1">
+                            <div class="col-md-12 kitchenordercard">
+                                <div class="row">
+                                    <label class="col-md-12 fontBold pl-0" style="text-align: center;">Take Away</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row orderheadling">
+                                    <label class="col-md-6 fontBold" style="color:#fff">Order No.:</label>
+                                    <label class="col-md-6 p-0" style="color:#fff">MLON-000852</label>
+                                </div>
+                            </div>
+                        </div>*@
+                       
+                       
+                    </div>
+                </div>
+                <div class="col-md-6" id="divorderdeatil" style="display:none;">
+                    @*<div class="col-md-12 p-0 ">
+                        <div class="row">
+                            <div class="pageHead1">
+                                <h6 class="pageTitle" id="lblOrderNo"></h6>
+                                
+                            </div>
+                        </div>
+                    </div>*@
+                    <div class="backpack">
+                        <div class="orderback">
+                            <label class="col-md-2 pr-0">Order Number:</label>
+                            <label class="" id="lblOrderNo"></label>
+                           
+                            <button class="btn btn-success btn-sm btnDeliver" id="btndeliver" > Deliver</button>
+                            <button class="btn btn-success btn-sm btnDeliver" id="btndelete" style="display:none;"> Delete</button>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="col-md-6">
+                                <label class="col-md-4 pr-0 fontBold">Ordered Item:</label>
+                                <label class="col-md-8 pull-right" id="lblorder"></label>
+
+                            </div>
+                            <div class="col-md-6">
+                                <label class="col-md-4 pr-0 fontBold">Cooking:</label>
+                                <label class="col-md-8 pull-right" id="lblcooking"></label>
+
+                            </div>
+                            <div class="col-md-6 pt-1">
+                                <label class="col-md-4 pr-0 fontBold">Bumped:</label>
+                                <label class="col-md-8 pull-right" id="lblBumped"></label>
+
+                            </div>
+                            <div class="col-md-6 pt-1">
+                                <label class="col-md-4 pr-0 fontBold">Delivered:</label>
+                                <label class="col-md-8 pull-right" id="lbldilivered"></label>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="mt-2 grdmrg">
+                        <table id="tblrunningord">
+                            <thead>
+                                <tr>
+                                    <th style="width:40%;">Item Name</th>
+                                    <th>Qty</th>
+                                    <th>Status</th>
+                                    <th>Kot Id</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @*<tr>
+                                    <td>Kerala Prawn Soup</td>
+                                    <td>1.00</td>
+                                    <td>Ordered</td>
+                                    <td>1</td>
+                                    <td><i class="fa fa-paper-plane" aria-hidden="true"></i></td>
+
+                                </tr>*@
+                              
+                           
+
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                  
+                    <div class="row mt-2 lblposition">
+                        <div class="col-md-5">
+
+                            <label class="col-md-4 fontBold pl-0 pr-0 fontsize14">Sub-Total:</label>
+
+                            <label class="col-md-7 p-0 fontsize14" id="lblnetamt"></label>
+                            <label class="col-md-4 fontBold pl-0 pr-0 fontsize14">Vat:</label>
+                            <label class="col-md-7 p-0 fontsize14" id="lbltaxamt"></label>
+                            <label class="col-md-4 fontBold pl-0 pr-0 fontsize14">Net Amount:</label>
+                            <label class="col-md-7 p-0 fontsize14" id="lblTotalSAR"></label>
+                            @*<label class="col-md-5 fontBold pl-0">Total SAR:</label>
+                <label class="col-md-6" id="lblTotalSAR"></label>*@
+                        </div>
+                        <div class="col-md-7">
+                            <div class="buttonCon1 pull-right">
+                                <button class="btn btn-success btn-sm temporarybill" id="tempbill">Temporary Bill</button>
+                                <button class="btn btn-success btn-sm settle" id="btnSettle">Settle</button>
+                                <button class="btn btn-success btn-sm additem" id="btnaddnewitem" onclick="btnaddnewitem();">Add Item</button>
+                                <a href="/Home/Index"><button class="btn btn-success btn-sm exit"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button></a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>        
+                     
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+<div class="modal" id="billhst">
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title" data-toggle="modal" @*data-target="#manager"*@>
+                    Bill history
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 pl-0">
+                        <label class="col-md-4 fontBold">Select Date:</label>
+                        <input type="date" class="form-control col-md-8 pull-right" placeholder="Name" id="txtBillDate" onchange="Removeclass();" />
+
+                    </div>
+                    <button type="button" class="btn btn-success btn-sm" id="btnmshowbill">Show</button>
+                </div>
+                <div class="col-sm-12 col-md-12 pr-0">
+
+                    <div class="row">
+                        <div class="mt-2 grdmrg" id="tblbillhistoryDetail">
+                            <table id="tblbillhistory">
+                                <thead>
+                                    <tr>
+                                        <th>Order Number</th>
+                                        <th>Invoice Number</th>
+                                        <th>bill Amount</th>
+                                        <th>Time</th>
+                                        <th>Cashier Name</th>
+                                        <th>Order Type</th>
+                                        <th>Table Number </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @*<tr>
+                        <td>Or-6446</td>
+                        <td>In-6458</td>
+                        <td>54</td>
+                        <td>4:22 pm</td>
+                        <td>Himanshu</td>
+                        <td>Take Away</td>
+                        <td>T-21</td>
+                    </tr>*@
+
+                                </tbody>
+
+
+                            </table>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+<div class="modal" id="manager" style="display:none">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloasemngr" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Manager Access
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 pl-0">
+
+                        <div class="row pl-3 mb-2">
+                            <label class="col-md-5">Access Code:</label>
+                            <div class="col-md-7">
+                                <input type="password" id="textaccesscode" class="form-control" placeholder="" autocomplete="off" autofocus />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnmangergobillhstry" data-toggle="modal"  @*data-target="#salesreturn"*@>Go</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal" id="salesreturn" style="display:none">
+    <div id="salesOverlay" style="display:none"></div>
+    <div class="modal-dialog modal-lg">
+        
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloasesalesreturn" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Sales Return
+                </h4>
+            </div>
+            <div class="modal-body" style="height: 399px;">
+                <div class="row">
+                    <div class="" style="width:46%;">
+                        <div class="col-sm-12 col-md-12 pl-0">
+                            <label style="margin-bottom: 0px;" id="">Items Sold (Invoice No.<span id="lblinvoicesalesreturn">MLIN-00125</span>)</label>
+                        </div>
+                        <div class="mt-2" id="dvtblsalesreturn">
+                            <table id="tblsalesreturn">
+                                <thead>
+                                    <tr onclick="BindReverseOrderSR();">
+                                        <th style="width:32%;">Item</th>
+                                        <th>Qty</th>
+                                        <th></th>
+                                        <th>Return Qty</th>
+                                        <th></th>
+                                        <th>Item Price</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @*<tr>
+                                        <td style="width:40%;">Kerala Prawn Soup</td>
+                        <td>1.00</td>
+                       <td>1.00</td>
+                        <td>24.00</td>
+                        <td><i class="fa fa-paper-plane" aria-hidden="true"></i></td>
+
+                    </tr>*@
+
+
+
+                                </tbody>
+
+
+                            </table>
+                        </div>
+                        <div class="pricepart">
+                            <div class="col-sm-12 col-md-12 pl-0">
+                                <label style="margin-bottom: 0px;">Items Price:<span id="spitempricesr"></span></label>
+                            </div>
+                            <div class="col-sm-12 col-md-12 pl-0">
+                                <label style="margin-bottom: 0px;">Items Vat:<span id="spitemvatsr"></span></label>
+                            </div>
+                            <div class="col-sm-12 col-md-12 pl-0">
+                                <label style="margin-bottom: 0px;">Total:<span id="sptotalsr"></span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:46%;">
+                        <div class="col-sm-12 col-md-12 pl-0">
+                            <label style="margin-bottom: 0px;">Items to be returned</label>
+                        </div>
+                        <div class="" id="dvtblsalesafterreturn">
+                            <table id="tblsalesafterreturn" class="mt-2" style="display:none">
+                                <thead>
+                                    <tr>
+                                        <th style="width:178px">Item</th>
+                                        <th style="width:37%">Qty</th>
+                                        <th>Item Price</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @*<tr>
+                                        <td style="width:40%;">Kerala Prawn Soup</td>
+                        <td>1.00</td>
+                       <td>1.00</td>
+                        <td>24.00</td>
+                        <td><i class="fa fa-paper-plane" aria-hidden="true"></i></td>
+
+                    </tr>*@
+
+
+
+                                </tbody>
+
+
+                            </table>
+
+
+                        </div>
+
+
+                    </div>
+                    <div class="pricepart2">
+                        <div class="col-sm-12 col-md-12 pl-0">
+                            <label style="margin-bottom: 0px;">Items Price:<span id="lblbitemprice"></span></label>
+                        </div>
+                        <div class="col-sm-12 col-md-12 pl-0">
+                            <label style="margin-bottom: 0px;">Items Vat:<span id="lblbitemvat"></span></label>
+                        </div>
+                        <div class="col-sm-12 col-md-12 pl-0">
+                            <label style="margin-bottom: 0px;">Total:<span id="lblbtotal"></span></label>
+                        </div>
+                    </div>
+                    <div class="" style="margin-top: 12%;">
+                        
+                            <div class="buttonCon1">
+                                <div class="col-md-12">
+                                    <button class="btn btn-success btn-sm temporarybill" id="btnSalesReturn" onclick="SalesReturn();" style="width: 142%;">Return</button>
+                                    </div>
+                                <div class="col-md-12">
+                                    <button class="btn btn-success btn-sm temporarybill" id="btnsalesreturncancel" style="width: 142%;">Cancel</button>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="btn btn-success btn-sm temporarybill" id="btnsalesreturnprint" style="width: 142%;">Print</button>
+                                </div>
+                                <div class="col-md-12">
+                                        <button class="btn btn-success btn-sm temporarybill" id="btnsalesreturnexit" style="width: 142%;">Exit</button>
+                                    </div>
+
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+            @*<div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnmanagergo">Go</button>
+
+            </div>*@
+        </div>
+
+    </div>
+</div>
+<div class="modal" id="Tableshift">
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                   Table shifting
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 pl-0">
+                        <label class="col-md-4 fontBold">Existing table:</label>
+                        <label class="col-md-8 pull-right" id="lblPreTable"></label>
+
+                    </div>
+                    <div class="col-md-6 pl-0">
+                        <label class="col-md-4 fontBold">Order Taking:</label>
+                        <label class="col-md-8 pull-right" id="lblorderIdDineIn"></label>
+
+                    </div>
+                    <div class="tableSection" id="sourceFields">
+                       @*<div class="sectionBox">
+
+                <img src="~/Content/images/table-icon-sm.png" />
+                <h6>T1</h6>
+            </div>*@
+         
+                    </div>
+                 
+                </div>
+                <button type="button" class="btn btn-success btn-sm" id="btnUpdate">Update</button>
+               
+
+            </div>
+
+
+          
+            
+        </div>
+
+        
+    </div>
+    <label id="lblrestroid" style="display: none" />
+  
+
+</div>
+
+<div class="modal fade" id="DeliverConfirmationPopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/png-warning-2.png">
+                </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox" id="htext"></h5>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button class="btn btn-success btn-sm" id="DeliverYes">Yes</button>
+                <button class="btn btn-success btn-sm mr-2" id="DeliverNo">No</button>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<script src="~/JavaScript/RunningOrder.js"></script>
+@*<script src="~/MinJavaScript/RunningOrder_min.js"></script>*@
+
+
+
+<div class="modal" id="billhistory1" style="display:none">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloasebpup">
+                    <span class="cross" >&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Bill History
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Bill Number:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2" id="lblbillno"></label>
+                        </div>
+                    </div>
+                    </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Table Number:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2" id="lbltableno"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Type:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2" id="lbltype"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Order Number:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2" id="lblorderno"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Members:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2" id="lblmemberno"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Date:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2" id="lbldate"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Time:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2" id="lbltime"></label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-2 grdmrg" id="billhistorytbl">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 45%;">Item Name</th>
+                                <th>Qty</th>
+                                <th>Kot</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*<tr>
+                                <td style="width: 45%;">Kerala Prawn Soup</td>
+                                <td>1.00</td>
+                                <td>Kot_No-0204</td>
+                                <td>28.000</td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 45%;">Kerala Prawn Soup</td>
+                                <td>1.00</td>
+                                <td>Kot_No-0204</td>
+                                <td>28.000</td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 45%;">Kerala Prawn Soup</td>
+                                <td>1.00</td>
+                                <td>Kot_No-0204</td>
+                                <td>28.000</td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 45%;">Kerala Prawn Soup</td>
+                                <td>1.00</td>
+                                <td>Kot_No-0204</td>
+                                <td>28.000</td>
+
+                            </tr>*@
+
+
+
+                        </tbody>
+
+
+                    </table>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="col-md-6 col-form-label pl-0">Vat:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2"id="lblvat"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="col-md-6 col-form-label pl-0">Total:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2" id="lbltotalamount"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="col-md-6 col-form-label pl-0">Discount:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2"id="lbldiscount"></label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            @*<div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btncoupanapply" data-dismiss="modal">Apply</button>
+            </div>*@
+        </div>
+
+    </div>
+</div>
+@*<script type="text/javascript">
+    jquery_min_p(document).ready(function () {
+        jquery_min_p("#btncrosscloasesalesreturn").click(function () {
+            jquery_min_p("#salesreturn").modal("hide");
+        });
+    });
+</script>*@

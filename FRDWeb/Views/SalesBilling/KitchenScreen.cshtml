@@ -1,0 +1,313 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    jquery_min_p(document).ready(function () {
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+        jquery_min_p("#lblrestroid").text(id);
+        //alert(id);
+    })
+
+</script>
+
+<style>
+    .menuList {
+    font-size: 19px;
+    position: absolute;
+    right: 34px;
+    top: 35px;
+    cursor: pointer;
+}
+
+
+    .kitchenordercard {
+        background-color: #d2f1ad !important;
+            border: 1px solid #d2f1ad;
+    padding: 10px 0px 0px 10px;
+    }
+    .orderbrd {
+            border: 1px solid #cdcdcd;
+                
+    }
+    .orderscroll {
+        overflow-y: scroll;
+    max-height: 327px;
+    }
+
+    .orderheadling {
+        background-color: #3d6169;
+    padding: 7px 0px 0px 0px;
+    }
+     #mainContent {
+        max-width: 100%;
+        flex: 100%;
+    }
+
+    #navContent {
+        display: none;
+    }
+    .width21 {
+            width: 23%;
+    }
+    .width100 {
+            width: 100%;
+    }
+    #kitchenscreen .mainCon {
+    padding-top: 0px !important;
+     padding-bottom: 10px !important;
+    height: 250px !important;
+    overflow-y: scroll;
+}
+    .mainCon1 {
+    padding-top: 0px !important;
+     padding-bottom: 10px !important;
+    height: 400px !important;
+    overflow-y: scroll;
+}
+
+    .dinein {
+      background: #efc2c2;
+    border: 1px solid #efc2c2;
+    padding: 10px 0px 0px 10px;
+    }
+    .buttonCon {
+    padding: 3px 0px;
+    float: right;
+    position: absolute;
+    right: 2%;
+    bottom: 1%;
+}
+
+.changesection {
+
+        width: 323px;
+    position: absolute;
+    right: 32px;
+    top: 4px;
+    }
+
+   .dropdown:after {
+    position: absolute;
+    content: '';
+    right: 9px;
+    top: 8px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 8px solid #948c8c;
+    z-index: -1;
+    }
+   .mainCon {
+    min-height: 441px;
+    overflow: hidden;
+    padding-top: 30px !important;
+    padding-bottom: 20px !important;
+}
+    .hold {
+        background-color: #b0d1d4 !important;
+   border:1px solid #b0d1d4;
+    padding: 10px 0px 0px 10px;
+    }
+    .takeawaytop {
+        background-color: #51787b;
+    padding: 7px 0px 0px 0px;
+    }
+    .holdtop {
+         background-color: #51787b;
+    padding: 7px 0px 0px 0px;
+    }
+    .dineintop {
+         background-color: #51787b;
+    padding: 7px 0px 0px 0px;
+    }
+    .textwhite {
+        color:#ffffff !important;
+    }
+    .modal-dialog .modal-body {
+    padding: 13px 10px 12px 10px !important;
+}
+
+</style>
+<div class="row">
+    <div class="col-md-12 loader" id="preloader">
+        <span><img src="~/Content/images/loader(1).gif" style="width: 10%;" /></span>
+    </div>
+
+</div>
+<div class="container">
+    <div class="pageHead">
+        <h4 class="pageTitle" id="lblpagetitle"></h4>
+        <div class="p-0 clearfix changesection">
+            <label class="col-md-4 p-0 pull-left">Change Section:</label>
+            <div class="col-md-8 pull-left dropdown p-0">
+                <select class="form-control" style="height: 24px; display:inline-block;" id="changesection" onchange="BindKitchenScreen();">
+                   
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <div class="menuList ">
+            @*<a href="#"><i class="fa fa-square mr-1" style="color: #b0d1d4 !important;" aria-hidden="true"></i>Hold</a>*@
+            <a href="#"><i class="fa fa-square mr-1" style="color: #d2f1ad !important;" aria-hidden="true"></i>Take Away</a>
+            <a href="#"><i class="fa fa-square mr-1" style="color: #efc2c2 !important;" aria-hidden="true"></i>Dine-In</a>
+
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+   
+    <div class="card mt-4" id="kitchenscreen" style="height: 490px !important;">
+        <div class="card-body">
+            <div id="test" class="row mainCon">
+                @*<div class="width21 orderbrd ml-3 mt-3" data-toggle="modal" data-target="#ordernumber">
+                <div class="takeawaytop">
+
+
+                    <label class="col-md-5 fontBold textwhite">KOT No:</label>
+                    <label class="col-md-6 p-0 textwhite">112</label>
+
+
+                </div>
+                <div class="col-md-12 kitchenordercard">
+                    <div class="row">
+                        <label class="col-md-5 fontBold">Order No:</label>
+                        <label class="col-md-6 p-0">MLON-100562</label>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-5 fontBold">Time:</label>
+                        <label class="col-md-6 p-0">8:45 pm</label>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-5 fontBold">Waiter Name:</label>
+
+                        <label class="col-md-6 p-0">Himanshu</label>
+                    </div>
+                </div>
+            </div>
+            <div class="width21 orderbrd ml-3 mt-3" data-toggle="modal" data-target="#ordernumber">
+                <div class="dineintop">
+                    <label class="col-md-5 fontBold textwhite">KOT No:</label>
+                    <label class="col-md-6 p-0 textwhite">112</label>
+                </div>
+                <div class="col-md-12 dinein">
+
+                    <div class="row">
+                        <label class="col-md-5 fontBold">Order No:</label>
+                        <label class="col-md-6 p-0">MLON-100562</label>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-5 fontBold">Time:</label>
+                        <label class="col-md-6 p-0">8:45 pm</label>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-5 fontBold">Waiter Name:</label>
+
+                        <label class="col-md-6 p-0">Himanshu</label>
+                    </div>
+                </div>
+            </div>*@
+
+
+
+                @*<div class="width21 orderbrd ml-3 mt-3" data-toggle="modal" data-target="#ordernumber">
+                <div class="holdtop">
+                    <label class="col-md-5 fontBold textwhite">KOT No:</label>
+                    <label class="col-md-6 p-0 textwhite">112</label>
+                </div>
+                <div class="col-md-12 hold">
+
+                    <div class="row">
+                        <label class="col-md-5 fontBold">Order No:</label>
+                        <label class="col-md-6 p-0">MLON-100562</label>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-5 fontBold">Time:</label>
+                        <label class="col-md-6 p-0">8:45 pm</label>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-5 fontBold">Waiter Name:</label>
+
+                        <label class="col-md-6 p-0">Himanshu</label>
+                    </div>
+                </div>
+            </div>*@
+
+            </div>
+            <div class="row mainCon" id="test1" style="display:none">
+
+            </div>
+        </div>
+        <div class="buttonCon">
+            <a href="/Home/Index"><button class="btn btn-success btn-sm" id="seqExit"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button></a>
+</div>
+    </div>
+    <label id="lblrestroid" style="display: none" />
+    </div>
+
+
+<div class="modal" id="ordernumber">
+    @*<div class="modal-dialog modal-md">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                   Item
+                </h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12 pl-0">
+                    <div class="row">
+                        <div class="width100 orderbrd ml-3">
+
+                            <div class="col-md-12 kitchenordercard">
+                            
+                                <div class="row">
+                                    <label class="col-md-3 fontBold">KOT No:</label>
+                                    <label class="col-md-2 p-0">112</label>
+                                    <label class="col-md-3 fontBold pl-0">Order No:</label>
+                                    <label class="col-md-3 p-0">MLON-100562</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12 orderscroll">
+
+                                <div class="row orderheadling">
+                                    <label class="col-md-5 fontBold" style="color:#fff">Item</label>
+                                    <label class="col-md-3 p-0" style="color:#fff">AddOn</label>
+                                    <label class="col-md-3 p-0" style="color:#fff">Qty</label>
+                                </div>
+                                <div class="row mt-1">
+                                    <label class="col-md-5 fontBold">Kerala prawn:</label>
+                                    <label class="col-md-3 p-0">4</label>
+                                    <label class="col-md-2 p-0">1</label>
+                                    <button type="button" class="btn btn-success btn-sm pull-right">Preparing</button>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-5 fontBold">Tomato Soup:</label>
+                                    <label class="col-md-3 p-0">5</label>
+                                    <label class="col-md-2 p-0">1</label>
+                                    <button type="button" class="btn btn-success btn-sm pull-right">Preparing</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+        </div>
+
+    </div>*@
+</div>
+
+<script src="~/JavaScript/KitchenScreen.js"></script>
+
+@*<script src="~/MinJavaScript/KitchenScreen_min.js"></script>*@

@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<script src="~/Content/js/jquery-1.10.2.js"></script>
+<script>        var jquery_1_10_2_min_p = jQuery.noConflict();</script>
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+
+<script src="~/Content/js/jquery-ui.js"></script>
+
+
+
+
+<script>
+    jquery_1_10_2_min_p(document).ready(function () {
+
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+
+
+        jquery_min_p("#lblrestroid").text(id);
+
+        // alert(jquery_min_p("#lblrestroid").text());
+
+    });
+</script>
+
+<script src="~/JavaScript/CustomerLoyality.js"></script>
+
+
+
+
+<div class="container RestaurantInfra">
+    <div class="pageHead">
+        <h4 class="pageTitle">Customer Loyalty</h4>
+
+    </div>
+    <div class="card mt-2" id="">
+        <div class="card-body mainCon">
+            <div class="row">
+                <div class="col-md-6 pl-0">
+                    <label class="col-md-4 fontBold">Name:</label>
+                    <input type="text" id="txtclname" class="form-control col-md-8 pull-right" placeholder="Name" onkeyup="RemoveClass();" onblur=" Checkname();"/>
+
+                </div>
+                <div class="col-md-6">
+                    <label class="col-md-4 fontBold">Mobile:</label>
+                    <input type="text" id="txtclmobile" class="form-control col-md-8 pull-right" placeholder="Mobile" onblur="mobilecheck();" onkeyup="RemoveClass();" />
+
+                </div>
+                <div class="col-md-6 pl-0 pt-1">
+                    <label class="col-md-4 fontBold">Card No.:</label>
+                    <input type="text" id="txtclcardno" class="form-control col-md-8 pull-right" placeholder="Card Number" onkeyup="RemoveClass();"  onkeypress="FilterCardNo();" />
+                    @*<select class="form-control col-md-6" style="height: 31px;" id="ddlrest"  onchange="RemoveClass();">
+                        <option selected="selected">Select</option>
+                    </select>*@
+                </div>
+                <div class="col-md-6 pt-1">
+                    <label class="col-md-4 fontBold">Email:</label>
+                    <input type="text" id="txtclemail" class="form-control col-md-8 pull-right" placeholder="Email" onkeyup="RemoveClass();" />
+
+                </div>
+
+                <div class="col-md-6 pt-1 pl-0">
+                    <label class="col-md-4 fontBold">Address:</label>
+                    <textarea type="text" id="txtcladdress" class="form-control col-md-8 pull-right" placeholder="Address" onkeyup="RemoveClass();"></textarea>
+                </div>
+
+                <div class="col-md-12 pt-1">
+                    <button type="button" id="btnclissue" class="btn btn-success btn-sm pull-right"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>Issue</button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <label id="lblrestroid" style="display: none" />
+</div>
+

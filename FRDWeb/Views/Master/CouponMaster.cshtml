@@ -1,0 +1,335 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Content/js/jquery.min.js"></script>
+
+<script>        var jquery_min_p = jQuery.noConflict();</script>
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+<script src="~/JavaScript/CouponMaster.js"></script>
+
+
+<style>
+    .nav-tabs .nav-item {
+        margin-bottom: -1px;
+        display: inline-block;
+        background: #3d6169;
+        width: 50%;
+        text-align: center;
+        border-right: 1px solid #a6b6b9;
+    }
+
+
+
+    #mainContent {
+        max-width: 100%;
+        flex: 100%;
+        padding: 0;
+    }
+
+    #navContent {
+        display: none;
+    }
+
+    #tblrestrocards tbody {
+        overflow: auto;
+        display: block;
+        max-height: 26vh;
+    }
+
+        #tblrestrocards tbody tr {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+        }
+
+
+    #tblrestrocards thead tr {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+    }
+</style>
+
+
+<div class="container">
+
+
+    <div class="pageHead">
+        <h4 class="pageTitle">Coupon Master</h4>
+    </div>
+
+
+
+    <div class="clearfix"></div>
+    <div class="card mt-2" id="loyaltyCon">
+        <div class="card-body mainCon">
+            <div class="row">
+
+                <ul class="nav nav-tabs p-0" id="loyaltyTab" role="tablist">
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" id="GCard" href="#generateCard" role="tab" aria-controls="generateCard">Generate Coupon</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" id="ICard" href="#issueCard" role="tab" aria-controls="issueCard">Issue Coupon</a>
+                    </li>
+
+                </ul>
+                <div class="tab-content">
+
+                    <div class="tab-pane active" id="generateCard" role="tabpanel">
+                        <h4 class="pageTitle">Generate Card</h4>
+                        <div class="leftCon">
+                            <div class="row mb-2 pl-3">
+                                <div class="form-check-inline col-md-5 p-0">
+                                    <label class="form-check-label" id="Label1">
+                                        <input class="form-check-input" id="rdcreatenew" name="rdogencard" type="radio" value="N" onclick="show1();">Create New
+                                    </label>
+                                </div>
+                                <div class="form-check-inline col-md-5 p-0">
+                                    <label class="form-check-label" id="Label1">
+                                        <input class="form-check-input" id="rdexisting" name="rdogencard" type="radio" value="E" onclick="show2();">Existing
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row pl-3 mb-2" id="bookletDiv">
+                                <label class="col-md-5 col-form-label">Booklet No.:</label>
+                                <div class="col-md-7">
+
+                                    <input type="text" id="txtbookletno" class="form-control" placeholder="" onkeyup="Removeclass();" maxlength="4" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="row pl-3 mb-2">
+                                <label class="col-md-5 col-form-label">No. of Coupon:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="txtnoofcoupon" class="form-control" placeholder="" onkeyup="Removeclass();" maxlength="5" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="row pl-3 mb-2" id="strtfromdiv">
+                                <label class="col-md-5 col-form-label">Start From:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="txtstartfrom" class="form-control" placeholder="" onkeyup="Removeclass();" maxlength="3" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="row pl-3 mb-2" id="cardLen">
+                                <label class="col-md-5 col-form-label">Coupon Length:</label>
+                                <div class="col-md-7">
+
+                                    <input type="text" id="txtcouponlength" class="form-control" placeholder="" onkeyup="Removeclass();" maxlength="8" autocomplete="off" />
+
+                                </div>
+                            </div>
+
+                            <div class="row pl-3 mb-2" id="valueCou">
+                                <label class="col-md-5 col-form-label">Value:</label>
+                                <div class="col-md-7">
+
+                                    <input type="text" id="txtvalue" class="form-control" placeholder="" onkeyup="Removeclass();" maxlength="8" autocomplete="off" />
+
+                                </div>
+                            </div>
+                            <div class="cardDetail">
+                                <div id="displayMsg">No data to display</div>
+                                <table id="cardDetailsTable">
+                                    <thead>
+                                        <tr>
+                                            <th width="30%">Length</th>
+                                            <th width="70%">Coupon No.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tblexisShow">
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button type="button" id="btnadd" class="btn btn-success btn-sm pull-right mt-3"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+
+                        </div>
+
+                        <div class="rightCon">
+                            <div class="cardContainer" id="divcard">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="issueCard" role="tabpanel">
+                        <h4 class="pageTitle">Restaurant Coupon Card</h4>
+                        <div class="leftCon pt-0">
+                            <div class="restaurantList" id="restaurantList">
+                                <h4 class="pageTitle">Select Restaurant's Name</h4>
+                       
+                            </div>
+
+
+                        </div>
+                        <div class="rightCon">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-12 formCon">
+                                        <h4 class="pageTitle">Issue Coupon</h4>
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="row">
+                                                <label class="col-sm-5 col-md-5 col-5 col-form-label">Booklet No.</label>
+                                                <div class="col-sm-7 col-md-7 col-7 dropdown pr-0">
+                                                    <select class="form-control" style="height: 31px; display: block;" id="ddlcardlength" onchange="   Removeclass(); BindLength();">
+                                                        <option selected="selected">Select</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-sm-5 col-md-5 col-5 col-form-label pt-2">Length</label>
+                                                <div class="col-sm-7 col-md-7 col-7 dropdown pr-0 pt-2">
+                                                    <select class="form-control" style="height: 31px; display: block;" id="ddllength" onchange=" BindCouponAvailable(); Removeclass();  ">
+                                                        <option value='0' selected="selected">Select</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="col-md-12 col-sm-12" id="divcardDetail" style="display:none;">
+                                            <div class="row">
+                                                <label class="col-sm-5 col-md-5 col-5 col-form-label">Total Coupon:</label>
+                                                <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                                    <label class="col-form-label" id="lbltotalcards">0</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-5 col-md-5 col-5 col-form-label">Coupon Available:</label>
+                                                <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                                    <label class="col-form-label" id="lblcardavailable">0</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-5 col-md-5 col-5 col-form-label">Issue Quantity:</label>
+                                                <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                                    <input type="text" id="txtissuecard" onkeyup="Removeclass();" class="form-control" maxlength="5" />
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-success btn-sm pull-right mt-2" id="btnIssue"><i class="fa fa-credit-card-alt" aria-hidden="true" style="font-size:13px"></i> Issue</button>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 formCon" id="divrestrodetail" style="display:none;">
+                                        <h4 class="pageTitle">Restaurant Details</h4>
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="row">
+                                                <label class="col-sm-5 col-md-5 col-5 col-form-label">Total Coupon Assigned:</label>
+                                                <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                                    <label class="col-form-label" id="lblrestroissuecards">0</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="col-md-6" id="divrestrogrid" style="display:none;">
+                                    <table id="tblrestrocards">
+                                        <thead>
+                                            <tr>
+                                                <th>Length</th>
+                                                <th>Booklet No</th>
+                                                <th>AssignToCustomer</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                                                  </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="buttonCon">
+                        <button class="btn btn-success btn-sm" id="loyaltyExit"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <label id="lbllength" style="display:none"></label>
+    <label id="lblrestroid" style="display: none"></label>
+    <label id="lblrestroname" style="display:none"></label>
+    <input type="hidden" id="hdnmaxlen">
+</div>
+<div class="modal" id="WarningPopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/png-warning-2.png">
+                </h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox" id="hwarning"></h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnok">Ok</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    jquery_min_p(document).ready(function () {
+        jquery_min_p(".restaurantList .sectionBox").click(function () {
+
+            jquery_min_p(".restaurantList .sectionBox").removeClass("active");
+            jquery_min_p(this).addClass('active');
+        })
+
+        jquery_min_p('#loyaltyExit').click(function () {
+            window.location = "/Master/Home";
+            reset();
+
+
+        });
+
+    })
+
+</script>
+<script>
+    function show1() {
+        jquery_min_p("#startFrom").css('display', 'flex');
+        jquery_min_p("#cardLen").css('display', 'flex');
+        jquery_min_p("#displayMsg").css('display', 'block');
+        jquery_min_p("#cardDetailsTable").css('display', 'none');
+        //document.getElementById('startFrom').style.display = 'flex';
+        //document.getElementById('cardLen').style.display = 'flex';
+        //document.getElementById('displayMsg').style.display = 'block';
+        //document.getElementById('cardDetailsTable').style.display = 'none';
+    }
+    function show2() {
+        jquery_min_p("#cardDetailsTable").css('display', 'inline-table');
+        jquery_min_p("#startFrom").css('display', 'none');
+        jquery_min_p("#startFrom").css('display', 'none');
+        jquery_min_p("#startFrom").css('display', 'none');
+
+    }
+
+    function ReadConfigurationSettings() {
+        var length = '<%=ConfigurationManager.AppSettings["maxCardLength"].ToString() %>'
+        jquery_min_p("#hdnmaxlen").val(length);
+    }
+
+</script>

@@ -1,0 +1,227 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "more";
+}
+<script src="~/Content/js/jquery.min.js"></script>
+<script>        var jquery_min_p = jQuery.noConflict();</script>
+<script>
+    jquery_min_p(document).ready(function () {
+        jquery_min_p('#firstbox').click(function () {
+            jquery_min_p('#firstdiv').css('display', 'none');
+            jquery_min_p('#seconddiv').css('display', 'block');
+            jquery_min_p('#thirddiv').css('display', 'none');
+            jquery_min_p('#dvh4heading').find(".h4").text('Sales Return Report');
+        });
+
+        jquery_min_p('#secondbox').click(function () {
+            jquery_min_p('#firstdiv').css('display', 'none');
+            jquery_min_p('#seconddiv').css('display', 'none');
+            jquery_min_p('#thirddiv').css('display', 'block');
+            jquery_min_p('#dvh4heading').find(".h4").text('Item Amend Report');
+        });
+
+        jquery_min_p('#btnbackmorestr').click(function () {
+            jquery_min_p('#firstdiv').css('display', 'block');
+            jquery_min_p('#seconddiv').css('display', 'none');
+            jquery_min_p('#thirddiv').css('display', 'none');
+            jquery_min_p('#dvh4heading').find(".h4").text('More Reports');
+        });
+
+
+        jquery_min_p('#btnbackmoreitr').click(function () {
+            jquery_min_p('#firstdiv').css('display', 'block');
+            jquery_min_p('#seconddiv').css('display', 'none');
+            jquery_min_p('#thirddiv').css('display', 'none');
+            jquery_min_p('#dvh4heading').find(".h4").text('More Reports');
+        });
+
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+        jquery_min_p("#lblrestroid").text(id);
+        // alert(id);
+    });
+
+
+
+
+</script>
+
+
+<script src="~/JavaScript/Reports.js"></script>
+<style>
+    #Morebtnreport .createBox {
+    width: 658px;
+    /* display: block; */
+    margin: 14% 14% 0% 26%;
+}
+
+    .deleteIcon {
+        display: none;
+    }
+
+    .rightCon {
+        min-height: 400px !important;
+    }
+
+    .leftCon {
+        min-height: 400px;
+    }
+
+    #Divtable .sectionBox, #DivKitchenSection .sectionBox {
+        position: relative;
+    }
+
+    #divsittingsection .sectionBox, #DivKitchenSection .sectionBox {
+        padding: 0px 2px 1px;
+        color: #27444a;
+        border-radius: 2px;
+        text-align: center;
+        width: 18%;
+        background: #cad0d0;
+        float: left;
+        border: 1px solid #a6b6b9;
+        margin: 4px;
+        min-height: 80px;
+        max-height: 80px;
+        overflow: hidden;
+        position: relative;
+        display: block;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 loader" id="preloader" style="display:none;">
+        <span><img src="~/Content/images/loader(1).gif" style="width: 10%;" /></span>
+    </div>
+
+</div>
+<div class="container RestaurantInfra" id="Morebtnreport">
+
+    <div class="pageHead" id="dvh4heading">
+        <h4 class="pageTitle h4">More Reports</h4>
+    </div>
+    <div class="card mt-4">
+
+        <div class="card-body mainCon">
+            <div class="createBox" id="firstdiv">
+                <div class="row">
+                    <div class="structureBox box-sm" id="firstbox">
+                        <img src="~/Content/images/moresalereport.png" />
+                        <span class="defineHead">Sales Return Report</span>
+                    </div>
+                  
+                    <div class="structureBox box-sm" id="secondbox">
+                        <img src="~/Content/images/moresalereport.png" />
+                        <span class="defineHead">Item Amend Report</span>
+                    </div>
+
+                </div>
+            </div>
+            <div id="seconddiv" style="display:none;">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-12 mb-2" id="uppergrd" style="margin-top:10px;">
+                            <div class="row">
+                                <div class="col-md-3 p-0 clearfix">
+                                    <label class="col-md-4 p-0 pull-left">From date:</label>
+                                    <div class="col-md-8 pull-left  p-0">
+                                        <input type="date" class="form-control" id="frmdatestr" style="height: 24px; display:inline-block;">
+                                    </div>
+                                </div>
+                                <div class="col-md-2 p-0 clearfix">
+
+                                    <div class="col-md-11 pull-left pl-2">
+                                        <input type="text" id="frmtimestr" class="form-control" style="height: 24px; display:inline-block;">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 p-0 clearfix">
+                                    <label class="col-md-4 p-0 pull-left">To Date:</label>
+                                    <div class="col-md-8 pull-left p-0">
+                                        <input type="date" class="form-control" id="todatestr" style="height: 24px; display:inline-block;" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2 p-0 clearfix">
+
+                                    <div class="col-md-11 pull-left pl-2 ">
+                                        <input type="text" id="totimestr" class="form-control" style="height: 24px; display:inline-block;">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" id="btnshowmorestr" class="btn btn-success btn-sm pull-right">Show</button>
+                                    <button type="button" id="btnbackmorestr" class="btn btn-success btn-sm pull-right">Back</button>
+                                </div>
+
+                            </div>
+                            <div class="row  mt-2">
+                                <div class="col-md-3 p-0 clearfix">
+                                    <label class="col-md-4 p-0 pull-left">Iteam Group:</label>
+                                    <div class="col-md-8 pull-left  p-0">
+                                        <select style="width:100%" class="dropdown" id="tblitemgrpstr">
+                                            <option value="0">All</option>
+                                            @*<option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>*@
+
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="thirddiv" style="display:none;">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-12 mb-2" id="uppergrd" style="margin-top:10px;">
+                            <div class="row">
+                                <div class="col-md-3 p-0 clearfix">
+                                    <label class="col-md-4 p-0 pull-left">From date:</label>
+                                    <div class="col-md-8 pull-left  p-0">
+                                        <input type="date" id="frmdateitr" class="form-control" style="height: 24px; display:inline-block;">
+                                    </div>
+                                </div>
+                                <div class="col-md-2 p-0 clearfix">
+
+                                    <div class="col-md-11 pull-left pl-2">
+                                        <input type="text" id="frmtimeitr" class="form-control" style="height: 24px; display:inline-block;">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 p-0 clearfix">
+                                    <label class="col-md-4 p-0 pull-left">To Date:</label>
+                                    <div class="col-md-8 pull-left p-0">
+                                        <input type="date" id="todateitr" class="form-control" style="height: 24px; display:inline-block;" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2 p-0 clearfix">
+
+                                    <div class="col-md-11 pull-left pl-2 ">
+                                        <input type="text" id="totimeitr" class="form-control" style="height: 24px; display:inline-block;">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" id="btnshowmoreitr" class="btn btn-success btn-sm pull-right">Show</button>
+                                    <button type="button" id="btnbackmoreitr" class="btn btn-success btn-sm pull-right">Back</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <label id="lblrestroid" style="display: none"></label>
+</div>   

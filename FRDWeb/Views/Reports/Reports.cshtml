@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Content/js/jquery.min.js"></script>
+<script>        var jquery_min_p = jQuery.noConflict();</script>
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+
+
+
+<script>
+    jquery_min_p(document).ready(function () {
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+        jquery_min_p("#lblrestroid").text(id);
+       // alert(id);
+    })
+
+</script>
+<script src="~/JavaScript/Reports.js"></script>
+
+<h2>Reports</h2>
+
+<div>
+    <label>Enter from date</label>
+    <input type="date" id="rfdate">
+    <label>Enter To Date</label>
+    <input type="date" id="rtdate">
+    <div>
+    <label>ItemGRoup</label>
+    <div class="col-md-8 dropdown p-0">
+        <select class="form-control" id="ddlritemgroup" style="height: 24px; display:inline-block;">
+            <option value="-1" selected="selected">Select</option>
+        </select>
+    </div>
+     </div>
+   <div>
+       <span class="pullright">
+           <button class="btn btn-success btn-sm pull-right" id="btnshowdata">Show</button>
+       </span>
+   </div>
+
+    <div id="dvdailysalesreport">
+        </div>
+    <label id="lblrestroid" style="display: none"></label>
+
+</div>

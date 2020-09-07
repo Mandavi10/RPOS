@@ -1,0 +1,323 @@
+﻿    @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+
+<script src="~/JavaScript/Home.js"></script>
+
+@*<script src="~/MinJavaScript/Home_min.js"></script>*@
+
+
+
+
+
+<script>
+    jquery_min_p(document).ready(function () {
+        var roleid = '@Request.RequestContext.HttpContext.Session["RoleId"]';
+        //jquery_min_p("#lblrestroid").text(id);
+
+       // alert(roleid);
+    })
+
+
+</script>
+
+<script>
+
+//function ezBSAlert (options) {
+//	var deferredObject = $.Deferred();
+//	var defaults = {
+//		type: "alert", //alert, prompt,confirm
+//		modalSize: 'modal-sm', //modal-sm, modal-lg
+//		okButtonText: 'Ok',
+//		cancelButtonText: 'Cancel',
+//		yesButtonText: 'Yes',
+//		noButtonText: 'No',
+//		headerText: 'Attention',
+//		messageText: 'Message',
+//		alertType: 'default', //default, primary, success, info, warning, danger
+//		inputFieldType: 'text', //could ask for number,email,etc
+//	}
+//	$.extend(defaults, options);
+
+//	var _show = function(){
+//		var headClass = "navbar-default";
+//		switch (defaults.alertType) {
+//			case "primary":
+//				headClass = "alert-primary";
+//				break;
+//			case "success":
+//				headClass = "alert-success";
+//				break;
+//			case "info":
+//				headClass = "alert-info";
+//				break;
+//			case "warning":
+//				headClass = "alert-warning";
+//				break;
+//			case "danger":
+//				headClass = "alert-danger";
+//				break;
+//        }
+////		$('BODY').append(
+////			'<div id="ezAlerts" class="modal fade">
+////    ' +
+////    '<div class="modal-dialog" class="' + defaults.modalSize + '">
+////        ' +
+////        '<div class="modal-content">
+////            ' +
+////            '<div id="ezAlerts-header" class="modal-header ' + headClass + '">
+////                ' +
+////                '<button id="close-button" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>' +
+////                '<h4 id="ezAlerts-title" class="modal-title">Modal title</h4>' +
+////                '
+////            </div>' +
+////            '<div id="ezAlerts-body" class="modal-body">
+////                ' +
+////                '<div id="ezAlerts-message"></div>' +
+////                '
+////            </div>' +
+////            '<div id="ezAlerts-footer" class="modal-footer">
+////                ' +
+////                '
+////            </div>' +
+////            '
+////        </div>' +
+////        '
+////    </div>' +
+////    '
+////</div>'
+////		);
+
+//		$('.modal-header').css({
+//			'padding': '15px 15px',
+//			'-webkit-border-top-left-radius': '5px',
+//			'-webkit-border-top-right-radius': '5px',
+//			'-moz-border-radius-topleft': '5px',
+//			'-moz-border-radius-topright': '5px',
+//			'border-top-left-radius': '5px',
+//			'border-top-right-radius': '5px'
+//		});
+
+//		$('#ezAlerts-title').text(defaults.headerText);
+//		$('#ezAlerts-message').html(defaults.messageText);
+
+//		var keyb = "false", backd = "static";
+//		var calbackParam = "";
+//		switch (defaults.type) {
+//			case 'alert':
+//				keyb = "true";
+//				backd = "true";
+//				$('#ezAlerts-footer').html('<button class="btn btn-' + defaults.alertType + '">' + defaults.okButtonText + '</button>').on('click', ".btn", function () {
+//					calbackParam = true;
+//					$('#ezAlerts').modal('hide');
+//				});
+//				break;
+//			case 'confirm':
+//				var btnhtml = '<button id="ezok-btn" class="btn btn-primary">' + defaults.yesButtonText + '</button>';
+//				if (defaults.noButtonText && defaults.noButtonText.length > 0) {
+//					btnhtml += '<button id="ezclose-btn" class="btn btn-default">' + defaults.noButtonText + '</button>';
+//				}
+//				$('#ezAlerts-footer').html(btnhtml).on('click', 'button', function (e) {
+//						if (e.target.id === 'ezok-btn') {
+//							calbackParam = true;
+//							$('#ezAlerts').modal('hide');
+//						} else if (e.target.id === 'ezclose-btn') {
+//							calbackParam = false;
+//							$('#ezAlerts').modal('hide');
+//						}
+//					});
+//				break;
+//			case 'prompt':
+//				$('#ezAlerts-message').html(defaults.messageText + '<br /><br /><div class="form-group"><input type="' + defaults.inputFieldType + '" class="form-control" id="prompt" /></div>');
+//				$('#ezAlerts-footer').html('<button class="btn btn-primary">' + defaults.okButtonText + '</button>').on('click', ".btn", function () {
+//					calbackParam = $('#prompt').val();
+//					$('#ezAlerts').modal('hide');
+//				});
+//				break;
+//		}
+
+//		$('#ezAlerts').modal({
+//          show: false,
+//          backdrop: backd,
+//          keyboard: keyb
+//        }).on('hidden.bs.modal', function (e) {
+//			$('#ezAlerts').remove();
+//			deferredObject.resolve(calbackParam);
+//		}).on('shown.bs.modal', function (e) {
+//			if ($('#prompt').length > 0) {
+//				$('#prompt').focus();
+//			}
+//		}).modal('show');
+//	}
+
+//  _show();
+//  return deferredObject.promise();
+//}
+
+
+
+
+
+//jquery_min_p(document).ready(function () {
+//  $("#btnAlert").on("click", function(){
+//    var prom = ezBSAlert({
+//      messageText: "hello world",
+//      alertType: "danger"
+//    }).done(function (e) {
+//      $("body").append('<div>Callback from alert</div>');
+//    });
+//  });
+
+//  $("#btnConfirm").on("click", function(){
+//    ezBSAlert({
+//      type: "confirm",
+//      messageText: "hello world",
+//      alertType: "info"
+//    }).done(function (e) {
+//      $("body").append('<div>Callback from confirm ' + e + '</div>');
+//    });
+//  });
+
+//  $("#btnPrompt").on("click", function(){
+//    ezBSAlert({
+//      type: "prompt",
+//      messageText: "Enter Something",
+//      alertType: "primary"
+//    }).done(function (e) {
+//      ezBSAlert({
+//        messageText: "You entered: " + e,
+//        alertType: "success"
+//      });
+//    });
+//  });
+
+//});
+</script>
+<style>
+    #mainContent {max-width: 100%;
+    flex: 100%;}
+    .navbar-toggler {
+    display:none}
+    #navContent{display:none}
+    #home .sectionBox:hover { background:#466167 !important
+    }
+
+</style>
+<div class="row">
+    <div class="col-md-12 loader" id="preloader">
+        <span><img src="~/Content/images/loader(1).gif" style="width: 10%;" /></span>
+    </div>
+
+</div>
+<div class="container pr-0" id="masterhome">
+    <div class="pageHead">
+        <h4 class="pageTitle">Welcome</h4>
+        <div class="menuList" style="display:none" id="hmenulist">
+            <a href="/Master/NewItem"><img src="/Content/images/add-icon.png">Add New Item</a>
+            <a href="#" id="btnaddresturant" data-toggle="modal"><img src="/Content/images/restaurant-icon.png">Add Restaurant</a>
+            <a href="/Master/SequenceSetup"><img src="/Content/images/sequence-icon.png">Sequence Setup</a>
+            <a href="/Master/EmployeeMaster"><img src="/Content/images/employee-icon.png">Employee</a>
+            <a href="/Master/Loyalty"><img src="/Content/images/loyality-icon.png" class="pr-1">Loyalty</a>
+            <a href="/Master/CouponMaster"><img src="/Content/images/loyality-icon.png" class="pr-1">Add Coupon</a>
+
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="card-header card-header-rose card-header-icon">
+            <div class="card-text">
+                <h4 class="card-title">Select The Restaurant</h4>
+            </div>
+            <h4 class="card-title"></h4>
+        </div>
+        <div class="card-body mainCon" id="home">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>  
+
+
+<div class="modal fade" id="addRestroPopup">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">Add Restaurant</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 p-0">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+
+                                <div id="employee12" class="panel-collapse collapse show">
+                                    <div class="panel-body">
+                                     
+                                          
+                                                <div class="row">
+                                                    <label class="col-sm-4 col-md-4 col-4 col-form-label">Restaurant Code:</label>
+                                                    <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                        <input type="text" class="form-control" placeholder="Restaurant Code" id="textcode" onkeypress="Removeclass();" maxlength="4" />
+                                                    </div>
+                                                </div>
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Restaurant Name:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" placeholder="Restaurant Name" id="textresturantname" onkeypress="Removeclass();" maxlength="15" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Location:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" placeholder="Location" id="textlocation" onkeypress="Removeclass();" maxlength="15" />
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Address:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <textarea type="text" class="form-control" placeholder="Address" id="textaddress" onkeypress="Removeclass();"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">Arabic Name:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" placeholder="Arabic Name" id="textarabicname" onkeypress="Removeclass();"  maxlength="15"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label">VAT No.:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="text" class="form-control" placeholder="VAT No" id="textvatno" onkeypress="Removeclass();"  maxlength="16"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-4 col-md-4 col-4 col-form-label" id="lblupload">Browse Image:</label>
+                                            <div class="col-sm-8 col-md-8 col-8 pl-0">
+                                                <input type="file" id="files" name="pic" accept="image/*">
+                                            </div>
+                                        </div>
+                                          
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pr-2">
+                @*<button type="button" class="btn btn-success mr-1" id="btnDelete">Delete</button>
+                <button type="button" class="btn btn-success mr-1" id="btnUpdate">Update</button>*@
+                <button type="button" class="btn btn-success " id="btnsave">Save</button>
+                
+
+            </div>
+        </div>
+
+    </div>
+</div>

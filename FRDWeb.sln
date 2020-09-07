@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FRDWeb", "FRDWeb\FRDWeb.csproj", "{29F23D2C-153B-4373-9153-2B4E6CEB05A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FRD_BAL", "FRD_Bal\FRD_BAL.csproj", "{EC908FC0-E413-45B0-B667-8746B6D8C580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FRD_DAL", "FRD_DAL\FRD_DAL.csproj", "{7EFA28E3-54EA-4FD6-A4AA-985BF30FD300}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FRD_Model", "FRD_Model\FRD_Model.csproj", "{06093982-97F7-4F9A-8AD6-27155A68945E}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/avinash10086
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = FRDWeb\\FRDWeb.csproj
+		SccProjectName1 = FRDWeb
+		SccLocalPath1 = FRDWeb
+		SccProjectUniqueName2 = FRD_Bal\\FRD_BAL.csproj
+		SccProjectName2 = FRD_Bal
+		SccLocalPath2 = FRD_Bal
+		SccProjectUniqueName3 = FRD_DAL\\FRD_DAL.csproj
+		SccProjectName3 = FRD_DAL
+		SccLocalPath3 = FRD_DAL
+		SccProjectUniqueName4 = FRD_Model\\FRD_Model.csproj
+		SccProjectName4 = FRD_Model
+		SccLocalPath4 = FRD_Model
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29F23D2C-153B-4373-9153-2B4E6CEB05A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29F23D2C-153B-4373-9153-2B4E6CEB05A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29F23D2C-153B-4373-9153-2B4E6CEB05A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29F23D2C-153B-4373-9153-2B4E6CEB05A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC908FC0-E413-45B0-B667-8746B6D8C580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC908FC0-E413-45B0-B667-8746B6D8C580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC908FC0-E413-45B0-B667-8746B6D8C580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC908FC0-E413-45B0-B667-8746B6D8C580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EFA28E3-54EA-4FD6-A4AA-985BF30FD300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EFA28E3-54EA-4FD6-A4AA-985BF30FD300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EFA28E3-54EA-4FD6-A4AA-985BF30FD300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EFA28E3-54EA-4FD6-A4AA-985BF30FD300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06093982-97F7-4F9A-8AD6-27155A68945E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06093982-97F7-4F9A-8AD6-27155A68945E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06093982-97F7-4F9A-8AD6-27155A68945E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06093982-97F7-4F9A-8AD6-27155A68945E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

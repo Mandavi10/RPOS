@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC908FC0-E413-45B0-B667-8746B6D8C580}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FRD_Bal</RootNamespace>
+    <AssemblyName>FRD_Bal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Encryption">
+      <HintPath>D:\dll\Encryption.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddOnBAL.cs" />
+    <Compile Include="ChangePasswordBAL.cs" />
+    <Compile Include="CouponCustomerBAL.cs" />
+    <Compile Include="CouponMasterBAL.cs" />
+    <Compile Include="CustomerLoyalityBAL.cs" />
+    <Compile Include="DefineResturantBAL.cs" />
+    <Compile Include="DineInTakeAwayBAL.cs" />
+    <Compile Include="EmployeeDetailsBAL.cs" />
+    <Compile Include="EmployeeMasterBAL.cs" />
+    <Compile Include="HomeBAL.cs" />
+    <Compile Include="KitchenScreenBAL.cs" />
+    <Compile Include="KitchenSectionBAL.cs" />
+    <Compile Include="LoginBAL.cs" />
+    <Compile Include="LoyaltyBAL.cs" />
+    <Compile Include="MenuCreationBAL.cs" />
+    <Compile Include="NewItemBAL.cs" />
+    <Compile Include="NewOrderBAL.cs" />
+    <Compile Include="PaymentBAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ForgotPasswordBAL.cs" />
+    <Compile Include="ReportsBAL.cs" />
+    <Compile Include="RunningOrderBAL.cs" />
+    <Compile Include="SectionTableBAL.cs" />
+    <Compile Include="SequenceSetupBAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FRD_DAL\FRD_DAL.csproj">
+      <Project>{7efa28e3-54ea-4fd6-a4aa-985bf30fd300}</Project>
+      <Name>FRD_DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

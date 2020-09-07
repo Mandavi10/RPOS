@@ -1,0 +1,534 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="~/Content/css/jquery-ui.min.css" rel="stylesheet" />
+
+<link href="~/Content/css/jqueryui.css" rel="stylesheet" />
+<link href="~/Content/css/bootstrap-select.min.css" rel="stylesheet" />
+
+
+<script src="~/Content/js/bootstrap.bundle.min.js"></script>
+<script src="~/Content/js/bootstrap-select.min.js"></script>
+<script>        var bootstrap_select = jQuery.noConflict();</script>
+
+
+
+
+<script>
+    jquery_min_p(document).ready(function () {
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+        jquery_min_p("#lblrestroid").text(id);
+        //alert(id);
+    })
+
+</script>
+<script src="~/JavaScript/EmployeeDetails.js"></script>
+@*<script src="~/MinJavaScript/EmployeeDetails_min.js"></script>*@
+<style>
+    #mainContent {
+        max-width: 100%;
+        flex: 100%;
+    }
+
+    #navContent {
+        display: none;
+    }
+    .bootstrap-select>.dropdown-toggle:after {
+        display:none;
+}
+    #btnresaveemp {
+    margin-right:16%}
+
+    #empDetails .mainCon1 {
+
+        padding-top: 12px !important;
+    }
+
+    #firstdiv {
+        overflow-y: scroll !important;
+    height: 446px !important;
+
+    }
+    #empDetails {
+        min-height: 501px;
+    }
+
+      #tblemplist tbody {
+    overflow: auto;
+    display: block;
+    max-height: 64vh;
+}
+
+#tblemplist tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+        
+        
+   #tblemplist thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}     
+  
+
+
+</style>
+
+
+
+<div class="container">
+
+            
+    <div class="pageHead">
+                <h4 class="pageTitle">Employee Details</h4>
+        <div class="menuList ">
+            <i class=" fa fa-th mr-1" id="cardview" aria-hidden="true"></i>
+            <i class="fa fa-list " id="listview" aria-hidden="true"></i>
+        </div>
+            </div>
+    
+   
+    
+    <div class="clearfix"></div>
+    <div class="card mt-4" id="empDetails">
+       <div class="searchBox" id="searchempgrid" style="display:none">
+           <div class="search">
+               <i class="fa fa-search" aria-hidden="true"></i><input type="text" autocomplete="off" placeholder="Search" id="txtempgridinput" maxlength="50" />
+           </div>
+       </div>    
+        <div class="searchBox" id="searchemplist" style="display:none">
+            <div class="search">
+                <i class="fa fa-search" aria-hidden="true"></i><input type="text" autocomplete="off" placeholder="Search" id="txtemplistinput" />
+            </div>
+        </div>     
+         <div class="card-body mainCon1">
+
+             <div class="">
+                 <div class="row" id="firstdiv">
+                   
+
+                 </div>
+                
+                 </div>
+             <div class="row" style="display:none" id="seconddiv">
+                 <div class="col-12 col-md-12">
+                     <table id="tblemplist">
+                         @*<tr>
+                             <th>Employee ID</th>
+                             <th>Code</th>
+                             <th>Name</th>
+                             <th>Mobile</th>
+                             <th>Email</th>
+                             <th>Type</th>
+                         </tr>*@
+                         @*<tr>
+                             <td>Emp-2050</td>
+                             <td>2156</td>
+                             <td>Jack</td>
+                             <td>8792334895</td>
+                             <td>Jack@gmail.com</td>
+                             <td>Bus Boy</td>
+
+                         </tr>
+                         <tr>
+                             <td>Emp-1550</td>
+                             <td>6514</td>
+                             <td>Rahul</td>
+                             <td>8954786320</td>
+                             <td>Rahul@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-0250</td>
+                             <td>2156</td>
+                             <td>Himanshu</td>
+                             <td>7854230021</td>
+                             <td>Himanshu@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-2635</td>
+                             <td>2155</td>
+                             <td>Vimal</td>
+                             <td>7856321582</td>
+                             <td>Vimal@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-3012</td>
+                             <td>2195</td>
+                             <td>Tarun</td>
+                             <td>8565987452</td>
+                             <td>Tarun@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-2015</td>
+                             <td>2314</td>
+                             <td>Fetah</td>
+                             <td>8563244741</td>
+                             <td>Fetah@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-2635</td>
+                             <td>2155</td>
+                             <td>Vimal</td>
+                             <td>7856321582</td>
+                             <td>Vimal@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-3012</td>
+                             <td>2195</td>
+                             <td>Tarun</td>
+                             <td>8565987452</td>
+                             <td>Tarun@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-2050</td>
+                             <td>2156</td>
+                             <td>Jack</td>
+                             <td>8792334895</td>
+                             <td>Jack@gmail.com</td>
+                             <td>Bus Boy</td>
+
+                         </tr>
+                         <tr>
+                             <td>Emp-1550</td>
+                             <td>6514</td>
+                             <td>Rahul</td>
+                             <td>8954786320</td>
+                             <td>Rahul@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-0250</td>
+                             <td>2156</td>
+                             <td>Himanshu</td>
+                             <td>7854230021</td>
+                             <td>Himanshu@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-2050</td>
+                             <td>2156</td>
+                             <td>Jack</td>
+                             <td>8792334895</td>
+                             <td>Jack@gmail.com</td>
+                             <td>Bus Boy</td>
+
+                         </tr>
+                         <tr>
+                             <td>Emp-1550</td>
+                             <td>6514</td>
+                             <td>Rahul</td>
+                             <td>8954786320</td>
+                             <td>Rahul@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-0250</td>
+                             <td>2156</td>
+                             <td>Himanshu</td>
+                             <td>7854230021</td>
+                             <td>Himanshu@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-2635</td>
+                             <td>2155</td>
+                             <td>Vimal</td>
+                             <td>7856321582</td>
+                             <td>Vimal@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-3012</td>
+                             <td>2195</td>
+                             <td>Tarun</td>
+                             <td>8565987452</td>
+                             <td>Tarun@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-2015</td>
+                             <td>2314</td>
+                             <td>Fetah</td>
+                             <td>8563244741</td>
+                             <td>Fetah@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-2635</td>
+                             <td>2155</td>
+                             <td>Vimal</td>
+                             <td>7856321582</td>
+                             <td>Vimal@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-3012</td>
+                             <td>2195</td>
+                             <td>Tarun</td>
+                             <td>8565987452</td>
+                             <td>Tarun@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-2050</td>
+                             <td>2156</td>
+                             <td>Jack</td>
+                             <td>8792334895</td>
+                             <td>Jack@gmail.com</td>
+                             <td>Bus Boy</td>
+
+                         </tr>
+                         <tr>
+                             <td>Emp-1550</td>
+                             <td>6514</td>
+                             <td>Rahul</td>
+                             <td>8954786320</td>
+                             <td>Rahul@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>
+                         <tr>
+                             <td>Emp-0250</td>
+                             <td>2156</td>
+                             <td>Himanshu</td>
+                             <td>7854230021</td>
+                             <td>Himanshu@gmail.com</td>
+                             <td>Bus Boy</td>
+                         </tr>*@
+                     </table>
+                 </div>
+                
+             </div>
+             <div class="mt-2 mr-1" id="dvexit">
+                 <button type="button" id="btnexit" class="btn btn-success btn-sm mr-2 pull-right" data-dismiss="modal"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button>
+             </div>
+        </div>
+    </div>
+</div>   
+
+<div class="modal fade" id="icard" role="dialog">
+    <div class="modal-dialog modal-md">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" id="btnclose">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">Employee Form</h4>
+            </div>
+            <div class="modal-body" id="divempselect">
+                <div class="row">
+                    <div class="col-12 col-md-12 p-0">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="col-md-4 fontBold">Code:</label>
+
+                                    <input type="text" class="form-control col-md-6" placeholder="Code" id="txtrecode" style="display:none" onblur="Checkcode();" onkeyup="RemoveClass();" />
+                                    <label id="lblcode" style="display:none"></label>
+                                </div>
+                                <div class="error" id="divempcode" style="display:none;">
+                                    EmpCode already exist.
+                                </div>
+                                <div class="row pt-1">
+                                    <label class="col-md-4 fontBold">Name:</label>
+
+                                    <input type="text" class="form-control col-md-6" placeholder="Name" id="txtrename" style="display:none" onkeyup="RemoveClass();" />
+                                    <label id="lblname" style="display:none"></label>
+                                </div>
+                                <div class="row pt-1">
+                                    <label class="col-md-4 fontBold">Mobile:</label>
+
+                                    <input type="text" required class="form-control col-md-6" placeholder="Mobile" id="txtremobile" style="display:none" onkeyup="RemoveClass();" onblur="mobilecheck();" /><span id="message"></span>
+                                    <label id="lblmobile" style="display:none"></label>
+                                </div>
+                                <div class="row pt-1">
+                                    <label class="col-md-4 fontBold">Email:</label>
+
+                                    <input type="text" class="form-control col-md-6" placeholder="Email" id="txtreemail" style="display:none" onkeyup="RemoveClass();" />
+                                    <label id="lblemail" style="display:none"></label>
+                                </div>
+                                <div class="row pt-1">
+                                    <label class="col-md-4 fontBold">Restaurant:</label>
+                                    <div class="col-md-6 pull-left dropdown p-0">
+                                        <select class="form-control" style="height: 31px;" id="ddlrerest" onchange="KitchenDropdown();" onkeyup="RemoveClass();">
+                                            <option selected="selected">Select</option>
+                                        </select>
+                                        </div>
+                                        @*<input type="text" class="form-control col-md-5" placeholder="Select Restautant" id="txtrest" style="display:none" />*@
+
+                                        <label id="lblrest" style="display:none"></label>
+
+                                    </div>
+
+
+
+
+
+
+
+
+                                <div class="row pt-1">
+                                    <label class="col-md-4 fontBold">Role:</label>
+                                    <span class="p-0 col-md-6 form-control" style="margin-left:-1px" id="txtRole">
+                                        <select multiple data-style="bg-white rounded-pill px-4 py-3 shadow-sm " name="selValue" id="ddlreselectroledisplay" class="selectpicker w-100" onkeyup="RemoveClass();" onchange="CheckRole();">
+                                            <option>Select</option>
+                                        </select>
+                                    </span>
+
+                                            @*<label class="col-md-8 p-0" id="lblroleadd" style="display:none">
+                            <span>
+                                <input type="checkbox" name="gender" value="male" checked /> <lable>Restro Admin</lable>
+                            </span>
+                            <span class="pl-2">
+                                <input type="checkbox" name="gender" value="female" /> Kitchen User
+                            </span>
+                            <span class="pl-2">
+                                <input type="checkbox" name="gender" value="other" /> Supervisor
+                            </span><br />
+                            <span class="">
+                                <input type="checkbox" name="gender" value="male" /> Captain
+                            </span>
+                            <span class="billingmrg pl-2">
+                                <input type="checkbox" name="gender" value="female" /> Billing User
+                            </span>
+                            <span class="busboymrg pl-2">
+                                <input type="checkbox" name="gender" value="other" /> Bus Boy
+                            </span><br />
+                            <span>
+                                <input type="checkbox" name="gender" value="other" /> Report User
+                            </span>
+                        </label>*@
+                                        
+                                            <label id="lblroledisplay" style="display:none"></label>
+                                </div>
+                                <div class="row" id="divrekitchen" style="display:none">
+                                    <label class="col-md-4 fontBold">Kitchen Section:</label>
+                                    <div class="col-md-6 pull-left dropdown p-0">
+                                        <select class="form-control mt-1" style="height: 28px;" id="ddlrekitchen" onkeyup="RemoveClass();">
+                                            <option selected="selected">Select</option>
+                                        </select>
+                                        </div>
+                                        @*<input type="text" class="form-control col-md-5" placeholder="Kitchen Section" id="txtkitchen" style="display:none" />*@
+                                        <label id="lblkitchen" style="display:none"></label>
+                                    </div>
+
+                                <div class="row mt-1">
+                <label class="col-sm-4 col-md-4 fontBold">Browse Image:</label>
+                <div class="col-md-5 pl-0">
+                    <input type="file" onchange="ValidateSize(this)" id="imagefiles" name="pic" accept="image/*">
+                </div>
+            </div>
+                                <div class="col-md-4"></div>
+
+                            </div>
+                            <div class="col-md-4 p-0 empfullcard">
+                                <div class="empProfile1">
+                                   
+                                    <img id="imgempdetails"  />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pr-0">
+                <button type="button" id="btnresaveemp" class="btn btn-success btn-sm" data-dismiss="modal">Update</button>
+                @*<button type="button" id="btnrecancelemp" class="btn btn-success btn-sm mr-2" data-dismiss="modal">Cancel</button>*@
+            </div>
+        </div>
+
+    </div>
+    <label id="lblempid" style="display:none"></label>
+    <label id="lblLempid" style="display:none"></label>
+    <label id="lblrestroid" style="display: none"></label>
+</div>
+
+
+
+@*<div class="modal" id="empsavePopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" id="btnsaveClose">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="../assets/imgages/success-icon.png" />
+                </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox">Saved Successfully</h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnmsaveclose">Submit</button>
+            </div>
+        </div>
+
+    </div>
+</div>*@
+
+
+<div class="modal" id="savePopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" id="btncrosscloase">
+                        <span class="cross">&times;</span>
+                    </button>*@
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/success-icon.png" />
+
+                </h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h6 class="centerBox" id="popupsuccess" style="font-size: 11px;font-weight: bold;"></h6>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnsaveclose" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    bootstrap_select(function () {
+        bootstrap_select('.selectpicker').selectpicker();
+    });
+</script>

@@ -1,0 +1,407 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/JavaScript/SequenceSetup.js"></script>
+@*<script src="~/MinJavaScript/SequenceSetup_min.js"></script>*@
+<style>
+    #mainContent {
+        max-width: 100%;
+        flex: 100%;
+    }
+
+    #navContent {
+        display: none;
+    }
+      #tbl tbody {
+    overflow: auto;
+    display: block;
+    max-height: 60vh;
+}
+
+#tbl tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+        
+        
+   #tbl thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+    .scrollable {
+        overflow-y:scroll;
+        height:379px;
+    }
+    #SequenceSetup .sectionBox {
+    width: 190px;
+    padding: 10px 2px 10px;
+    background: #466167;
+    cursor: pointer;
+}
+    .searchBox1 {
+    position: absolute !important;
+    right: 15px !important;
+    z-index: 999;
+    top: 8px;
+}
+    .searchBox1 i {
+    color: #aaa !important;
+    display: inline-block;
+    position: absolute;
+    right: 8px;
+    top: 5px;
+}
+#restaurantList .search input{border-bottom: 1px solid #9eb1b5 !important;
+    border: 0;
+    color: #466167;
+    padding: 2px 5px;}
+
+    #btnback {
+            position: absolute;
+    top: 0px;
+    right: 14px;
+    }
+
+
+</style>
+<div class="row" style="display:none;">
+    <div class="col-md-12 loader" id="preloader">
+        <span><img src="~/Content/images/loader(1).gif" style="width: 10%;" /></span>
+    </div>
+
+</div>
+
+<div class="container pr-0">
+    <div class="pageHead">
+        <h4 class="pageTitle">Sequence Setup</h4>
+       
+    </div>
+    <div class="card mt-2" id="SequenceSetup">
+
+        <div class="card-body mainCon">
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="searchBox1" id="">
+            <div class="search">
+                <i class="fa fa-search" aria-hidden="true"></i><input type="text" placeholder="Search" id="txtempgridinput" maxlength="50" />
+            </div>
+        </div>
+
+                    
+
+                    <div class="restaurantList" >
+                        <h4 class="pageTitle">Select Restaurant's Name</h4>
+                        <div class="scrollable" id="restaurantList">
+                        </div>
+                            @*<div class="searchBox1" id="">
+                <div class="search">
+                    <i class="fa fa-search" aria-hidden="true"></i><input type="text" placeholder="Search" id="txtempgridinput" />
+                </div>
+            </div>*@
+                            @*<div class="sectionBox active">
+
+                    <h6>Shayzar Palace</h6>
+
+
+            </div>
+            <div class="sectionBox">
+
+                <h6>ALkarkand-Abha</h6>
+
+            </div>
+            <div class="sectionBox">
+                <h6>Naranj-Abha</h6>
+
+            </div>
+            <div class="sectionBox">
+                <h6>ALkarkand-Khamis Mushyat</h6>
+
+            </div>
+            <div class="sectionBox">
+                <h6>Naranj-Khamis Mushyat</h6>
+
+            </div>
+            <div class="sectionBox">
+                <h6>Malabar</h6>
+
+            </div>*@
+                        </div>
+                   
+                </div>
+
+
+                <div class="col-md-8 pl-0" id="sequenceForm" style="display:none">
+                    <div class="row">
+                        <div class="col-md-6 formCon">
+                            <h4 class="pageTitle">Order Number</h4>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Order Number Length:</label>
+                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                        <input type="text" class="form-control" maxlength="4" id="txtorderno" onkeyup="Removeclass();" onkeypress='return isNumberKey(event);' />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Start From:</label>
+                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                        <input type="text" class="form-control" maxlength="4" id="txtorderstart" onkeyup="Removeclass();" onkeypress='return isNumberKey(event);' />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Fixed Value:</label>
+                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                        <input type="text" class="form-control" maxlength="10" id="txtorderfixed" onkeyup="Removeclass();" />
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success btn-sm pull-right mt-2" id="btnSubmitorder"><i class="fa fa-floppy-o" aria-hidden="true"></i>Submit</button>
+                        </div>
+
+                        <div class="col-md-6 formCon">
+                            <h4 class="pageTitle">Invoice Number</h4>
+                            <button class="btn btn-success btn-sm" id="btnback"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</button>
+
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Invoice Number Length:</label>
+                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                        <input type="text" class="form-control" maxlength="4" id="txtinvoiceno" onkeyup="Removeclass();" onkeypress='return isNumberKey(event);' />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Start From:</label>
+                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                        <input type="text" class="form-control" maxlength="4" id="txtinvoicestart" onkeyup="Removeclass();" onkeypress='return isNumberKey(event);' />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Fixed Value:</label>
+                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                        <input type="text" class="form-control" maxlength="10" id="txtinvoicefixed" onkeyup="Removeclass();" />
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success btn-sm pull-right mt-2" id="btnSubmitinvoice"><i class="fa fa-floppy-o" aria-hidden="true"></i>Submit</button>
+                        </div>
+
+                        <div class="col-md-6 formCon">
+                            <h4 class="pageTitle">Receipt Number</h4>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Receipt Number Length:</label>
+                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                        <input type="text" class="form-control" maxlength="4" id="txtreceiptno" onkeyup="Removeclass();" onkeypress='return isNumberKey(event);' />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Start From:</label>
+                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                        <input type="text" class="form-control" maxlength="4" id="txtreceiptstart" onkeyup="Removeclass();" onkeypress='return isNumberKey(event);' />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Fixed Value:</label>
+                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                        <input type="text" class="form-control" maxlength="10" id="txtreceiptfixed" onkeyup="Removeclass();" />
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success btn-sm pull-right mt-2" id="btnSubmitreceipt"><i class="fa fa-floppy-o" aria-hidden="true"></i>Submit</button>
+                        </div>
+
+                        <div class="col-md-6 formCon">
+                            <h4 class="pageTitle">Sales Amend Number</h4>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Return Number Length:</label>
+                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                        <input type="text" class="form-control" maxlength="4" id="txtsalesreturnno" onkeyup="Removeclass();" onkeypress='return isNumberKey(event);' />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Start From:</label>
+                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                        <input type="text" class="form-control" maxlength="4" id="txtsalesreturnstart" onkeyup="Removeclass();" onkeypress='return isNumberKey(event);' />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Fixed Value:</label>
+                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                        <input type="text" class="form-control" maxlength="10" id="txtsalesreturnfixed" onkeyup="Removeclass();" />
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success btn-sm pull-right mt-2" id="btnSubmitsales"><i class="fa fa-floppy-o" aria-hidden="true"></i>Submit</button>
+                        </div>
+
+                    </div>
+                   
+                </div>
+                <div class="col-md-8 pl-0" id="sequenceTable" style="display:none">
+                    <div class="table-responsive">
+                        <button class="btn btn-success btn-sm pull-right mb-1" type="button" id="exitTable" style="display:none;"><i class="fa fa-angle-left" aria-hidden="true"></i>Back</button>
+
+                        <table id="tbl">
+                            <thead>
+<tr>
+        <th>Sequence</th>
+        <th>Start No.</th>
+        <th>Fixed Value</th>
+        <th>Type</th>
+        <th>Created On</th>
+        <th>Next No.</th>
+        @*<th>Expired Date</th>*@
+    </tr>
+    </thead>
+                            <tbody></tbody>
+   @* <tr>
+        <td>SZAN-000001</td>
+        <td>1</td>
+        <td>SZAN-</td>
+        <td>Sales Return</td>
+        <td>27-Jul-2018</td>
+        <td>SZAN-000002</td>
+        <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+
+    </tr>
+    <tr>
+        <td>SZAN-000001</td>
+        <td>1</td>
+        <td>SZAN-</td>
+        <td>Sales Return</td>
+        <td>27-Jul-2018</td>
+        <td>SZAN-000002</td>
+        <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+
+    </tr>
+    <tr>
+        <td>SZAN-000001</td>
+        <td>1</td>
+        <td>SZAN-</td>
+        <td>Sales Return</td>
+        <td>27-Jul-2018</td>
+        <td>SZAN-000002</td>
+        <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+
+    </tr>
+    <tr>
+        <td>SZAN-000001</td>
+        <td>1</td>
+        <td>SZAN-</td>
+        <td>Sales Return</td>
+        <td>27-Jul-2018</td>
+        <td>SZAN-000002</td>
+        <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+
+    </tr>
+    <tr>
+        <td>SZAN-000001</td>
+        <td>1</td>
+        <td>SZAN-</td>
+        <td>Sales Return</td>
+        <td>27-Jul-2018</td>
+        <td>SZAN-000002</td>
+        <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+
+    </tr>
+    <tr>
+        <td>SZAN-000001</td>
+        <td>1</td>
+        <td>SZAN-</td>
+        <td>Sales Return</td>
+        <td>27-Jul-2018</td>
+        <td>SZAN-000002</td>
+        <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+
+    </tr>
+    <tr>
+        <td>SZAN-000001</td>
+        <td>1</td>
+        <td>SZAN-</td>
+        <td>Sales Return</td>
+        <td>27-Jul-2018</td>
+        <td>SZAN-000002</td>
+        <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+
+    </tr>*@
+                        </table>
+                       
+
+                            
+                       
+                      </div>
+                    </div>
+
+               
+            </div>
+
+        </div>
+        
+    </div>
+    <div class="buttonCon">
+
+        <button class="btn btn-success btn-sm" id="seqExit"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button>
+        <label id="lblRestroId" style="display: none"/>
+</div>
+
+
+
+
+</div>  
+
+
+
+<script>
+    jquery_min_p(document).ready(function () {
+        jquery_min_p('.restaurantList .sectionBox').click(function () {
+            jquery_min_p('.restaurantList .sectionBox').removeClass('active');
+           jquery_min_p(this).addClass('active');
+        })
+
+        //jquery_min_p('.restaurantList .sectionBox').dblclick(function () {
+        //    jquery_min_p('#sequenceTable').css('display', 'block');
+        //    jquery_min_p('#sequenceForm').css('display', 'none');
+            
+        //}); 
+
+        //jquery_min_p('#exitTable').click(function () {
+        //    jquery_min_p('#sequenceTable').css('display', 'none');
+        //    jquery_min_p('#sequenceForm').css('display', 'block');
+
+        //}); 
+        jquery_min_p('#seqExit').click(function () {
+            window.location = "/Master/Home";
+            reset();
+            
+
+        });
+    })
+
+</script>

@@ -1,0 +1,793 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29F23D2C-153B-4373-9153-2B4E6CEB05A4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FRDWeb</RootNamespace>
+    <AssemblyName>FRDWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Encryption">
+      <HintPath>C:\Users\AMYDEV02\Desktop\DLL\Encryption.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.DataVisualization.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.Design.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.WebDesign.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddEmpImage.ashx.cs">
+      <DependentUpon>AddEmpImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AddImage.ashx.cs">
+      <DependentUpon>AddImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChangePasswordController.cs" />
+    <Compile Include="Controllers\CouponCustomerController.cs" />
+    <Compile Include="Controllers\CouponMasterController.cs" />
+    <Compile Include="Controllers\CustomerLoyaltyController.cs" />
+    <Compile Include="Controllers\DefineResturantController.cs" />
+    <Compile Include="Controllers\DineInTakeAwayController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KitchenScreenController.cs" />
+    <Compile Include="Controllers\KitchenSectionController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LogoutController.cs" />
+    <Compile Include="Controllers\LoyaltyController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MasterController.cs" />
+    <Compile Include="Controllers\ForgotPasswordController.cs" />
+    <Compile Include="Controllers\MenuCreationController.cs" />
+    <Compile Include="Controllers\NewOrderController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\RunningOrderController.cs" />
+    <Compile Include="Controllers\SalesBillingController.cs" />
+    <Compile Include="Controllers\SectionTableController.cs" />
+    <Compile Include="Controllers\SequenceSetupController.cs" />
+    <Compile Include="Controllers\testController.cs" />
+    <Compile Include="Controllers\WebApiLoginController.cs" />
+    <Compile Include="FRD_POS_AdminDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FRD_POS_AdminDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Menu.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\DailyRevenueReport.aspx.cs">
+      <DependentUpon>DailyRevenueReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\DailyRevenueReport.aspx.designer.cs">
+      <DependentUpon>DailyRevenueReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DailySalesReport.aspx.cs">
+      <DependentUpon>DailySalesReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\DailySalesReport.aspx.designer.cs">
+      <DependentUpon>DailySalesReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSetReport.cs">
+      <DependentUpon>DataSetReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSetReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DiscountReport.aspx.cs">
+      <DependentUpon>DiscountReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\DiscountReport.aspx.designer.cs">
+      <DependentUpon>DiscountReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ItemAmendReport.aspx.cs">
+      <DependentUpon>ItemAmendReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ItemAmendReport.aspx.designer.cs">
+      <DependentUpon>ItemAmendReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MenuReport.aspx.cs">
+      <DependentUpon>MenuReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MenuReport.aspx.designer.cs">
+      <DependentUpon>MenuReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PaymentTransaction.aspx.cs">
+      <DependentUpon>PaymentTransaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PaymentTransaction.aspx.designer.cs">
+      <DependentUpon>PaymentTransaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SalesReturnReport.aspx.cs">
+      <DependentUpon>SalesReturnReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\SalesReturnReport.aspx.designer.cs">
+      <DependentUpon>SalesReturnReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UserWiseItemReport.aspx.cs">
+      <DependentUpon>UserWiseItemReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\UserWiseItemReport.aspx.designer.cs">
+      <DependentUpon>UserWiseItemReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="UpdateEmpImage.ashx.cs">
+      <DependentUpon>UpdateEmpImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateImage.ashx.cs">
+      <DependentUpon>UpdateImage.ashx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Antlr3.Runtime.dll" />
+    <Content Include="Antlr3.Runtime.pdb" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\css\bootstrap-select.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\custom.css" />
+    <Content Include="Content\css\DragAndDrop.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\images\add-icon.png" />
+    <Content Include="Content\images\alkarkand-logo.png" />
+    <Content Include="Content\images\awarning.png" />
+    <Content Include="Content\images\bumped-icon.png" />
+    <Content Include="Content\images\card-bg.png" />
+    <Content Include="Content\images\chinese.png" />
+    <Content Include="Content\images\dessert.png" />
+    <Content Include="Content\images\dine-in-icon.png" />
+    <Content Include="Content\images\drink.png" />
+    <Content Include="Content\images\employee-icon.png" />
+    <Content Include="Content\images\family-icon-sm.png" />
+    <Content Include="Content\images\home-icon.png" />
+    <Content Include="Content\images\item.png" />
+    <Content Include="Content\images\item_group.png" />
+    <Content Include="Content\images\loader %281%29.gif" />
+    <Content Include="Content\images\logo-watermark.png" />
+    <Content Include="Content\images\loyality-icon.png" />
+    <Content Include="Content\images\main-course.png" />
+    <Content Include="Content\images\malabar-logo.png" />
+    <Content Include="Content\images\Malabar-watermark.png" />
+    <Content Include="Content\images\moresalereport.png" />
+    <Content Include="Content\images\naranj-logo.png" />
+    <Content Include="Content\images\non-veg.png" />
+    <Content Include="Content\images\png-warning-2.png" />
+    <Content Include="Content\images\POS-logo-sign2.png" />
+    <Content Include="Content\images\POS-logo-sm.png" />
+    <Content Include="Content\images\POS-logo-sm2.png" />
+    <Content Include="Content\images\preparing-icon.png" />
+    <Content Include="Content\images\restaurant-icon.png" />
+    <Content Include="Content\images\restaurant-logo.png" />
+    <Content Include="Content\images\sequence-icon.png" />
+    <Content Include="Content\images\shayzar-logo.png" />
+    <Content Include="Content\images\Shayzar-watermark.png" />
+    <Content Include="Content\images\single-icon-sm.png" />
+    <Content Include="Content\images\snacks.png" />
+    <Content Include="Content\images\southIndian.png" />
+    <Content Include="Content\images\success-icon.png" />
+    <Content Include="Content\images\table-icon-sm.png" />
+    <Content Include="Content\images\terrace-icon-sm.png" />
+    <Content Include="Content\images\updateRestaurant-icon.png" />
+    <Content Include="Content\images\user-icon.png" />
+    <Content Include="Content\images\veg-platter.png" />
+    <Content Include="Content\images\vip-lounge-icon-sm.png" />
+    <Content Include="Content\images\Warning.png" />
+    <Content Include="Content\images\yellowwarn.png" />
+    <Content Include="Content\js\fieldChooser.min.js" />
+    <Content Include="Content\js\jquery-1.10.2.js" />
+    <Content Include="Content\css\jquery-ui.css" />
+    <Content Include="Content\js\fieldChooser.js" />
+    <Content Include="Content\js\jquery-ui.js" />
+    <Content Include="Content\css\jquery-ui.min.css" />
+    <Content Include="Content\css\jqueryui.css" />
+    <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\material-dashboard.css" />
+    <Content Include="Content\css\material-style.css" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\images\add-ons.png" />
+    <Content Include="Content\images\cold-icon.png" />
+    <Content Include="Content\images\cover1.png" />
+    <Content Include="Content\images\create-icon.png" />
+    <Content Include="Content\images\createMenu.png" />
+    <Content Include="Content\images\emp-details.png" />
+    <Content Include="Content\images\family-icon.png" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\favicon.png" />
+    <Content Include="Content\images\forgotPass-icon.png" />
+    <Content Include="Content\images\FRD-logo-sm.png" />
+    <Content Include="Content\images\FRD-logo.png" />
+    <Content Include="Content\images\hot-icon.png" />
+    <Content Include="Content\images\kitchen-section.png" />
+    <Content Include="Content\images\left-arrow.png" />
+    <Content Include="Content\images\login-bg.png" />
+    <Content Include="Content\images\login-icon.png" />
+    <Content Include="Content\images\logo-sign.png" />
+    <Content Include="Content\images\Main-LOGO.png" />
+    <Content Include="Content\images\menu-creation.png" />
+    <Content Include="Content\images\menu.png" />
+    <Content Include="Content\images\menu1.png" />
+    <Content Include="Content\images\POS-logo-sign.png" />
+    <Content Include="Content\images\reports-icon.png" />
+    <Content Include="Content\images\restro-icon.png" />
+    <Content Include="Content\images\right-arrow.png" />
+    <Content Include="Content\images\sales-billing.png" />
+    <Content Include="Content\images\section-table.png" />
+    <Content Include="Content\images\setup-icon.png" />
+    <Content Include="Content\images\single-icon.png" />
+    <Content Include="Content\images\sitting-table.png" />
+    <Content Include="Content\images\table-icon.png" />
+    <Content Include="Content\images\tandoori-icon.png" />
+    <Content Include="Content\images\terrace-icon.png" />
+    <Content Include="Content\images\update-icon.png" />
+    <Content Include="Content\images\vip-lounge-icon.png" />
+    <Content Include="Content\images\yoeki-logo.png" />
+    <Content Include="Content\js\ag-grid-community.min.noStyle.js" />
+    <Content Include="Content\js\bootstrap-material-design.min.js" />
+    <Content Include="Content\js\bootstrap-selectpicker.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\date-pickers.min.js" />
+    <Content Include="Content\js\daterangepicker.js" />
+    <Content Include="Content\js\jquery-2.2.3.min.js" />
+    <Content Include="Content\js\jquery-ui.min.js" />
+    <Content Include="Content\js\jquery.filtertable.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\material-dashboard.js" />
+    <Content Include="Content\js\material-dashboard.minf066.js" />
+    <Content Include="Content\js\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Content\js\popper.min.js" />
+    <Content Include="Content\js\qz-tray.js" />
+    <Content Include="Content\js\rsvp-3.1.0.min.js" />
+    <Content Include="Content\js\sha-256.min.js" />
+    <Content Include="Content\js\shieldui-all.min.js" />
+    <Content Include="Encryption.dll" />
+    <Content Include="EntityFramework.dll" />
+    <Content Include="EntityFramework.SqlServer.dll" />
+    <Content Include="EntityFramework.SqlServer.xml" />
+    <Content Include="EntityFramework.xml" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FRDWeb.dll" />
+    <Content Include="FRDWeb.pdb" />
+    <Content Include="FRD_Bal.dll" />
+    <Content Include="FRD_Bal.pdb" />
+    <Content Include="FRD_DAL.dll" />
+    <Content Include="FRD_DAL.pdb" />
+    <Content Include="FRD_Model.dll" />
+    <Content Include="FRD_Model.pdb" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="JavaScript\AddOn.js" />
+    <Content Include="JavaScript\CardActivation.js" />
+    <Content Include="JavaScript\ChangePassword.js" />
+    <Content Include="JavaScript\CouponCustomer.js" />
+    <Content Include="JavaScript\CouponMaster.js" />
+    <Content Include="JavaScript\CustomerLoyality.js" />
+    <Content Include="JavaScript\DefineResturant.js" />
+    <Content Include="JavaScript\DineInTakeAway.js" />
+    <Content Include="JavaScript\EmployeeDetails.js" />
+    <Content Include="JavaScript\EmployeeMaster.js" />
+    <Content Include="JavaScript\Home.js" />
+    <Content Include="JavaScript\KitchenScreen.js" />
+    <Content Include="JavaScript\KitchenSection.js" />
+    <Content Include="JavaScript\Login.js" />
+    <Content Include="JavaScript\ForgotPassword.js" />
+    <Content Include="JavaScript\Loyalty.js" />
+    <Content Include="JavaScript\MasterLayout.js" />
+    <Content Include="JavaScript\MenuCreation.js" />
+    <Content Include="JavaScript\NewItem.js" />
+    <Content Include="JavaScript\NewOrder.js" />
+    <Content Include="JavaScript\Payment.js" />
+    <Content Include="JavaScript\Reports.js" />
+    <Content Include="JavaScript\RunningOrder.js" />
+    <Content Include="JavaScript\SectionTable.js" />
+    <Content Include="JavaScript\SequenceSetup.js" />
+    <Content Include="JavaScript\TakeAway.js" />
+    <Content Include="Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="Microsoft.AspNet.Identity.Owin.xml" />
+    <Content Include="Microsoft.Owin.dll" />
+    <Content Include="Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="Microsoft.Owin.Host.SystemWeb.xml" />
+    <Content Include="Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="Microsoft.Owin.Security.Cookies.xml" />
+    <Content Include="Microsoft.Owin.Security.dll" />
+    <Content Include="Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="Microsoft.Owin.Security.Facebook.xml" />
+    <Content Include="Microsoft.Owin.Security.Google.dll" />
+    <Content Include="Microsoft.Owin.Security.Google.xml" />
+    <Content Include="Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="Microsoft.Owin.Security.MicrosoftAccount.xml" />
+    <Content Include="Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="Microsoft.Owin.Security.OAuth.xml" />
+    <Content Include="Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="Microsoft.Owin.Security.Twitter.xml" />
+    <Content Include="Microsoft.Owin.Security.xml" />
+    <Content Include="Microsoft.Owin.xml" />
+    <Content Include="Microsoft.ReportViewer.Common.dll" />
+    <Content Include="Microsoft.ReportViewer.DataVisualization.dll" />
+    <Content Include="Microsoft.ReportViewer.ProcessingObjectModel.dll" />
+    <Content Include="Microsoft.ReportViewer.WebForms.dll" />
+    <Content Include="Microsoft.Web.Infrastructure.dll" />
+    <Content Include="MinJavaScript\AddOn_min.js" />
+    <Content Include="MinJavaScript\CardActivation_min.js" />
+    <Content Include="MinJavaScript\ChangePassword_min.js" />
+    <Content Include="MinJavaScript\CustomerLoyality_min.js" />
+    <Content Include="MinJavaScript\DefineResturant_min.js" />
+    <Content Include="MinJavaScript\DineInTakeAway_min.js" />
+    <Content Include="MinJavaScript\EmployeeDetails_min.js" />
+    <Content Include="MinJavaScript\EmployeeMaster_min.js" />
+    <Content Include="MinJavaScript\ForgotPassword_min.js" />
+    <Content Include="MinJavaScript\Home_min.js" />
+    <Content Include="MinJavaScript\KitchenScreen_min.js" />
+    <Content Include="MinJavaScript\KitchenSection_min.js" />
+    <Content Include="MinJavaScript\Login_min.js" />
+    <Content Include="MinJavaScript\Loyalty_min.js" />
+    <Content Include="MinJavaScript\MasterLayout_min.js" />
+    <Content Include="MinJavaScript\MenuCreation_min.js" />
+    <Content Include="MinJavaScript\NewItem_min.js" />
+    <Content Include="MinJavaScript\NewOrder_min.js" />
+    <Content Include="MinJavaScript\Payment_min.js" />
+    <Content Include="MinJavaScript\RunningOrder_min.js" />
+    <Content Include="MinJavaScript\SectionTable_min.js" />
+    <Content Include="MinJavaScript\SequenceSetup_min.js" />
+    <Content Include="MinJavaScript\TakeAway_min.js" />
+    <Content Include="Newtonsoft.Json.dll" />
+    <Content Include="Newtonsoft.Json.xml" />
+    <Content Include="Owin.dll" />
+    <Content Include="Reports\DailySalesReport.aspx" />
+    <Content Include="Reports\DiscountReport.aspx" />
+    <Content Include="Reports\ItemAmendReport.aspx" />
+    <Content Include="Reports\MenuReport.aspx" />
+    <Content Include="Reports\PaymentTransaction.aspx" />
+    <Content Include="Reports\SalesReturnReport.aspx" />
+    <Content Include="Reports\UserWiseItemReport.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="AddImage.ashx" />
+    <Content Include="AddEmpImage.ashx" />
+    <Content Include="FRD_POS_AdminDataSet.xsc">
+      <DependentUpon>FRD_POS_AdminDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WebGrease.dll" />
+    <None Include="FRDWeb.dll.config" />
+    <None Include="FRD_POS_AdminDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FRD_POS_AdminDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="FRD_POS_AdminDataSet.xss">
+      <DependentUpon>FRD_POS_AdminDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Menu.xsc">
+      <DependentUpon>Menu.xsd</DependentUpon>
+    </Content>
+    <None Include="Menu.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Menu.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Menu.xss">
+      <DependentUpon>Menu.xsd</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\FRD_WEb.pubxml" />
+    <Content Include="Reports\DataSetReport.xsc">
+      <DependentUpon>DataSetReport.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\DataSetReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetReport.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\DataSetReport.xss">
+      <DependentUpon>DataSetReport.xsd</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="System.Net.Http.Formatting.dll" />
+    <Content Include="System.Net.Http.Formatting.xml" />
+    <Content Include="System.Web.Helpers.dll" />
+    <Content Include="System.Web.Helpers.xml" />
+    <Content Include="System.Web.Http.dll" />
+    <Content Include="System.Web.Http.WebHost.dll" />
+    <Content Include="System.Web.Http.WebHost.xml" />
+    <Content Include="System.Web.Http.xml" />
+    <Content Include="System.Web.Mvc.dll" />
+    <Content Include="System.Web.Mvc.xml" />
+    <Content Include="System.Web.Optimization.dll" />
+    <Content Include="System.Web.Optimization.xml" />
+    <Content Include="System.Web.Razor.dll" />
+    <Content Include="System.Web.Razor.xml" />
+    <Content Include="System.Web.WebPages.Deployment.dll" />
+    <Content Include="System.Web.WebPages.Deployment.xml" />
+    <Content Include="System.Web.WebPages.dll" />
+    <Content Include="System.Web.WebPages.Razor.dll" />
+    <Content Include="System.Web.WebPages.Razor.xml" />
+    <Content Include="System.Web.WebPages.xml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Master\DefineRestaurant.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\ForgotPassword\ForgotPassword.cshtml" />
+    <Content Include="Views\Master\SectionTable.cshtml" />
+    <Content Include="Views\Master\EmployeeDetails.cshtml" />
+    <Content Include="Views\Master\Home.cshtml" />
+    <Content Include="Views\Master\SequenceSetup.cshtml" />
+    <Content Include="Views\Master\EmployeeMaster.cshtml" />
+    <Content Include="Views\Master\Loyalty.cshtml" />
+    <Content Include="Views\Master\AddOn.cshtml" />
+    <Content Include="Views\Master\KitchenSection.cshtml" />
+    <Content Include="Views\Master\MenuCreation.cshtml" />
+    <Content Include="Views\SalesBilling\NewOrder.cshtml" />
+    <Content Include="Views\SalesBilling\CustomerLoyalty.cshtml" />
+    <Content Include="Views\SalesBilling\DineInTakeAway.cshtml" />
+    <Content Include="Views\Master\NewItem.cshtml" />
+    <Content Include="Views\SalesBilling\RunningOrder.cshtml" />
+    <Content Include="Views\SalesBilling\Payment.cshtml" />
+    <Content Include="Views\SalesBilling\KitchenScreen.cshtml" />
+    <Content Include="Views\CustomerLoyalty\CardActivation.cshtml" />
+    <Content Include="Views\CustomerLoyalty\CustomerLoyalty.cshtml" />
+    <Content Include="Views\SalesBilling\TakeAway.cshtml" />
+    <Content Include="UpdateImage.ashx" />
+    <Content Include="UpdateEmpImage.ashx" />
+    <Content Include="Views\SalesBilling\CustomerCoupon.cshtml" />
+    <Content Include="Views\Master\CouponMaster.cshtml" />
+    <Content Include="Views\Reports\Reports.cshtml" />
+    <Content Include="Views\Reports\DailySalesReport.cshtml" />
+    <Content Include="Views\Reports\DailyRevenueReport.cshtml" />
+    <Content Include="Views\Reports\UserWiseItemReport.cshtml" />
+    <Content Include="Views\Reports\DiscountReport.cshtml" />
+    <Content Include="Views\Reports\PaymentReport.cshtml" />
+    <Content Include="Views\Reports\more.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="EmpImage\" />
+    <Folder Include="RestroImage\" />
+    <Folder Include="Views\ChangePassword\" />
+    <Folder Include="Views\CouponCustomer\" />
+    <Folder Include="Views\CustomerCoupon\" />
+    <Folder Include="Views\DefineResturant\" />
+    <Folder Include="Views\KitchenScreen\" />
+    <Folder Include="Views\KitchenSection\" />
+    <Folder Include="Views\MenuCreation\" />
+    <Folder Include="Views\NewFolder1\" />
+    <Folder Include="Views\NewOrder\" />
+    <Folder Include="Views\SectionTable\" />
+    <Folder Include="Views\SequenceSetup\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FRD_Bal\FRD_BAL.csproj">
+      <Project>{ec908fc0-e413-45b0-b667-8746b6d8c580}</Project>
+      <Name>FRD_BAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FRD_DAL\FRD_DAL.csproj">
+      <Project>{7efa28e3-54ea-4fd6-a4aa-985bf30fd300}</Project>
+      <Name>FRD_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FRD_Model\FRD_Model.csproj">
+      <Project>{06093982-97f7-4f9a-8ad6-27155a68945e}</Project>
+      <Name>FRD_Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\DailySalesReport.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DiscountReport.rdlc" />
+    <EmbeddedResource Include="Reports\ItemAmendReport.rdlc" />
+    <EmbeddedResource Include="Reports\Menu.rdlc" />
+    <EmbeddedResource Include="Reports\SalesReturnReport.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50046</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50046/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

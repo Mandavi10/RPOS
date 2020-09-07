@@ -1,0 +1,664 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS System </title>
+   
+    <link rel="icon" type="image/x-icon" href="~/Content/images/favicon.ico" />
+    <link href="~/Content/css/material-style.css" rel="stylesheet" />
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+    <link href="~/Content/css/custom.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="~/Content/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/css/jqueryui.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script>        var jquery_min_p = jQuery.noConflict();</script>
+    <script src="~/JavaScript/ChangePassword.js"></script>
+    @*<script src="~/MinJavaScript/ChangePassword_min.js"></script>*@
+
+    <script src="~/Content/js/popper.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    @*<script src="~/JavaScript/EmployeeDetails.js"></script> rm*@
+    <script src="~/Content/js/jquery.filtertable.min.js"></script>
+    <script src="~/Content/js/bootstrap-material-design.min.js"></script>
+    @*<script src="~/Content/js/custom.js"></script>*@
+    
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+
+ 
+
+    <script>
+    jquery_min_p(document).ready(function () {
+        jquery_min_p("#btnlogout").click(function () {
+            Logout();
+        });
+
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+        var RestroName = '@Request.RequestContext.HttpContext.Session["CurrentRestroName"]';
+            var RoleId = '@Request.RequestContext.HttpContext.Session["RoleId"]';
+
+            jquery_min_p("#lblRestroName").text(RestroName);
+            jquery_min_p("#lblRoleId").text(RoleId);
+
+            //jquery_min_p(document).keydown(function (event) {
+            //    if (event.keyCode == 27) {
+            //        bootstrap_min_p('#savePopup').modal('hide');
+            //        bootstrap_min_p('#confirmationPopup').modal('hide');
+            //        bootstrap_min_p('#passwordUpdatePopup').modal('hide');
+            //        bootstrap_min_p('#deleteSuccessPopup').modal('hide');
+            //        bootstrap_min_p('#deletePopup1').modal('hide');
+            //        bootstrap_min_p('#WarningPopup').modal('hide');
+                    
+            //    }
+            //});
+
+        });
+
+
+        function Logout() {
+            jquery_min_p.ajax({
+                type: "POST",
+                url: "/Logout/Logout",
+                contentType: "application/json; charset=utf-8",
+                data: "{}",
+                dataType: "json",
+                async: false,
+                success: function (result) {
+                    if (result == "0") {
+                        LogoutDone();
+                    }
+                },
+                error: LogoutFailed
+            });
+            function LogoutDone() {
+                sessionStorage.setItem("UserPin", null);
+                sessionStorage.setItem('CheckStatus', -1)
+                location.href = "/Login/Login";
+            }
+            function LogoutFailed() {
+                alert("fail");
+            }
+        }
+
+
+    </script>
+    <script src="~/JavaScript/MasterLayout.js"></script>
+    @*<script src="~/MinJavaScript/MasterLayout_min.js"></script>*@
+    <script src="~/Content/js/custom.js"></script>
+   
+</head>
+<body class="vertical-layout vertical-menu material-vertical-layout material-layout 2-columns   fixed-navbar"
+      data-open="click" data-menu="vertical-menu" data-col="2-columns">
+    
+    <div class='wrapper'>
+        <div class="main-panel ps-container ps-theme-default ps-active-y" id="main">
+            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                <div class="container-fluid">
+                    <div class="logo">
+                        <img src="~/Content/images/POS-logo-sm2.png" />
+
+                    </div>
+
+                    <label class="restname" id="lblRestroName"></label>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end">
+                        <ul class="navbar-nav navCon">
+                            <li class="nav-item">
+            <span class="nav-link" id="navbarUserPin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight:bold">
+                                    @*<b>@Session["UserName"].ToString()</b>*@ WELCOME
+                                </span>
+                            </li>
+
+                            <li class="nav-item">
+                                <span class="nav-link"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b>@if (Session["UserName"] != null){@Session["UserName"].ToString()}
+                                   else { <script> var url = '/Login/Login';
+                                           window.location.href = url;</script>
+                                }
+                                                                                                    
+                                  </b>
+                                </span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     <i class="fa fa-user" aria-hidden="true"></i>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile" style="background:#fff">
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#changePassword"> <i class="fa fa-lock pr-1"></i> Change Password</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="javascript:void(0);" id="btnlogout"><i class="fa fa-sign-out pr-1"></i> Log out</a>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+            
+
+            <div class="content">
+                <div class="container-fluid">
+
+                    <div class="content">
+
+                        <div class="container-fluid">
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="col-md-9 pl-0" id="mainContent">
+                                    @RenderBody()
+
+                                </div>
+                                <div class="col-md-3 p-0" id="navContent">
+                                    <div class="card" style="background-color: #cfd2cb;min-height: 542px;">
+
+                                        <div class="card-body mt-2">
+                                            <form method="get" class="form-horizontal">
+                                                <div class="container p-1" id="dvMenuBinding">
+                                                    @*<div class="row mb-2">
+                                                        <div class="menuListing">
+                                                            <div id="setupMenu">
+                                                                <div class="col-md-6 p-0">
+                                                                    <div class="masterTabs " id="dvdefineRestro">
+                                                                        <a href="/Master/DefineRestaurant">
+                                                                        <img src="~/Content/images/restro-icon.png" />
+                                                                        <span>Define Restaurant</span>
+                                                                        </a>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 p-0">
+                                                                    <div class="masterTabs" id="dvSectionTable">
+                                                                        <a href="/Master/SectionTable">
+                                                                            <img src="~/Content/images/section-table.png" />
+                                                                            <span>Section Table</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 p-0">
+                                                                    <div class="masterTabs">
+                                                                        <a href="/Master/MenuCreation">
+                                                                            <img src="~/Content/images/menu-creation.png" />
+                                                                            <span>Menu Creation</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 p-0">
+                                                                    <div class="masterTabs" id="dvdefineempdetails">
+                                                                        <a href="/Master/EmployeeDetails">
+                                                                            <img src="~/Content/images/emp-details.png" />
+                                                                            <span>Employee Details</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 p-0">
+                                                                    <div class="masterTabs">
+                                                                        <a href="/Master/KitchenSection">
+                                                                            <img src="~/Content/images/kitchen-section.png" />
+                                                                            <span>Kitchen Section</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 p-0">
+                                                                    <div class="masterTabs">
+                                                                        <a href="/Master/AddOn">
+                                                                            <img src="~/Content/images/add-ons.png" />
+                                                                            <span>Add-ons</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div id="salesBillingMenu" style="display:none">
+                                                                <div class="col-md-6 p-0">
+                                                                    <div class="masterTabs ">
+                                                                        <a href="/SalesBilling/NewOrder">
+                                                                            <img src="~/Content/images/order-icon.png" />
+                                                                            <span>New Order</span>
+                                                                        </a>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 p-0">
+                                                                    <div class="masterTabs">
+                                                                        <a href="/SalesBilling/KitchenScreen">
+                                                                            <img src="~/Content/images/kitchen-screen-icon.png" />
+                                                                            <span>Kitchen Screen</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 p-0">
+                                                                    <div class="masterTabs">
+                                                                        <a href="/SalesBilling/CustomerLoyalty">
+                                                                            <img src="~/Content/images/handshake-icon.png" />
+                                                                            <span>Customer Loyalty</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 p-0">
+                                                                    <div class="masterTabs">
+                                                                            <a href="/SalesBilling/RunningOrder">
+                                                                                <img src="~/Content/images/running-order-icon.png" />
+                                                                                <span>Running Orders</span>
+                                                                            </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 p-0">
+                                                                    <div class="masterTabs">
+                                                                        <a href="/CustomerLoyality/CardActivation">
+                                                                            <img src="~/Content/images/card-activation-icon.png" />
+                                                                            <span>Card Activation</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 p-0">
+                                                                    <div class="masterTabs">
+                                                                        <a href="#">
+                                                                            <img src="~/Content/images/dayend-icon.png" />
+                                                                            <span>Day End</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                    </div>
+                                                                </div>
+                                                        <div class="menuHeading">
+                                                            <div class="col-md-6 p-0 pull-left">
+                                                                <div class="masterTabs">
+                                                                    <a href="#" class="active" id="setup">
+                                                                        <img src="~/Content/images/setup-icon.png" />
+                                                                        <span>Setup</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 p-0 pull-left">
+                                                                <div class="masterTabs">
+                                                                    <a href="#" id="salesBilling">
+                                                                        <img src="~/Content/images/sales-billing.png" />
+                                                                        <span>Sales And Billing</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 p-0 pull-left">
+                                                                <div class="masterTabs mb-0">
+                                                                    <a href="#" id="reports">
+                                                                        <img src="~/Content/images/reports-icon.png" />
+                                                                        <span>Reports</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 p-0 pull-left">
+                                                                <div class="masterTabs mb-0">
+
+                                                                    <a href="/Master/Home">
+                                                                        <img src="~/Content/images/home-icon.png" />
+                                                                        <span>Home</span>
+                                                                    </a>
+                                                                </div>
+                                                        </div>
+
+                                                    </div>
+                                                    </div>*@
+
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="copyright">
+                    &copy; POS System
+                    @*<div class="poweredLogo"><img src="~/Content/images/yoeki-logo.png" /></div>*@
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <label id="lblRoleId" style="display:none"></label>
+</body>
+</html>
+<div class="modal" id="changePassword">
+    <div class="modal-dialog ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="cross">&times;</span></button>
+                <h4 class="modal-title modalHead">Change Password</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="txtoldPwd" placeholder="Old Password" autocomplete="off" onkeypress="Removeclasstext();" />
+
+                            </div>
+                        </div>
+                        <div class="error" id="divoldpwd1" style="display:none;">
+                            Please enter Old Password.
+                        </div>
+                        <div class="error" id="divoldpwd2" style="display:none;">
+                            Please enter correct Password.
+                        </div>
+                        <div class="form-group">
+                            <label id="lblDispMessageold"
+                                   class="error" style="display:none"></label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="password" id="txtNewPwd" class="form-control" placeholder="New Password" autocomplete="off" onkeypress="Removeclasstext();" />
+
+                            </div>
+                            </div>
+
+                        <div class="form-group">
+                            <label id="lblDispMessagenew"
+                                   class="error" style="display:none"></label>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="password" id="txtConfNewPwd" class="form-control" placeholder="Confirm New Password" autocomplete="off" onkeypress="Removeclasstext();" />
+
+                            </div>
+
+                        </div>
+                        <div class="error" id="divcnwpwd1" style="display:none;">
+                            Please enter Confirm New Password.
+                        </div>
+                        <div class="error diverror4" id="divcnwpwd2" style="display:none;">
+                            new and confirm Password not matched.
+                        </div>
+                        <div class="form-group">
+                            <label id="lblDispMessageconf"
+                                   class="error" style="display:none"></label>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="ChangePwdbtnsubmit" class="btn btn-success btn-sm mr-2">Submit</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal" id="savePopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/success-icon.png" />
+                   
+                </h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h6 class="centerBox" id="popupsuccess" style="font-size: 11px;font-weight: bold;"></h6>
+
+                    </div>
+                
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnsaveclose" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal" id="passwordUpdatePopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btnClose">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="../assets/imgages/success-icon.png" />
+                </h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox">Password Updated Successfully</h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnupdateclose">Submit</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal" id="deleteSuccessPopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="../Content/Assets/images/success-icon.png" />
+                </h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox" id="hdelete"></h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button class="btn btn-success btn-sm" data-dismiss="modal">Submit</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="deletePopup1">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/delete-icon.png" />
+               
+                </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox" id="hconfirmdel"></h5>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button class="btn btn-success btn-sm" id="delsucess">Delete</button>
+                
+                <button class="btn btn-success btn-sm mr-2" id="delcancel">Cancel</button>
+
+            </div>
+        </div>
+
+        <label id="lblUserId" style="display: none" />
+        <label id="lblrestroid" style="display: none" />
+        <input type="hidden" id="hdnconfirm" />
+
+
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="confirmationPopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/png-warning-2.png">
+                </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox" id="hconfirm"></h5>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button class="btn btn-success btn-sm" id="yesBtn">Yes</button>
+                <button class="btn btn-success btn-sm mr-2" id="noBtn">No</button>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<div class="modal" id="WarningPopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/png-warning-2.png">
+                </h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox" id="hwarning"></h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnok" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal" id="dngwarn">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/yellowwarn.png" />
+
+                </h4>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h6 class="centerBox" style="font-size: 11px;font-weight: bold;" id="h6warning"></h6>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+
+    </div>
+</div>

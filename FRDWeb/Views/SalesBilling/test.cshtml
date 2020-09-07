@@ -1,0 +1,2156 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<script>
+    jquery_min_p(document).ready(function () {
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+        jquery_min_p("#lblrestroid").text(id);
+        //alert(id);
+    })
+
+</script>
+
+<style>
+    #billhistorytbl tbody {
+        overflow: auto;
+        display: block;
+        max-height: 14vh;
+    }
+
+        #billhistorytbl tbody tr {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+        }
+
+
+    #billhistorytbl thead tr {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+    }
+
+
+
+
+
+    #tblrunningord {
+        min-height: 360px;
+    }
+
+    tr.strikeout td:before {
+        content: " ";
+        position: absolute;
+        display: inline-block;
+        padding: 5px 10px;
+        left: 15px;
+        border-bottom: 1px solid #111;
+        width: 96%;
+    }
+
+
+    .disable {
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+        .disable div,
+        .disable textarea {
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+    #mainContent {
+        max-width: 100%;
+        flex: 100%;
+    }
+
+    #navContent {
+        display: none;
+    }
+
+    h5.pageTitle {
+        color: #183d44;
+        font-weight: bold;
+        border-bottom: 1px solid #9eb1b5;
+        padding-bottom: 2px;
+        padding-top: 0px;
+    }
+
+    h5 {
+        margin-bottom: 0px !important;
+    }
+
+    .pageHead {
+        overflow: hidden;
+        margin-bottom: 4px !important;
+    }
+
+    #tblrunningord tbody {
+        overflow: auto;
+        display: block;
+        max-height: 51vh;
+    }
+
+        #tblrunningord tbody tr {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+        }
+
+
+    #tblrunningord thead tr {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+    }
+
+    .MenuBox {
+        padding: 11px 2px 1px;
+        color: #ffffff;
+        border-radius: 2px;
+        text-align: center;
+        width: 99%;
+        height: 43px;
+        background: #3c5a61;
+        float: left;
+        border: 1px solid #a6b6b9;
+        margin: 4px;
+    }
+
+        .MenuBox.active, .MenuBox.fc-selected {
+            background: #cfd8da !important;
+            color: #000;
+            border: 1px solid #3c5a61;
+        }
+
+    #totalcon label {
+        font-size: 14px !important;
+        font-weight: bold;
+    }
+
+    #totalcon {
+        padding-top: 5%;
+        background-color: #eaeaea;
+        border-radius: 4px;
+    }
+
+
+    .calsi {
+        padding: 11px 2px 1px;
+        color: #27444a;
+        border-radius: 2px;
+        text-align: center;
+        width: 30%;
+        height: 43px;
+        background-color: #90aaad;
+        float: left;
+        border: 1px solid #a6b6b9;
+        margin: 4px;
+    }
+
+    .Difference {
+        padding: 11px 2px 1px;
+        color: #27444a;
+        border-radius: 2px;
+        text-align: center;
+        width: 46%;
+        height: 43px;
+        float: left;
+        border: 1px solid #a6b6b9;
+        margin: 4px;
+    }
+
+    .ManagerPrivilege {
+        padding: 11px 2px 1px;
+        color: #27444a;
+        border-radius: 2px;
+        text-align: center;
+        width: 47%;
+        height: 43px;
+        float: left;
+        border: 1px solid #a6b6b9;
+        margin: 4px;
+    }
+
+    .boxpaycolor {
+        background-color: #3c5a61;
+        color: #ffffff;
+    }
+
+    .boxpaycolor1 {
+        background-color: #90aaad;
+    }
+
+    .Difference1 {
+        padding: 11px 2px 1px;
+        color: #ffffff;
+        border-radius: 2px;
+        text-align: center;
+        width: 23%;
+        height: 43px;
+        float: left;
+        border: 1px solid #a6b6b9;
+        margin: 4px;
+    }
+
+    .boxpaycolor2 {
+        background-color: #90aaad;
+    }
+
+    .Difference2 {
+        padding: 11px 2px 1px;
+        color: #ffffff;
+        border-radius: 2px;
+        text-align: center;
+        width: 100%;
+        height: 43px;
+        float: left;
+        border: 1px solid #a6b6b9;
+        margin: 4px;
+    }
+
+    .active {
+        background: #94c8d2 !important;
+    }
+
+    #amendorder {
+        width: 100%;
+    }
+
+    #Itemtable tbody {
+        overflow: auto;
+        display: block;
+        max-height: 26vh;
+    }
+
+        #Itemtable tbody tr {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+        }
+
+
+    #Itemtable thead tr {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+    }
+
+
+    .width32 {
+        width: 32%;
+        display: inline-block;
+    }
+
+    .billscroll {
+        overflow-y: scroll;
+        height: 342px;
+    }
+
+    #Disproportionatepopup .modal-dialog, #Disproportionatepopup .modal-body {
+        padding: 1px 24px 16px;
+    }
+
+    .receiptdiv {
+        min-height: 360px;
+    }
+
+
+
+
+
+    #billtable tbody {
+        overflow: auto;
+        display: block;
+        max-height: 19vh;
+    }
+
+        #billtable tbody tr {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+        }
+
+
+    #billtable thead tr {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+    }
+
+    #proceeditem .modal-lg {
+        max-width: 90% !important;
+    }
+
+    .totalamount {
+        font-size: 16px !important;
+        font-weight: bold !important;
+    }
+
+    #splittable tbody {
+        overflow: auto;
+        display: block;
+        max-height: 26vh;
+    }
+
+        #splittable tbody tr {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+        }
+
+
+    #splittable thead tr {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+    }
+
+    .dropdown:after {
+        position: absolute;
+        content: '';
+        right: 16px;
+        top: 7px;
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 8px solid #948c8c;
+        z-index: 999;
+    }
+
+    .Disproportionate {
+        margin-left: 32px;
+    }
+
+    #Disproportionatepopup .modal-sm {
+        max-width: 550px;
+    }
+
+    .receiptbox {
+        border: 1px solid #cdcdcd;
+        width: 19%;
+        height: 109px;
+        margin-top: 1%;
+        display: inline-block;
+    }
+
+    .plbl {
+        background-color: #3c5a61;
+        padding: 0px 0px 7px 0px;
+        color: #ffffff;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12 loader" id="preloader">
+        <span><img src="~/Content/images/loader(1).gif" style="width: 10%;" /></span>
+    </div>
+
+</div>
+
+<div class="container">
+
+
+
+
+
+
+    <div class="clearfix"></div>
+
+</div>
+
+
+
+
+<div class="container">
+
+
+    <div class="pageHead">
+        <h4 class="pageTitle" data-toggle="modal" data-target="#billhistory">Payment</h4>
+        <div class="menuList">
+            <label>Order Number:<span id="lblorderNo"></span></label>
+        </div>
+    </div>
+
+
+
+    <div class="clearfix"></div>
+
+
+
+    <div class="card" id="empDetails" style="display:none;">
+        <div class="card-body " style="height: 521px;">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="mt-2 grdmrg" id="tblrunningord">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 60%;">Item Name</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @*<tr>
+                                        <td>Kerala Prawn Soup</td>
+                                        <td>1.00</td>
+                                        <td>28.000</td>
+
+                                    </tr>*@
+
+
+
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                    <div class="receiptdiv" id="receiptdiv" style="display:block">
+                        <div class="receiptbox">
+                            <p class="fontBold text-center pt-2 plbl">Receipt 1</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="col-md-6 fontBold pr-0">Amount:</label>
+                                    <label class="col-md-5 fontBold" id="">15</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="col-md-6 fontBold">Tax:</label>
+                                    <label class="col-md-5 fontBold" id="">0.750</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="receiptbox">
+                            <p class="fontBold text-center pt-2 plbl">Receipt 2</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="col-md-6 fontBold pr-0">Amount:</label>
+                                    <label class="col-md-5 fontBold" id="">15</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="col-md-6 fontBold">Tax:</label>
+                                    <label class="col-md-5 fontBold" id="">0.750</label>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="receiptbox">
+                                <p class="fontBold text-center pt-2 plbl">Receipt 3</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold pr-0">Amount:</label>
+                                        <label class="col-md-5 fontBold" id="">15</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold">Tax:</label>
+                                        <label class="col-md-5 fontBold" id="">0.750</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="receiptbox">
+                                <p class="fontBold text-center pt-2 plbl">Receipt 4</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold pr-0">Amount:</label>
+                                        <label class="col-md-5 fontBold" id="">15</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold">Tax:</label>
+                                        <label class="col-md-5 fontBold" id="">0.750</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="receiptbox">
+                                <p class="fontBold text-center pt-2 plbl">Receipt 5</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold pr-0">Amount:</label>
+                                        <label class="col-md-5 fontBold" id="">15</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold">Tax:</label>
+                                        <label class="col-md-5 fontBold" id="">0.750</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="receiptbox">
+                                <p class="fontBold text-center pt-2 plbl">Receipt 6</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold pr-0">Amount:</label>
+                                        <label class="col-md-5 fontBold" id="">15</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold">Tax:</label>
+                                        <label class="col-md-5 fontBold" id="">0.750</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="receiptbox">
+                                <p class="fontBold text-center pt-2 plbl">Receipt 7</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold pr-0">Amount:</label>
+                                        <label class="col-md-5 fontBold" id="">15</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold">Tax:</label>
+                                        <label class="col-md-5 fontBold" id="">0.750</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="receiptbox">
+                                <p class="fontBold text-center pt-2 plbl">Receipt 8</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold pr-0">Amount:</label>
+                                        <label class="col-md-5 fontBold" id="">15</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold">Tax:</label>
+                                        <label class="col-md-5 fontBold" id="">0.750</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="receiptbox">
+                                <p class="fontBold text-center pt-2 plbl">Receipt 9</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold pr-0">Amount:</label>
+                                        <label class="col-md-5 fontBold" id="">15</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="col-md-6 fontBold">Tax:</label>
+                                        <label class="col-md-5 fontBold" id="">0.750</label>
+                                    </div>
+                                </div>
+                            </div>*@
+
+
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-8">
+                            <div class="pageHead">
+                                <h5 class="pageTitle">Payment Summary</h5>
+
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label class="col-md-6 fontBold pl-0 mb-0">STC Pay:</label>
+                                    <label class="col-md-5 mb-0" id="lblstcpay">0</label>
+                                    <label class="col-md-6 fontBold pl-0 mb-0">H Station Debit:</label>
+                                    <label class="col-md-5 mb-0" id="lblstationdebit">0</label>
+                                    <label class="col-md-6 fontBold pl-0 mb-0">On Offer:</label>
+                                    <label class="col-md-5 mb-0" id="lbloffer">0</label>
+                                    <label class="col-md-6 fontBold pl-0 mb-0">Hospitality:</label>
+                                    <label class="col-md-5 mb-0" id="lblhospitality">0</label>
+                                    <label class="col-md-6 fontBold pl-0 mb-0">Emp Credit:</label>
+                                    <label class="col-md-5 mb-0" id="lblempcredit">0</label>
+                                    <label class="col-md-6 fontBold pl-0 mb-0">Cust Credit:</label>
+                                    <label class="col-md-5 mb-0" id="lblcustcredit">0</label>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <label class="col-md-6 fontBold pl-0 mb-0">Cash:</label>
+                                    <label class="col-md-5 mb-0" id="lblcash">0</label>
+                                    <label class="col-md-6 fontBold pl-0 mb-0">Card:</label>
+                                    <label class="col-md-5 mb-0" id="lblcard">0</label>
+                                    <label class="col-md-6 fontBold pl-0 mb-0">Loyalty:</label>
+                                    <label class="col-md-5 mb-0" id="lblloyality">0</label>
+                                    <label class="col-md-6 fontBold pl-0 mb-0">Coupon:</label>
+                                    <label class="col-md-5 mb-0" id="lblcoupan">0</label>
+                                    <label class="col-md-6 fontBold pl-0 mb-0">H-Station Cash:</label>
+                                    <label class="col-md-5 mb-0" id="lblstationcash">0</label>
+                                    <label class="col-md-6 fontBold pl-0 mb-0">Chairman:</label>
+                                    <label class="col-md-5 mb-0" id="lblchairman">0</label>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-4">
+
+
+                            <div class="row" id="totalcon">
+                                <div class="col-md-12 pl-0 pt-1">
+                                    <label class="col-md-8 fontBold">VAT:</label>
+                                    <label class="col-md-4 pull-right" id="txtvat"></label>
+
+                                </div>
+                                <div class="col-md-12 pl-0 pt-1">
+                                    <label class="col-md-8 fontBold">Sub-Total:</label>
+                                    <label class="col-md-4 pull-right" id="txtsubtotal"></label>
+
+                                </div>
+                                <div class="col-md-12 pl-0 pt-1">
+                                    <label class="col-md-8 fontBold">Discount:</label>
+                                    <label class="col-md-4 pull-right" id="txtdiscount">0</label>
+
+                                </div>
+                                <div class="col-md-12 pl-0 pt-1">
+                                    <label class="col-md-8 fontBold">Total:</label>
+                                    <label class="col-md-4 pull-right" id="txttotal"></label>
+
+                                </div>
+
+
+                            </div>
+
+                            @*<div class="row">
+                                    <div class="col-md-12 pl-0 pt-1">
+                                        <label class="col-md-4 fontBold">Vat:</label>
+                                        <input type="text" class="form-control col-md-8 pull-right" placeholder="Vat" id="txtvat" />
+
+                                    </div>
+                                    <div class="col-md-12 pl-0 pt-1">
+                                        <label class="col-md-4 fontBold">Sub-Total:</label>
+                                        <input type="text" class="form-control col-md-8 pull-right" placeholder="Sub-Total" id="txtsubtotal" />
+
+                                    </div>
+                                    <div class="col-md-12 pl-0 pt-1">
+                                        <label class="col-md-4 fontBold">Discount:</label>
+                                        <input type="text" class="form-control col-md-8 pull-right" placeholder="Discount" id="txtdiscount" />
+
+                                    </div>
+                                    <div class="col-md-12 pl-0 pt-1">
+                                        <label class="col-md-4 fontBold">Total:</label>
+                                        <input type="text" class="form-control col-md-8 pull-right" placeholder="Total" id="txttotal" />
+
+                                    </div>
+
+
+                                </div>*@
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-8 pl-0">
+                            <div class="" id="divcalculator">
+                                <div class="row">
+                                    <div class="col-md-12 pl-0 pt-1">
+                                        <label class="col-md-4 fontBold">Due:</label>
+                                        <input type="text" class="form-control col-md-8 pull-right" placeholder="Due" id="txtdue" />
+
+                                    </div>
+                                    <div class="col-md-12 pl-0 pt-1">
+                                        <label class="col-md-4 fontBold">Tendered:</label>
+                                        <input type="text" class="form-control col-md-8 pull-right" placeholder="Tendered" id="txttendered" />
+
+                                    </div>
+                                    <div class="col-md-12 pl-0 pt-1">
+                                        <label class="col-md-4 fontBold">Balance:</label>
+                                        <input type="text" class="form-control col-md-8 pull-right" placeholder="Balance" id="txtbalance" />
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 p-0 rightdiv">
+                                            <div class="" id="destinationFields">
+                                                <div class="calsi" onclick="btnvalue(9,0);">
+                                                    <h6>9</h6>
+                                                </div>
+                                                <div class="calsi " onclick="btnvalue(8,0);">
+
+                                                    <h6>8</h6>
+                                                </div>
+                                                <div class="calsi " onclick="btnvalue(7,0);">
+                                                    <h6>7</h6>
+                                                </div>
+                                                <div class="calsi " onclick="btnvalue(6,0);">
+                                                    <h6>6</h6>
+                                                </div>
+                                                <div class="calsi " onclick="btnvalue(5,0);">
+
+                                                    <h6>5</h6>
+                                                </div>
+                                                <div class="calsi " onclick="btnvalue(4,0);">
+                                                    <h6>4</h6>
+                                                </div>
+                                                <div class="calsi " onclick="btnvalue(3,0);">
+                                                    <h6>3</h6>
+                                                </div>
+                                                <div class="calsi " onclick="btnvalue(2,0);">
+
+                                                    <h6>2</h6>
+                                                </div>
+                                                <div class="calsi " onclick="btnvalue(1,0);">
+                                                    <h6>1</h6>
+                                                </div>
+                                                <div class="calsi " onclick="btnvalue(0,0);">
+                                                    <h6>0</h6>
+                                                </div>
+                                                <div class="calsi " name="value" id="btndot" onclick="btnvalue('.',2);">
+
+                                                    <h6>.</h6>
+                                                </div>
+                                                <div class="calsi " id="btncross">
+                                                    <h6><i class="fa fa-angle-left" style="font-size: 18px;font-weight: bold;" aria-hidden="true"></i></h6>
+                                                </div>
+                                                <div class="calsi " onclick="btnvalue(10, 1);">
+                                                    <h6>10</h6>
+                                                </div>
+                                                <div class="calsi" onclick="btnvalue(20, 1);">
+
+                                                    <h6>20</h6>
+                                                </div>
+                                                <div class="calsi" onclick="btnvalue(50, 1);">
+                                                    <h6>50</h6>
+                                                </div>
+                                                <div class="calsi" onclick="btnvalue(100, 1);">
+                                                    <h6>100</h6>
+                                                </div>
+                                                <div class="calsi" onclick="btnvalue(500, 1);">
+
+                                                    <h6>500</h6>
+                                                </div>
+                                                <div class="calsi" id="btnok">
+                                                    <h6>OK</h6>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="calsi boxpaycolor mt-3" id="btnprint">
+                                    <h6>Print</h6>
+                                </div>
+                                <div class="calsi boxpaycolor mt-3" id="btnexact">
+
+                                    <h6>Exact</h6>
+                                </div>
+                                <div class="calsi boxpaycolor mt-3" id="btnclear">
+                                    <h6>Clear</h6>
+                                </div>
+                                <div class="Difference boxpaycolor" id="btndifference" data-toggle="modal" data-target="#difference">
+                                    <h6>Difference</h6>
+                                </div>
+                                <div class="ManagerPrivilege boxpaycolor" id="btnmanagerprivilege">
+
+                                    <h6>Manager Privilege</h6>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 pl-0">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 p-0 rightdiv">
+                                        <div class="" id="destinationFields">
+                                            <div class="MenuBox" id="MenuBoxCash" onclick="MenuBoxCash();">
+
+
+                                                <h6>Cash</h6>
+                                            </div>
+                                            <div class="MenuBox" data-toggle="modal" data-target="#cardPayment" id="MenuBoxCard" onclick="MenuBoxCard();">
+
+                                                <h6>Card</h6>
+                                            </div>
+                                            <div class="MenuBox" data-toggle="modal" data-target="#loyaltyCard" id="MenuBoxLoyalty" onclick="MenuBoxLoyalty();">
+                                                <h6>Loyalty</h6>
+                                            </div>
+                                            <div class="MenuBox" data-toggle="modal" data-target="#coupondetails" id="MenuBoxCoupon" onclick="MenuBoxCoupon();">
+                                                <h6>Coupon</h6>
+                                            </div>
+                                            <div class="MenuBox" data-toggle="modal" data-target="#stcpay" id="MenuBoxSTCPay" onclick="MenuBoxSTCPay();">
+                                                <h6>STC Pay</h6>
+                                            </div>
+                                            <div class="MenuBox" data-toggle="modal" data-target="#other" id="MenuBoxOther">
+                                                @*onclick="MenuBoxOther();">*@
+                                                <h6>Other</h6>
+                                            </div>
+                                            <div class="MenuBox" id="MenuBoxSplitBill" onclick="MenuBoxSplitBill();">
+                                                <h6>Split Bill</h6>
+                                            </div>
+                                            <div class="MenuBox" id="MenuBoxCancel" onclick="MenuBoxCancel();">
+
+
+                                                <h6>Cancel</h6>
+                                            </div>
+                                            <div class="MenuBox" id="MenuBoxConfirm">
+                                                <h6>Confirm</h6>
+                                            </div>
+                                            <div class="MenuBox" id="btnexit">
+
+
+                                                <h6>Exit</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+        <label id="lblorderid" style="display: none" />
+    </div>
+    <label id="lblrestroid" style="display: none" />
+
+</div>
+<script src="~/JavaScript/Payment.js"></script>
+
+<div class="modal" id="stcpay">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    STC Pay
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row pl-3 mb-2">
+                            <label class="col-md-6 col-form-label pl-0 largefont">Total Amount:</label>
+                            <div class="col-md-5">
+                                <label id="lblstctotalamount" class="mb-0 mt-2 largefont"></label>
+                            </div>
+                        </div>
+                        <div class="row pl-3 mb-2">
+                            <label class="col-md-6 col-form-label pl-0">Transaction Number:</label>
+                            <div class="col-md-5">
+                                <input type="text" id="txtstctransaction" class="form-control" placeholder="" onkeypress="RemoveClassStcPayment();" maxlength="4" />
+                            </div>
+                        </div>
+                        <div class="row pl-3 mb-2">
+                            <label class="col-md-6 col-form-label pl-0">Amount:</label>
+                            <div class="col-md-5">
+                                <input type="text" id="txtstcamount" class="form-control" placeholder="" onkeypress="RemoveClassStcPayment();" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnstcok">OK</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal" id="coupondetails">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Coupon Details
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row mb-2">
+                            <label class="col-md-6 col-form-label pl-0">Coupon Number:</label>
+                            <div class="col-md-5">
+                                <input type="text" id="textCouponno" class="form-control" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-md-6 col-form-label pl-0">Coupon Amount (SAR):</label>
+                            <div class="col-md-5">
+                                <label class="mb-0 mt-2">6464</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btncoupanapply" data-dismiss="modal">Apply</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal" id="loyaltyCard">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Loyalty Card
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row pl-3 mb-2">
+                            <label class="col-md-6 col-form-label pl-0 largefont">Due Amount:</label>
+                            <div class="col-md-5">
+                                <label id="lblloyalitydue" class="mb-0 mt-2 largefont"></label>
+                            </div>
+                        </div>
+                        <div class="row mb-2" id="divCustomerName" style="display:none;">
+                            <label class="col-md-5 col-form-label">Customer Name</label>
+                            <div class="col-md-7">
+                                <label class="col-md-5 col-form-label" id="lblCustomerName"></label>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-md-5 col-form-label">Card Number:</label>
+                            <div class="col-md-7">
+                                <input type="text" id="txtloyalityCardNo" class="form-control" placeholder="" onkeypress="RemoveClassLoyality();" />
+                            </div>
+                        </div>
+                        <div class="row  mb-2" id="divloyalitypoint" style="display:none;">
+                            <label class="col-md-5 col-form-label">Points:</label>
+                            <div class="col-md-7">
+                                <label class="col-md-5 col-form-label" id="lblloyalitypoints"></label>
+                            </div>
+                        </div>
+                        <div class="row  mb-2">
+                            <label class="col-md-5 col-form-label">Amount (SAR):</label>
+                            <div class="col-md-7">
+                                <input type="text" id="txtloyalityCardAmount" class="form-control" placeholder="" onkeypress="RemoveClassLoyality();" />
+                            </div>
+                        </div>
+                        <div class="row  mb-2" id="divloyalityamounts" style="display:none;">
+                            <label class="col-md-5 col-form-label">Amount(SAR)</label>
+                            <div class="col-md-7">
+                                <label class="col-md-5 col-form-label" id="lblloyalityamounts"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnRedeem">Redeem</button>
+                <button type="button" class="btn btn-success btn-sm" id="btnRedeemAddPoints">Add Points</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal" id="cardPayment">
+    <div class="modal-dialog modal-md">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Card Payment
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <label class="col-md-6 pl-0 largefont">Due Balance:</label>
+                        <div class="col-md-6 pull-right">
+                            <label id="txtcarddue" class="largefont"></label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <input type="radio" name="a" value="Debit"> Debit
+                        <input type="radio" name="a" value="Credit" class="ml-5"> Credit
+
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12" id="divcardpayment">
+                        <div class="Difference1 boxpaycolor1" id="divMastercard">
+                            <h6>Master Card</h6>
+                        </div>
+                        <div class="Difference1 boxpaycolor1" id="divVisa">
+                            <h6>Visa</h6>
+                        </div>
+                        <div class="Difference1 boxpaycolor1" id="divAmericanexpress">
+                            <h6>American Express</h6>
+                        </div>
+                        <div class="Difference1 boxpaycolor1" id="divMedadebitcard">
+                            <h6>Mada-Debit Card</h6>
+                        </div>
+
+                    </div>
+
+                    <div class="row pl-3 mb-1 mt-2">
+                        <label class="col-md-5 col-form-label">Card Number:</label>
+                        <div class="col-md-7">
+                            <input type="text" id="txtcardnumber" class="form-control" placeholder="" onkeypress="RemoveClassCardPayment();" maxlength="4" />
+                        </div>
+                    </div>
+                    <div class="row pl-3 mb-2">
+                        <label class="col-md-5 col-form-label">Total Amount:</label>
+                        <div class="col-md-7">
+                            <input type="text" id="txtcardamount" class="form-control" placeholder="" onkeypress="RemoveClassCardPayment();" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnProceedcard">Proceed</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal" id="managerpri" style="display:none;">
+    <div class="modal-dialog modal-md">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Manager Access
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 pl-0">
+                        <input type="radio" name="Manager" value="Debit"> Manager Discount
+                        <input type="radio" name="Manager" value="Credit" class="ml-5"> Amend Order
+
+                    </div>
+
+                    <div class="row" id="divmanagerdiscount" style="display:none;">
+                        <div class="row pl-3 mb-1 mt-2">
+                            <div class="col-md-12 mt-1 pl-0">
+                                <label class="col-md-4 ">Amount (SAR):</label>
+                                <div class="col-md-7 pull-right pl-0">
+                                    <input type="text" id="txtMainamount" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mt-1 pl-0">
+                                <label class="col-md-4">Reason:</label>
+
+                                <div class="col-md-7 pull-right  pl-0">
+                                    <select id="ddlreason" style="width: 100%;height: 24px;padding-left: 4px;"></select>
+                                    @*<input type="text" id="ddlreason" class="form-control" placeholder="" />*@
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mt-1 pl-0">
+                                <label class="col-md-4">Discount Percentage:</label>
+                                <div class="col-md-7 pull-right pl-0">
+                                    <input type="text" id="MDPersentage" class="form-control" placeholder="" maxlength="4" onkeypress="return isNumberKey(event);" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mt-1 pl-0">
+                                <label class="col-md-4">Discount Amount (SAR):</label>
+                                <div class="col-md-7 pull-right pl-0">
+                                    <input type="text" id="txtMDamount" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mt-1 pl-0">
+                                <label id="lbldiscounterror" style="display:none;"></label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="amendorder" style="display:none">
+                        <div class="row pl-3 mb-2">
+                            <div class="col-md-12 pl-0">
+                                <table id="Itemtable">
+                                    <thead>
+                                        <tr>
+                                            <th>Item Name</th>
+                                            <th>Quantity</th>
+                                            <th>Item Price</th>
+                                            @*<th>Add</th>
+                                                <th>Sub</th>*@
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id=""></tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-7 pl-0">
+                                <label class="col-md-2 col-form-label pl-0">Reason:</label>
+                                <div class="col-md-9 pull-right dropdown p-0" style="margin-top: 6px;">
+                                    <select id="txtreason" style="width:100%;height: 23px;padding-left: 3px;"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnProceeddiscount">Proceed</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal" id="difference">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Difference
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row mb-2">
+                            <label class="col-md-5 largefont pl-0">Due Amount:</label>
+                            <div class="col-md-7">
+                                <label id="lbldiffdueamt" class="largefont"></label>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-md-5 pl-0">Amount:</label>
+                            <div class="col-md-7">
+                                <input type="text" id="txtdiffamt" class="form-control" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-md-5 pl-0">Balance Amount:</label>
+                            <div class="col-md-7">
+                                <label id="lbldiffbalamt"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="" data-dismiss="modal">Proceed</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal" id="manager" style="display:none">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Manager Access
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 pl-0">
+
+                        <div class="row pl-3 mb-2">
+                            <label class="col-md-5">Access Code:</label>
+                            <div class="col-md-7">
+                                <input type="password" id="textaccesscode" class="form-control" placeholder="" autocomplete="off" autofocus />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnmanagergo">Go</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal" id="other">
+    <div class="modal-dialog modal-md">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Other
+                </h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="col-md-6 pl-0 largefont">Due Amount:</label>
+                        <div class="col-md-5 pull-right">
+                            <label id="lblotherdue" class="largefont"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="divHungerstationcash">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="Difference2 boxpaycolor2" onclick="EnableTextFields(1);">
+                            <h6>Hunger Station Cash</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 pl-0">
+                                <input type="text" id="HungerstationTransactionNo" class="form-control" placeholder="Transaction Number" onkeypress='return isNumberKey(event);' onkeyup="RemoveClassOtherPayement();" maxlength="10" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 p-0">
+                                <input type="text" id="HungerstationAmount" class="form-control" placeholder="Amount" onkeypress='return isNumberKey(event);' onkeyup="RemoveClassOtherPayement();" maxlength="10" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row" id="divHungerstationdebit">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="Difference2 boxpaycolor2" onclick="EnableTextFields(2);">
+                            <h6>Hunger Station Debit</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 pl-0">
+                                <input type="text" id="HungerstationdebitTranNo" class="form-control" placeholder="Transaction Number" onkeypress='return isNumberKey(event);' onkeyup="RemoveClassOtherPayement();" maxlength="10" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 p-0">
+                                <input type="text" id="HungerstationdebitAmount" class="form-control" placeholder="Amount" onkeypress='return isNumberKey(event);' onkeyup="RemoveClassOtherPayement();" maxlength="10" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row" id="divInvoice">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="Difference2 boxpaycolor2" onclick="EnableTextFields(3);">
+                            <h6>Invoice Offer</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 pl-0">
+                                <input type="text" id="InvoiceTransNo" class="form-control" placeholder="Transaction Number" onkeypress='RemoveClassOtherPayement();' maxlength="16" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 p-0">
+                                <input type="text" id="InvoiceTransAmount" class="form-control" placeholder="Amount" onkeypress='return isNumberKey(event);' onkeyup="RemoveClassOtherPayement();" maxlength="10" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row" id="divChairman">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="Difference2 boxpaycolor2" onclick="EnableTextFields(4);">
+                            <h6>Chairman</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 pl-0">
+                                <input type="text" id="txtChairmanTransNo" class="form-control" placeholder="Transaction Number" onkeypress='RemoveClassOtherPayement();' maxlength="16" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 p-0">
+                                <input type="text" id="txtChairmanTransAmount" class="form-control" placeholder="Amount" onkeypress='return isNumberKey(event);' onkeyup="RemoveClassOtherPayement();" maxlength="10" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row" id="divHospitality">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="Difference2 boxpaycolor2" onclick="EnableTextFields(5);">
+                            <h6>Hospitality</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 pl-0">
+                                <input type="text" id="txtHospitalityTransNo" class="form-control" placeholder="Transaction Number" onkeypress='RemoveClassOtherPayement();' maxlength="16" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 p-0">
+                                <input type="text" id="txtHospitalityTransAmount" class="form-control" placeholder="Amount" onkeypress='return isNumberKey(event);' onkeyup="RemoveClassOtherPayement();" maxlength="10" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row" id="divCustCredit">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="Difference2 boxpaycolor2" onclick="EnableTextFields(6);">
+                            <h6>Customer Credit</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 pl-0">
+                                <select id="txtCustCreditTransNo" style="width:100%;height: 24px;padding-left:2px" onchange="RemoveClassOtherPayement();"></select>
+                                @*<input type="text" id="txtCustCreditTransNo" />*@
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 p-0">
+                                <input type="text" id="txtCustCreditTransAmount" class="form-control" placeholder="Amount" onkeypress='return isNumberKey(event);' onkeyup="RemoveClassOtherPayement();" maxlength="10" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row" id="divEmployeeCredit">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="Difference2 boxpaycolor2" onclick="EnableTextFields(7);">
+                            <h6>Employee Credit</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 pl-0">
+                                <select id="EmployeeCreditTransNo" style="width:100%;height: 25px;padding-left:2px" onchange="RemoveClassOtherPayement();"></select>
+                                @*<input type="text" id="EmployeeCreditTransNo" class="form-control" placeholder="Transaction Number"  />*@
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4 col-md-4 mt-2">
+
+                        <div class="row">
+                            <div class="col-md-12 p-0">
+                                <input type="text" id="EmployeeCreditTransAmount" class="form-control" placeholder="Amount" onkeypress='return isNumberKey(event);' onkeyup="RemoveClassOtherPayement();" maxlength="10" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnOtherProceed">Proceed</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal" id="splitbill" style="display:none;">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloaseSplit">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Split Bill
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <input type="radio" name="Splitbill" value="Item"> Item
+                        <input type="radio" name="Splitbill" value="Amount" class="ml-5"> Amount
+
+                    </div>
+
+
+
+                    <div class="col-md-12 mt-3 pl-0">
+                        <label class="col-md-5">Split Count:</label>
+                        <div class="col-md-7 pull-right pl-0">
+                            <input type="text" id="txtsplitcount" class="form-control" placeholder="" onkeyup="SplitRemoveClass();" onkeypress="    return isNum(event)" maxlength="2" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 mt-2" id="divequaldis" style="display:none;">
+                        <input type="radio" name="amount" value="Equally"> Equally
+                        <input type="radio" name="amount" value="Disproportionate" class="Disproportionate"> Disproportionate
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="proceedsplitbill">Proceed</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal" id="proceeditem">
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content" style="display:none">
+            <div class="modal-header">
+                <button type="button" class="close" id="btnproceedcrosscloase" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Split Bill Based On Item
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div id="">
+                        <div class="row pl-3 mb-2">
+                            <div class="col-md-4 pl-0" id="itemnamesplittable">
+                                <table id="splittable">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 165px;">Item Name</th>
+                                            <th>Actual Qty</th>
+                                            <th>Qty</th>
+                                            <th>Amount</th>
+                                            <th>Add</th>
+                                            <th>Sub</th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @*<tr>
+                                                <td style="width: 165px;">Tomato Soup</td>
+                                                <td>1.000</td>
+
+                                                <td>10.000</td>
+                                                <td><i class="fa fa-plus-circle"></i></td>
+                                                <td><i class="fa fa-minus-circle"></i></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 165px;">Tomato Soup</td>
+                                                <td>1.000</td>
+
+                                                <td>10.000</td>
+                                                <td><i class="fa fa-plus-circle"></i></td>
+                                                <td><i class="fa fa-minus-circle"></i></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 165px;">Tomato Soup</td>
+                                                <td>1.000</td>
+
+                                                <td>10.000</td>
+                                                <td><i class="fa fa-plus-circle"></i></td>
+                                                <td><i class="fa fa-minus-circle"></i></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 165px;">Tomato Soup</td>
+                                                <td>1.000</td>
+
+                                                <td>10.000</td>
+                                                <td><i class="fa fa-plus-circle"></i></td>
+                                                <td><i class="fa fa-minus-circle"></i></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 165px;">Tomato Soup</td>
+                                                <td>1.000</td>
+
+                                                <td>10.000</td>
+                                                <td><i class="fa fa-plus-circle"></i></td>
+                                                <td><i class="fa fa-minus-circle"></i></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 165px;">Tomato Soup</td>
+                                                <td>1.000</td>
+
+                                                <td>10.000</td>
+                                                <td><i class="fa fa-plus-circle"></i></td>
+                                                <td><i class="fa fa-minus-circle"></i></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 165px;">Tomato Soup</td>
+                                                <td>1.000</td>
+
+                                                <td>10.000</td>
+                                                <td><i class="fa fa-plus-circle"></i></td>
+                                                <td><i class="fa fa-minus-circle"></i></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 165px;">Tomato Soup</tdstyle>
+                                                <td>1.000</td>
+
+                                                <td>10.000</td>
+                                                <td><i class="fa fa-plus-circle"></i></td>
+                                                <td><i class="fa fa-minus-circle"></i></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 165px;">Tomato Soup</td>
+                                                <td>1.000</td>
+
+                                                <td>10.000</td>
+                                                <td><i class="fa fa-plus-circle"></i></td>
+                                                <td><i class="fa fa-minus-circle"></i></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 165px;">Tomato Soup</td>
+                                                <td>1.000</td>
+
+                                                <td>10.000</td>
+                                                <td><i class="fa fa-plus-circle"></i></td>
+                                                <td><i class="fa fa-minus-circle"></i></td>
+
+                                            </tr>*@
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="billscroll">
+                                    <div id="dvsplititemwise">
+                                        @*<div class="ml-1 width32">
+                                                <button type="button" class="btn btn-success btn-sm" id="">Bill 1</button>
+                                                <table id="billtable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Item Name</th>
+                                                            <th>Quantity</th>
+                                                            <th>Price</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>*@
+                                        @*<div class="ml-1 width32">
+                                                <button type="button" class="btn btn-success btn-sm" id="">Bill 2</button>
+                                                <table id="billtable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Item Name</th>
+                                                            <th>Quantity</th>
+                                                            <th>Price</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="ml-1 width32">
+                                                <button type="button" class="btn btn-success btn-sm" id="">Bill 3</button>
+                                                <table id="billtable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Item Name</th>
+                                                            <th>Quantity</th>
+                                                            <th>Price</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="ml-1 width32">
+                                                <button type="button" class="btn btn-success btn-sm" id="">Bill 4</button>
+                                                <table id="billtable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Item Name</th>
+                                                            <th>Quantity</th>
+                                                            <th>Price</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="ml-1 width32">
+                                                <button type="button" class="btn btn-success btn-sm" id="">Bill 5</button>
+                                                <table id="billtable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Item Name</th>
+                                                            <th>Quantity</th>
+                                                            <th>Price</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="ml-1 width32">
+                                                <button type="button" class="btn btn-success btn-sm" id="">Bill 6</button>
+                                                <table id="billtable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Item Name</th>
+                                                            <th>Quantity</th>
+                                                            <th>Price</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomato Soup</td>
+                                                            <td>1.000</td>
+                                                            <td>0</td>
+
+
+                                                        </tr>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>*@
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="">Proceed</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal" id="Disproportionatepopup" style="display:none">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Split Bill
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 mt-2">
+                        <label class="totalamount">Total Amount (SAR):<span id="spnttlamount"></span></label>
+
+                    </div>
+                </div>
+                <div class="row" id="dvsplitdisp">
+                    @*<div class="col-md-6 mt-3 pl-0">
+                            <label class="col-md-5">Receipt 1:</label>
+                            <div class="col-md-7 pull-right pl-0">
+                                <input type="text" id="" class="form-control" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 pl-0">
+                            <label class="col-md-5">Receipt 2:</label>
+                            <div class="col-md-7 pull-right pl-0">
+                                <input type="text" id="" class="form-control" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 pl-0">
+                            <label class="col-md-5">Receipt 3:</label>
+                            <div class="col-md-7 pull-right pl-0">
+                                <input type="text" id="" class="form-control" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 pl-0">
+                            <label class="col-md-5">Receipt 4:</label>
+                            <div class="col-md-7 pull-right pl-0">
+                                <input type="text" id="" class="form-control" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 pl-0">
+                            <label class="col-md-5">Receipt 5:</label>
+                            <div class="col-md-7 pull-right pl-0">
+                                <input type="text" id="" class="form-control" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 pl-0">
+                            <label class="col-md-5">Receipt 6:</label>
+                            <div class="col-md-7 pull-right pl-0">
+                                <input type="text" id="" class="form-control" placeholder="" />
+                            </div>
+                        </div>*@
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnproceeddisp">Proceed</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="AmmendconfirmationPopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/png-warning-2.png">
+                </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox" id="Ammendconfirm"></h5>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button class="btn btn-success btn-sm" id="yesAmmend">Yes</button>
+                <button class="btn btn-success btn-sm mr-2" id="noAmmend">No</button>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<div class="modal" id="billhistory">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Bill History
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Bill Number:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2">BN-0023</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Table Number:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2">6464</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Type:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2">Take Away</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Order Number:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2">Take Away</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Members:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2">Take Away</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Date:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2">2/11/2019</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-md-6 col-form-label pl-0">Time:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2">9:23</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-2 grdmrg" id="billhistorytbl">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 45%;">Item Name</th>
+                                <th>Qty</th>
+                                <th>Kot</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 45%;">Kerala Prawn Soup</td>
+                                <td>1.00</td>
+                                <td>Kot_No-0204</td>
+                                <td>28.000</td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 45%;">Kerala Prawn Soup</td>
+                                <td>1.00</td>
+                                <td>Kot_No-0204</td>
+                                <td>28.000</td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 45%;">Kerala Prawn Soup</td>
+                                <td>1.00</td>
+                                <td>Kot_No-0204</td>
+                                <td>28.000</td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 45%;">Kerala Prawn Soup</td>
+                                <td>1.00</td>
+                                <td>Kot_No-0204</td>
+                                <td>28.000</td>
+
+                            </tr>
+
+
+
+                        </tbody>
+
+
+                    </table>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="col-md-6 col-form-label pl-0">Vat:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2">35</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="col-md-6 col-form-label pl-0">Total:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2">550</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="col-md-6 col-form-label pl-0">Discount:</label>
+                        <div class="col-md-5 pull-right">
+                            <label class="mb-0 mt-2">10%</label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btncoupanapply" data-dismiss="modal">Apply</button>
+            </div>
+        </div>
+
+    </div>
+</div>

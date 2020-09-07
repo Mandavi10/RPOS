@@ -1,0 +1,753 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+<script src="~/Content/js/jquery-1.10.2.js"></script>
+<script>        var jquery_1_10_2_min_p = jQuery.noConflict();</script>
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+
+<script src="~/Content/js/jquery-ui.js"></script>
+
+<script src="~/JavaScript/KitchenSection.js"></script>
+@*<script src="~/MinJavaScript/KitchenSection_min.js"></script>*@
+
+<script type="text/javascript">
+    jquery_min_p(document).ready(function () {
+
+        jquery_filtertable_p('#tbl').filterTable({ ignoreClass: 'no-filter' });
+
+    });
+</script>
+
+<script>
+    jquery_1_10_2_min_p(document).ready(function () {
+
+        var id = '@Request.RequestContext.HttpContext.Session["CurrentRestroId"]';
+       
+
+        jquery_min_p("#lblrestroid").text(id);
+       
+       // alert(jquery_min_p("#lblrestroid").text());
+       
+    });
+</script>
+<style>
+  .searchBox {
+    position: absolute !important;
+    left: 15px;
+    z-index: 999;
+    top: 38px;
+}
+   #itemgrd .modal-dialog .modal-body {
+    padding: 0px 24px 16px;
+}
+   
+
+    .subhead {
+    color: #183d44;
+    font-weight: bold;
+    padding-bottom: 0px;
+    }
+
+    .pullright {
+        float: right;
+    }
+
+      #uppergrd tbody {
+    overflow: auto;
+    display: block;
+    max-height: 40vh;
+}
+
+#uppergrd tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+        
+        
+   #uppergrd thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}     
+    #itemgrd tbody {
+    overflow: auto;
+    display: block;
+    max-height: 40vh;
+}
+
+#itemgrd tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+        
+        
+   #itemgrd thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+} 
+   
+   #grdleft tbody {
+    overflow: auto;
+    display: block;
+    max-height: 22vh;
+}
+
+#grdleft tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+        
+        
+   #grdleft thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}     
+  
+   #grdright tbody {
+    overflow: auto;
+    display: block;
+    max-height: 31vh;
+}
+
+#grdright tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+        
+        
+   #grdright thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}  
+
+
+</style>
+<div class="row">
+    <div class="col-md-12 loader" id="preloader">
+        <span><img src="~/Content/images/loader(1).gif" style="width: 10%;" /></span>
+    </div>
+
+</div>
+<div class="container">
+
+
+    <div class="pageHead">
+        <h4 class="pageTitle">Kitchen Section</h4>
+
+    </div>
+
+    
+
+    <div class="clearfix"></div>
+    <div class="searchBox">
+        <div class="search">
+            <i class="fa fa-search" aria-hidden="true"></i><input type="text" placeholder="Search"  id="txtsearchkitchensection" maxlength="50"/>
+        </div>
+    </div>
+       
+    <div class="card mt-0" id="divkitchensection" style="display:none">
+        <div class="card-body mt-4">
+            <div class="row">
+                <div class="col-md-12 mb-2" id="uppergrd">
+                    <div id="dvTable">
+                        <table id="tbl" class="mt-2">
+
+                            <thead>
+                                <tr>
+
+                                    <th>Code</th>
+                                    <th>Kitchen Section Name</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="tblkslist">
+                                @*<tr>
+
+                <td>Contains</td>
+                <td>Contains</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Sprite 250ml</td>
+                <td>4</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+
+            <tr>
+
+                <td>Sprite 250ml</td>
+                <td>4</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Contains</td>
+                <td>Contains</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Sprite 250ml</td>
+                <td>4</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Sprite 250ml</td>
+                <td>4</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Contains</td>
+                <td>Contains</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Sprite 250ml</td>
+                <td>4</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Sprite 250ml</td>
+                <td>4</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Contains</td>
+                <td>Contains</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Sprite 250ml</td>
+                <td>4</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Sprite 250ml</td>
+                <td>4</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Contains</td>
+                <td>Contains</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Sprite 250ml</td>
+                <td>4</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+
+                <td>Sprite 250ml</td>
+                <td>4</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+
+            </tr>
+            <tr>
+
+                <td>Orange juice</td>
+                <td>2</td>
+                <td data-toggle="modal" data-target="#itemgrd"><i class="fa fa-plus" aria-hidden="true"></i></td>
+            </tr>*@
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+</div>
+            </div>
+        </div>
+        </div>
+        <div class="card mt-2" id="divitemdetail" style="display:none">
+            <div class="card-body mt-2">
+                <div class="row">
+
+                    <div class="col-md-12 mt-2">
+                        <h4 style="border-bottom:1px solid #cdcdcd;margin-bottom:0px!important" id="divkitchenname"></h4>
+
+                    </div>
+                    <div class="col-md-12 mb-2">
+                      
+                        <div id="grdleft">
+                            <table id="tblassigneditem" class="mt-2 assigneditem">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <span class="">
+                                                <input type="checkbox" name="" value="other" id="checkallOlditem"><label class="ml-1 mb-0">All</label>
+                                            </span>
+                                        </th>
+                                        <th>Item Name</th>
+                                        @*<th>Item Price</th>*@
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @*<tr>
+
+                    <td>Orange juice</td>
+                    <td>2</td>
+
+                </tr>
+                <tr>
+
+                    <td>Orange juice</td>
+                    <td>2</td>
+
+                </tr>
+                <tr>
+
+                    <td>Sprite 250ml</td>
+                    <td>4</td>
+
+
+                </tr>
+                <tr>
+
+                    <td>Orange juice</td>
+                    <td>2</td>
+
+                </tr>
+                <tr>
+
+                    <td>Orange juice</td>
+                    <td>2</td>
+
+                </tr>
+                <tr>
+
+                    <td>Sprite 250ml</td>
+                    <td>4</td>
+
+
+                </tr>
+                <tr>
+
+                    <td>Orange juice</td>
+                    <td>2</td>
+
+                </tr>
+                <tr>
+
+                    <td>Orange juice</td>
+                    <td>2</td>
+
+                </tr>
+                <tr>
+
+                    <td>Orange juice</td>
+                    <td>2</td>
+
+                </tr>
+                <tr>
+
+                    <td>Sprite 250ml</td>
+                    <td>4</td>
+
+
+                </tr>
+                <tr>
+
+                    <td>Orange juice</td>
+                    <td>2</td>
+
+                </tr>
+                <tr>
+
+                    <td>Orange juice</td>
+                    <td>2</td>
+
+                </tr>
+                <tr>
+
+                    <td>Sprite 250ml</td>
+                    <td>4</td>
+
+
+                </tr>
+                <tr>
+
+                    <td>Orange juice</td>
+                    <td>2</td>
+
+                </tr>*@
+                                </tbody>
+
+
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <div class="pagebtn pr-0 pull-right">
+                            <button type="button" class="btn btn-success btn-sm mr-1" data-dismiss="modal" id="btnRemoveitem">Remove</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="modal" id="itemgrd">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">Add Item</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 mt-2 p-0">
+                        <h4 style="border-bottom:1px solid #cdcdcd;margin-bottom:0px!important" id="divkitchensectionname"></h4>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-12 p-0">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+
+                                <div id="employee12" class="panel-collapse collapse show">
+                                    <div class="panel-body">
+
+                                        <div id="grdright"></div>
+                                        <table id="itemtable">
+                                            <thead>
+                                                <tr>
+                                                    <th><span class="">
+    <input type="checkbox" name="" value="other" id="checkallnewitem"><label class="ml-1 mb-0">All</label>
+</span></th>
+                                                    <th>Item Name</th>
+                                                    @*<th>Item Price</th>*@
+                                                   
+                                                    
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @*<tr>
+                                                    <td><span class="">
+    <input type="checkbox" name="" value="other">
+</span></td>
+                                                    <td>Contains</td>
+
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Orange juice</td>
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Sprite 250ml</td>
+
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Orange juice</td>
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Sprite 250ml</td>
+
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Orange juice</td>
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Sprite 250ml</td>
+
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Contains</td>
+
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Orange juice</td>
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Sprite 250ml</td>
+
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Orange juice</td>
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Sprite 250ml</td>
+
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Orange juice</td>
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="">
+                                                            <input type="checkbox" name="" value="other">
+                                                        </span>
+                                                    </td>
+                                                    <td>Sprite 250ml</td>
+
+
+
+                                                </tr>*@
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer pr-2">
+                <button type="button" class="btn btn-success mr-1" id="btnaddmenu">Submit</button>
+
+
+
+            </div>
+        </div>
+        <label id="lblkitchensectionid" style="display: none" />
+    </div>
+    <label id="lblrestroid" style="display: none" />
+
+    
+</div>
+

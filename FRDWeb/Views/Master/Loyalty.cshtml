@@ -1,0 +1,684 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/js/jquery.min.js"></script>
+<script>        var jquery_min_p = jQuery.noConflict();</script>
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script>        var bootstrap_min_p = jQuery.noConflict();</script>
+<script src="~/JavaScript/Loyalty.js"></script>
+@*<script src="~/MinJavaScript/Loyalty_min.js"></script>*@
+
+<script type="text/javascript">
+    
+        var test = '<%=ConfigurationManager.AppSettings["maxCardLength"].ToString() %>'
+        
+    
+
+</script>
+
+
+<style>
+    #mainContent {
+        max-width: 100%;
+        flex: 100%;
+        padding: 0;
+    }
+
+    #navContent {
+        display: none;
+    }
+
+      #tblrestrocards tbody {
+    overflow: auto;
+    display: block;
+    max-height: 26vh;
+}
+
+#tblrestrocards tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+        
+        
+   #tblrestrocards thead tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}     
+  
+
+
+
+</style>
+
+
+
+
+<div class="container">
+
+
+    <div class="pageHead">
+        <h4 class="pageTitle">Loyalty Master</h4>
+        @*<div class="menuList ">
+            <i class=" fa fa-th mr-1" id="cardview" aria-hidden="true"></i>
+            <i class="fa fa-list " id="listview" aria-hidden="true"></i>
+        </div>*@
+    </div>
+
+
+
+    <div class="clearfix"></div>
+    <div class="card mt-2" id="loyaltyCon">
+        <div class="card-body mainCon">
+            <div class="row" >
+               
+                <ul class="nav nav-tabs p-0" id="loyaltyTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" id="DCard" href="#defineRules" role="tab" aria-controls="defineRules">Define Rules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" id="GCard" href="#generateCard" role="tab" aria-controls="generateCard">Generate Card</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" id="ICard" href="#issueCard" role="tab" aria-controls="issueCard" onclick="BindCardLength(); BindResturantMenu();">Issue Card</a>
+                    </li>
+                  
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="defineRules" role="tabpanel">
+                        <h4 class="pageTitle">Loyalty Rules</h4>
+                        <div class="leftCon">
+                            <div class="row pl-3 mb-2">
+                                <label class="col-md-5 col-form-label">Amount(SAR):</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="txtamount" onkeyup="RemoveClass();" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="row pl-3 mb-2">
+                                <label class="col-md-5 col-form-label">Points Earned:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="txtearnedpoint" onkeyup="RemoveClass();" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="row pl-3 mb-2">
+                                <label class="col-md-5 col-form-label">Redeemable Amount(SAR):</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="txtredeemamount" onkeyup="RemoveClass();" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="row pl-3">
+                                <label class="col-md-5 col-form-label">Effective From:</label>
+                                <div class="col-md-7">
+                                    <input type="date" id="txtdate" onchange="RemoveClass();" class="form-control" placeholder=" " />
+                                </div>
+                            </div>
+                            <button type="button" id="btnaddrule" class="btn btn-success btn-sm pull-right mt-3"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+
+
+
+                        </div>
+                        <div class="rightCon">
+                          
+                            <table id="rulesTable">
+                                <thead>
+                                    <tr>
+                                        <th width="15%">Effective From</th>
+                                        @*<th>Effective To</th>*@
+                                        <th width="15%">Bill Amount</th>
+                                        <th width="25%">Redeemable Amount</th>
+                                        <th width="15%">Earned Point</th>
+                                        <th width="30%">Created By</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @*<tr>
+                                        <td>29-Jan-2019</td>
+                                        <td>100.00</td>
+                                        <td>1.00</td>
+                                        <td>10</td>
+                                        <td>1</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>29-Jan-2019</td>
+                                        <td>100.00</td>
+                                        <td>1.00</td>
+                                        <td>10</td>
+                                        <td>1</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>29-Jan-2019</td>
+                                        <td>100.00</td>
+                                        <td>1.00</td>
+                                        <td>10</td>
+                                        <td>1</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>29-Jan-2019</td>
+                                        <td>100.00</td>
+                                        <td>1.00</td>
+                                        <td>10</td>
+                                        <td>1</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>29-Jan-2019</td>
+                                        <td>100.00</td>
+                                        <td>1.00</td>
+                                        <td>10</td>
+                                        <td>1</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>29-Jan-2019</td>
+                                        <td>100.00</td>
+                                        <td>1.00</td>
+                                        <td>10</td>
+                                        <td>1</td>
+
+                                    </tr>*@
+                                </tbody>
+                            </table>
+                          
+                        </div>
+
+
+
+                    </div>
+                    <div class="tab-pane" id="generateCard" role="tabpanel">
+                        <h4 class="pageTitle">Generate Card</h4>
+                        <div class="leftCon">
+                            <div class="row mb-2 pl-3">
+                                <div class="form-check-inline col-md-5 p-0">
+                                    <label class="form-check-label" id="Label1">
+                                        <input class="form-check-input" id="rdcreatenew" name="rdogencard" type="radio" value="N" onclick="show1();">Create New
+                                    </label>
+                                </div>
+                                <div class="form-check-inline col-md-5 p-0">
+                                    <label class="form-check-label" id="Label1">
+                                        <input class="form-check-input" id="rdexisting" name="rdogencard" type="radio" value="E" onclick="show2();">Existing
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row pl-3 mb-2">
+                                <label class="col-md-5 col-form-label">No. of Cards:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="txtcardno" onkeyup="RemoveClass();" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="row pl-3 mb-2" id="startFrom">
+                                <label class="col-md-5 col-form-label">Start From:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="txtstartfrom" onkeyup="RemoveClass();" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="row pl-3 mb-2" id="cardLen">
+                                <label class="col-md-5 col-form-label">Card Length:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="txtcardlength" onkeyup="RemoveClass();" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="cardDetail">
+                                <div id="displayMsg">No data to display</div>
+                                <table id="cardDetailsTable">
+                                    <thead>
+                                        <tr>
+                                            <th width="30%">Length</th>
+                                            <th width="70%">Card No.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @*<tr>
+                                            <td width="30%">2</td>
+                                            <td width="70%">10</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td width="30%">3</td>
+                                            <td width="70%">010</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%">4</td>
+                                            <td width="70%">0022</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%">5</td>
+                                            <td width="70%">00553</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td width="30%">2</td>
+                                            <td width="70%">10</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td width="30%">3</td>
+                                            <td width="70%">010</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%">4</td>
+                                            <td width="70%">0022</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%">5</td>
+                                            <td width="70%">00553</td>
+
+                                        </tr>*@
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button type="button" id="btnadd" class="btn btn-success btn-sm pull-right mt-3"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+
+                        </div>
+
+                        <div class="rightCon">
+                            <div class="cardContainer" id="divcard">
+
+                                @*<div class="loyaltyCard">
+                        <h4>
+                            <img src="../Content/images/loyality-icon-white.png" /> Loyalty Card
+                        </h4>
+                        <div class="loyaltycardDetail">
+
+                            <div class="logoImg">
+                                <img src="../Content/images/POS-logo-sm-1.png" />
+                            </div>
+                            <div class="cardNoCon">
+                                <span>CARD NUMBER</span>
+                                <span class="cardNo">001</span>
+                            </div>
+                            <div class="loyaltyFooter"><span>POS System</span></div>
+                        </div>
+
+                    </div>
+                    <div class="loyaltyCard">
+                        <h4>
+                            <img src="../Content/images/loyality-icon-white.png" /> Loyalty Card
+                        </h4>
+                        <div class="loyaltycardDetail">
+
+                            <div class="logoImg">
+                                <img src="../Content/images/POS-logo-sm-1.png" />
+                            </div>
+                            <div class="cardNoCon">
+                                <span>CARD NUMBER</span>
+                                <span class="cardNo">001</span>
+                            </div>
+                            <div class="loyaltyFooter"><span>POS System</span></div>
+                        </div>
+
+                    </div>
+                    <div class="loyaltyCard">
+                        <h4>
+                            <img src="../Content/images/loyality-icon-white.png" /> Loyalty Card
+                        </h4>
+                        <div class="loyaltycardDetail">
+
+                            <div class="logoImg">
+                                <img src="../Content/images/POS-logo-sm-1.png" />
+                            </div>
+                            <div class="cardNoCon">
+                                <span>CARD NUMBER</span>
+                                <span class="cardNo">001</span>
+                            </div>
+                            <div class="loyaltyFooter"><span>POS System</span></div>
+                        </div>
+
+                    </div>
+                    <div class="loyaltyCard">
+                        <h4>
+                            <img src="../Content/images/loyality-icon-white.png" /> Loyalty Card
+                        </h4>
+                        <div class="loyaltycardDetail">
+
+                            <div class="logoImg">
+                                <img src="../Content/images/POS-logo-sm-1.png" />
+                            </div>
+                            <div class="cardNoCon">
+                                <span>CARD NUMBER</span>
+                                <span class="cardNo">001</span>
+                            </div>
+                            <div class="loyaltyFooter"><span>POS System</span></div>
+                        </div>
+
+                    </div>
+                    <div class="loyaltyCard">
+                        <h4>
+                            <img src="../Content/images/loyality-icon-white.png" /> Loyalty Card
+                        </h4>
+                        <div class="loyaltycardDetail">
+
+                            <div class="logoImg">
+                                <img src="../Content/images/POS-logo-sm-1.png" />
+                            </div>
+                            <div class="cardNoCon">
+                                <span>CARD NUMBER</span>
+                                <span class="cardNo">001</span>
+                            </div>
+                            <div class="loyaltyFooter"><span>POS System</span></div>
+                        </div>
+
+                    </div>
+
+                    <div class="loyaltyCard">
+                        <h4>
+                            <img src="../Content/images/loyality-icon-white.png" /> Loyalty Card
+                        </h4>
+                        <div class="loyaltycardDetail">
+
+                            <div class="logoImg">
+                                <img src="../Content/images/POS-logo-sm-1.png" />
+                            </div>
+                            <div class="cardNoCon">
+                                <span>CARD NUMBER</span>
+                                <span class="cardNo">001</span>
+                            </div>
+                            <div class="loyaltyFooter"><span>POS System</span></div>
+                        </div>
+
+                    </div>
+
+                    <div class="loyaltyCard">
+                            <h4>
+                                <img src="../Content/images/loyality-icon-white.png" /> Loyalty Card
+                            </h4>
+                            <div class="loyaltycardDetail">
+
+                                <div class="logoImg">
+                                    <img src="../Content/images/POS-logo-sm-1.png" />
+                                </div>
+                                <div class="cardNoCon">
+                                    <span>CARD NUMBER</span>
+                                    <span class="cardNo">001</span>
+                                </div>
+                                <div class="loyaltyFooter"><span>POS System</span></div>
+                            </div>
+
+                        </div>
+                    </div>*@
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                        <div class="tab-pane" id="issueCard" role="tabpanel">
+                            <h4 class="pageTitle">Restaurant Loyalty Card</h4>
+                            <div class="leftCon pt-0">
+                                <div class="restaurantList" id="restaurantList">
+                                    <h4 class="pageTitle">Select Restaurant's Name</h4>
+                                    @*<div class="sectionBox active">
+
+                <h6>Shayzar Palace</h6>
+
+
+            </div>
+            <div class="sectionBox">
+
+                <h6>ALkarkand-Abha</h6>
+
+            </div>
+            <div class="sectionBox">
+                <h6>Naranj-Abha</h6>
+
+            </div>
+            <div class="sectionBox">
+                <h6>ALkarkand-Khamis Mushyat</h6>
+
+            </div>
+            <div class="sectionBox">
+                <h6>Naranj-Khamis Mushyat</h6>
+
+            </div>
+            <div class="sectionBox">
+                <h6>Malabar</h6>
+
+            </div>*@
+                                </div>
+
+
+                            </div>
+                            <div class="rightCon">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col-md-12 formCon">
+                                            <h4 class="pageTitle">Issue Cards</h4>
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="row">
+                                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Card Length:</label>
+                                                    <div class="col-sm-7 col-md-7 col-7 dropdown pr-0">
+                                                        <select class="form-control" style="height: 31px; display: block;" id="ddlcardlength" onchange="BindCardAvailable(); RemoveClass();  ">
+                                                            <option value="0" selected="selected">Select Card Length</option>
+                                                            @*<option selected="selected">Select</option>
+                <option value="1">Shayzar Palace</option>
+                <option value="2">ALkarkand – Abha</option>
+                <option value="3">ALkarkand – Khamis Mushyat</option>
+                <option value="4">Naranj – Abha</option>
+                <option value="5">Naranj – Khamis Mushyat</option>
+                <option value="6">Malabar</option>
+                <option value="7">test</option>
+                <option value="8">test1</option>
+                <option value="1">Shayzar Palace</option>
+                <option value="2">ALkarkand – Abha</option>
+                <option value="3">ALkarkand – Khamis Mushyat</option>
+                <option value="4">Naranj – Abha</option>
+                <option value="5">Naranj – Khamis Mushyat</option>
+                <option value="6">Malabar</option>
+                <option value="7">test</option>
+                <option value="8">test1</option>*@
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-md-12 col-sm-12" id="divcardDetail" style="display:none;">
+                                                <div class="row">
+                                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Total Cards:</label>
+                                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                                        <label class="col-form-label" id="lbltotalcards"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Cards Available:</label>
+                                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                                        <label class="col-form-label" id="lblcardavailable"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Issue Quantity:</label>
+                                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                                        <input type="text" id="txtissuecard" onkeyup="RemoveClass();" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn btn-success btn-sm pull-right mt-2" id="btnIssue"><i class="fa fa-credit-card-alt" aria-hidden="true" style="font-size:13px"></i> Issue</button>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-12 formCon" id="divrestrodetail" style="display:none;">
+                                            <h4 class="pageTitle">Restaurant Details</h4>
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="row">
+                                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Total Cards Assigned:</label>
+                                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                                        <label class="col-form-label" id="lblrestroissuecards"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="row">
+                                                    <label class="col-sm-5 col-md-5 col-5 col-form-label">Customer Assigned Cards:</label>
+                                                    <div class="col-sm-7 col-md-7 col-7 pr-0">
+                                                        <label class="col-form-label">0</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="col-md-6" id="divrestrogrid" style="display:none;">
+                                        <table id="tblrestrocards">
+                                            <thead>
+                                                <tr>
+                                                    <th>Length</th>
+                                                    <th>Card Isssued</th>
+                                                    <th>Assigned to customer</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @*<tr>
+                        <td>2</td>
+                        <td>10</td>
+                     <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>010</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>4</td>
+                        <td>0022</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>00553</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>10</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>010</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>4</td>
+                        <td>0022</td>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <td>5</td>
+                        <td>00553</td>
+
+                    </tr>*@
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                            </div>
+
+                        </div>
+                        <div class="buttonCon">
+                            <button class="btn btn-success btn-sm" id="loyaltyExit"><i class="fa fa-sign-out" aria-hidden="true"></i>Exit</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    <label id="lbllength" style="display:none"></label>
+    <label id="lblrestroid" style="display:none"></label>
+    <label id="lblrestroname" style="display:none"></label>
+    <input type="hidden" id="hdnmaxlen">
+    </div>
+
+ <div class="modal" id="WarningPopup">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="btncrosscloase">
+                    <span class="cross">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <img class="centerBox" src="~/Content/images/png-warning-2.png">
+                </h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="row">
+                        <h5 class="centerBox" id="hwarning"></h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer footerCon">
+                <button type="button" class="btn btn-success btn-sm" id="btnok">Ok</button>
+            </div>
+        </div>
+
+    </div>
+</div>  
+<script>
+    jquery_min_p(document).ready(function () {
+        jquery_min_p(".restaurantList .sectionBox").click(function () {
+            alert("hi");
+            jquery_min_p(".restaurantList .sectionBox").removeClass("active");
+            jquery_min_p(this).addClass('active');
+        })
+
+        jquery_min_p('#loyaltyExit').click(function () {
+            window.location = "/Master/Home";
+            reset();
+
+
+        });
+       
+    })
+
+</script>
+    <script>
+        function show1() {
+            document.getElementById('startFrom').style.display = 'flex';
+            document.getElementById('cardLen').style.display = 'flex';
+            document.getElementById('displayMsg').style.display = 'block';
+            document.getElementById('cardDetailsTable').style.display = 'none';
+        }
+        function show2() {
+            document.getElementById('cardDetailsTable').style.display = 'inline-table';
+            document.getElementById('startFrom').style.display = 'none';
+            document.getElementById('cardLen').style.display = 'none';
+            document.getElementById('displayMsg').style.display = 'none';
+
+        }
+       
+    function ReadConfigurationSettings()
+    {
+        var length = '<%=ConfigurationManager.AppSettings["maxCardLength"].ToString() %>'
+        jquery_min_p("#hdnmaxlen").val(length);
+    }
+    
+    </script>
