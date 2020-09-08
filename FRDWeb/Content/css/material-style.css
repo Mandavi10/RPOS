@@ -8844,9 +8844,10 @@ textarea {
 .navbar .navbar-nav .nav-item .nav-link.profile-photo .ripple-container {
 	border-radius: 50%
 }
-.navbar .navbar-nav .dropdown-menu-right {
-	transform-origin: 100% 0
-}
+    .navbar .navbar-nav .dropdown-menu-right {
+        transform-origin: 100% 0; box-shadow: 0px 0px 4px 0px #1f232b;
+        border-radius: 0px;
+    }
 .navbar .navbar-nav .nav-item.active .nav-link, .navbar .navbar-nav .nav-item.active .nav-link:focus, .navbar .navbar-nav .nav-item.active .nav-link:hover {
 	color: inherit;
 	background-color: hsla(0,0%,100%,.1)
@@ -8984,10 +8985,10 @@ textarea {
 .navbar.bg-dark .navbar-toggler .navbar-toggler-icon {
 	background-color: #fff
 }
-  .navbar.navbar-transparent {
-    background-image: linear-gradient(to top, #2d6573 0%, #4d4e4c 100%);
-    box-shadow: 1px 1px 2px #2d4a48;
-  }
+    .navbar.navbar-transparent {
+        background-image: linear-gradient(to top, #1852bb 0%, #4a82ea 100%);
+        box-shadow: 1px 1px 2px #1e55b8;
+    }
 .navbar .notification {
 	position: absolute;
 	top: 5px;
@@ -9537,7 +9538,7 @@ h2.title {
 	margin-top: 20px
 }
 body {
-	background-color: #eee;
+	background-color: #fff;
 	color: #3c4858;
 	font-weight: 300
 }
@@ -10073,9 +10074,9 @@ legend {
 
 }
 .dropdown-menu .dropdown-item:focus, .dropdown-menu .dropdown-item:hover, .dropdown-menu a:active, .dropdown-menu a:focus, .dropdown-menu a:hover {
-  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgb(151, 228, 205);
-  background-color: #345f69;
-  color: #fff;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgb(151, 228, 205);
+    background-color: #2756ab;
+    color: #fff;
 }
 .btn-group.bootstrap-select.open .caret, .dropdown.open .caret, .dropup.open .caret, a[aria-expanded=true] .caret, a[data-toggle=collapse][aria-expanded=true] .caret {
 filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
@@ -10603,7 +10604,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 	background: linear-gradient(60deg, #ef5350, #e53935)
 }
 .card.bg-rose, .card .card-header-rose .card-icon, .card .card-header-rose .card-text, .card .card-header-rose:not(.card-header-icon):not(.card-header-text), .card.card-rotate.bg-rose .back, .card.card-rotate.bg-rose .front {
-  background: linear-gradient(60deg,#51838c, #2b7e8e) !important
+    background: linear-gradient(60deg,#2162da, #2266e3) !important
 }
 .card .card-header-primary .card-icon, .card .card-header-primary .card-text, .card .card-header-primary:not(.card-header-icon):not(.card-header-text) {
 	box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(156,39,176,.4) !important
@@ -10674,7 +10675,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 	display: inline-flex
 }
 .card {
-	box-shadow: 0 1px 4px 0 rgba(0,0,0,.14)
+    box-shadow: 0 1px 4px 0 rgba(47, 44, 44, 0.8)
 }
 .card .table tr:first-child td {
 	border-top: none

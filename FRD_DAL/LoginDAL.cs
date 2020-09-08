@@ -46,7 +46,7 @@ namespace FRD_DAL
             {
                 DataSet ds = objManager.FillDatasetWithParam
                      ("Sp_UserLogin", "@QueryType", "@AccessDate", "@UserPin", "CheckUserDetails", Accessdate, UserPin);
-                dt = ds.Tables[0];
+                    dt = ds.Tables[0];
 
                 foreach (DataRow row in dt.Rows)
                 {

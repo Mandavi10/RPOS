@@ -105,13 +105,19 @@ border:0 !important}
 .mainLogo img{ width: 40%;
     margin: 15% auto 0;
     display: block;}
-.masterTabs{ background: #3d6169;
-   color: #fff;
+.masterTabs {
+    background: #2a63ce;
+    color: #fff;
     border-radius: 2px;
     margin-bottom: 8px !important;
-    text-align:center; margin-right: 5px;
-    margin-left: 5px;}
-.masterTabs a.active{box-shadow: 1px 1px 3px 2px #2a5b65; background:#268fa2 !important;}
+    text-align: center;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+    .masterTabs a.active {
+        box-shadow: 1px 1px 3px 2px #1c3054;
+        background: #0e2e69 !important;
+    }
  
 .masterTabs img{ display: block; margin:0 auto 7px;}
 .masterTabs a{ color:#fff !important; padding: 10px 5px; display:block; height: 95px;}
@@ -127,7 +133,13 @@ border:0 !important}
 .pageHead{ overflow: hidden;
     margin-bottom: 10px !important;}
 .poweredLogo img{width: 78%;}
-h4.pageTitle{ color: #183d44; font-weight: bold; border-bottom: 1px solid #9eb1b5; padding-bottom: 5px; padding-top: 5px;}
+h4.pageTitle {
+    color: #11100F;
+    font-weight: bold;
+    border-bottom: 1px solid #9eb1b5;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
 
 .createBox{    width: 540px;
     /* display: block; */
@@ -194,14 +206,15 @@ button .fa {
     max-height: 396px;
     overflow-y: scroll;
 }
-.sectionBox {    padding: 0px 2px 1px;
+.sectionBox {
+    padding: 0px 2px 1px;
     color: #27444a;
     border-radius: 2px;
     text-align: center;
     width: 64px;
     background: #cad0d0;
     float: left;
-    border: 1px solid #a6b6b9;
+    border: 1px solid #9db6e4;
     margin: 4px;
     min-height: 80px;
 }
@@ -307,12 +320,14 @@ background: #28484e;
 }
     .empProfile img {
     width:100%}
-#home .sectionBox {    background: #466167;
+#home .sectionBox {
+    background: #2266E3;
     width: 19.2%;
     text-align: center;
     margin: 5px;
     padding: 0;
-    color: #fff;}
+    color: #fff;
+}
 #home .sectionBox a {
     display: block;
     color: #fff;
@@ -329,8 +344,10 @@ background: #28484e;
     padding-top: 22px;
     background: #466166;
     height: 96px;}*/
-#home .sectionBox .restoLogo {
-   background: #b4c7c7; height: 100px;}
+    #home .sectionBox .restoLogo {
+        background: #fff;
+        height: 100px;
+    }
 #home .sectionBox .restoLogo img { padding-top: 8px !important;}
 #home .sectionBox h6 {    font-size: 14px;
     /* width: 200px; */
@@ -345,12 +362,12 @@ background: #28484e;
     top: 4px;
     cursor: pointer;
     }
-.menuList a {
-    font-size: 13px;
-    font-weight: bold;
-    color: #193338;
-    margin-left: 5px;
-}
+    .menuList a {
+        font-size: 13px;
+        font-weight: bold;
+        color: #11100F;
+        margin-left: 5px;
+    }
 #SequenceSetup .mainCon {
     padding-top: 10px !important;
 }
@@ -592,7 +609,9 @@ max-height:370px; overflow-y:scroll}
     padding: 7px 3px;
     margin-top: 22%;
 }
-.menuHeading .masterTabs{background: #607a80;}
+    .menuHeading .masterTabs {
+        background: #1a479a;
+    }
 .menuHeading a.active {
         background: #07272d !important;
         box-shadow: 1px 1px 2px 1px #3c6168;
