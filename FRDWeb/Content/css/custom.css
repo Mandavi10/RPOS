@@ -13,8 +13,10 @@
     font-size: 13px !important;
     font-weight: bold !important;
 }
-
-td i.fa-plus-circle, td .fa-minus-circle {font-size: 16px;
+.orderheadling, .orderback {
+    background-color: #326bd3 !important;
+}
+    td i.fa-plus-circle, td .fa-minus-circle {font-size: 16px;
     color: #50929e; padding-left:3px
 }
 td .fa-trash-o {font-size: 16px;
@@ -212,7 +214,7 @@ button .fa {
     border-radius: 2px;
     text-align: center;
     width: 64px;
-    background: #cad0d0;
+    background: #bac4d6;
     float: left;
     border: 1px solid #9db6e4;
     margin: 4px;
@@ -266,9 +268,11 @@ margin-bottom:0px !important}
 #sectionTable .leftCon {
     padding:0;
 }
-#sectionTable .selectBox { padding: 4px;
-    background: #577479;
-    color: #fff;}
+#sectionTable .selectBox {
+    padding: 4px;
+    background: #2a63ce;
+    color: #fff;
+}
 #sectionTable .sectionBox{margin: 4px 5px 4px 6px; padding: 5px 10px; min-height: 60px;}
 #sectionTable .mainCon {
     padding-top: 20px !important;
@@ -283,8 +287,8 @@ margin-bottom:0px !important}
     margin-bottom: 0;
 }
 
-#empDetails .panel-heading, #createNewItem .panel-heading{
-    background: #577479;
+#empDetails .panel-heading, #createNewItem .panel-heading {
+    background: #376fd8;
     color: #fff;
     padding: 5px;
 }
@@ -308,7 +312,7 @@ margin-bottom:10px}
 .fontBold {font-weight:bold
 }
 .empProfile {
-background: #28484e;
+    background: #205ac3;
     border-radius: 4px;
     /* padding: 4px 4px 0px 4px; */
     text-align: center;
@@ -316,7 +320,6 @@ background: #28484e;
     width: 88px;
     float: right;
     overflow: hidden;
-
 }
     .empProfile img {
     width:100%}
@@ -371,8 +374,16 @@ background: #28484e;
 #SequenceSetup .mainCon {
     padding-top: 10px !important;
 }
-#SequenceSetup .sectionBox, #issueCard .sectionBox{width: 192px; padding: 10px 2px 10px; background: #466167; cursor:pointer }
-#SequenceSetup .sectionBox h6, #issueCard .sectionBox h6 {color:#fff}
+#SequenceSetup .sectionBox, #issueCard .sectionBox {
+    width: 192px;
+    padding: 10px 2px 10px;
+    background: #2761c9 !important;
+    cursor: pointer
+}
+}
+
+
+    #SequenceSetup .sectionBox h6, #issueCard .sectionBox h6 {color:#fff}
 #issueCard .sectionBox{width: 173px; }
 .restaurantList, .formCon {
 margin-bottom:10px; overflow:hidden}
@@ -389,7 +400,8 @@ td, th {
   padding: 4px 8px 4px 8px !important;
 }
 table thead {
-    background: #90aaad !important;}
+    background: #b2c4e6 !important;
+}
 tr:nth-child(even) {
     background-color: #d7dfe0;
 }
@@ -430,14 +442,14 @@ tr:nth-child(even) {
     padding: 0 15px;
     width: 100%;
 }
-.nav-tabs .nav-item {
-     margin-bottom: -1px; 
-    display: inline-block;
-    background: #3d6169;
-    width: 33%;
-    text-align: center;
-    border-right: 1px solid #a6b6b9;
-}
+    .nav-tabs .nav-item {
+        margin-bottom: -1px;
+        display: inline-block;
+        background: #2760c9 !important;
+        width: 33%;
+        text-align: center;
+        border-right: 1px solid #a6b6b9;
+    }
     .nav-tabs .nav-item .nav-link {
         padding: 4px 15px;
     }
@@ -457,10 +469,9 @@ display:inline-block; width: 100%;
 #loyaltyCon .rightCon {width:70%; padding:0px; padding-top:5px; overflow:hidden; min-height: 415px;}
 
 
- #rulesTable thead th, #cardDetailsTable thead th {
-     background-color: #607377 !important; 
+#rulesTable thead th, #cardDetailsTable thead th {
+    background-color: #2760c9 !important;
     color: #fff !important;
-
 }
 #rulesTable tbody tr:first-child, #rulesTable tbody tr:nth-child(odd), #cardDetailsTable tbody tr:first-child, #cardDetailsTable tbody tr:nth-child(odd) {
     background-color:transparent; color:#333 !important

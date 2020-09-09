@@ -21,8 +21,10 @@
 .boxwidth {
     display:inline-block;width: 32%;
 }
-
-.tblOccupied {
+.rightarrow, .leftarrow {
+    background: #2a63ce !important;
+}
+    .tblOccupied {
 
   background-color: #f9dfdf !important;
 }
@@ -83,11 +85,11 @@
  color:#fff
 }
 .cross {
-  color: #117168;
-  font-weight: bold;
-  position: absolute;
-  top: 2px;
-  right: 5px;
+    color: #16469d;
+    font-weight: bold;
+    position: absolute;
+    top: 2px;
+    right: 5px;
 }
 .radioStyle {
   display:inline-block;
